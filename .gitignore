@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.npmignore
+.devcontainer/devcontainer.json
+.devcontainer/library-scripts/common-debian.sh
+.devcontainer/Dockerfile
+test-project/test-julia.ipynb
+test-project/test-python.ipynb
+test-project/test-r.ipynb
