@@ -1,4 +1,4 @@
-Lesmodule Binair Rekenen voor Informatici
+Binair Rekenen voor Informatici
 -----
 
 Je werkt waarschijnlijk al een tijdje met computers en andere digitale apparatuur. In de kern verwerken computers gegevens door middel van electronische schakelingen. In deze schakelingen kunnen slechts twee toestanden te onderscheiden. _Aan_ of _Uit_. Deze toestanden worden weergegeven als 0 en 1. Deze twee cijfers vormen de basis voor wat we _binair rekenen_ noemen. In deze lesmodule leer je wat binaire getallen zijn, hoe je binaire getallen kunt omrekenen naar decimale getallen en omgekeerd, hoe je binaire getallen bij elkaar kunt optellen en hoe je hoe je negatieve getallen kan representeren.
@@ -31,7 +31,7 @@ Opgave: Zet het getal $10110_b$ om naar decimale notatie.
 
 $$10110 = 1 \times 2^4 + 0 \times 2^3 + 1 \times 2^2 + 1 \times 2^1 + 0 \times 2^0 = 16+0+4+2+0=22$$
 
-## Oefenen
+:::{exercise} Oefenen
 
 Zet de volgende binaire getallen om naar decimale notatie:
 
@@ -41,6 +41,7 @@ Zet de volgende binaire getallen om naar decimale notatie:
 4. $10010110$
 5. $1111001$
 6. $100001010$
+:::
 
 # Van decimaal naar binair
 Om een decimaal getal naar een binair getal om te zetten, heb je nodig dat je goed door twee kan delen en kan delen 'met rest'. We gaan als voorbeeld het getal $21_d$ omzetten naar een decimaal getal:
@@ -67,7 +68,7 @@ Nog een voorbeeld: Zet $46_d$ om in binaire notatie.
 
 Dus $46_d = 011101_b$. Net zoals bij de decimale notatie, laten we nullen, die 'vooraan' staan, weg. Dus $011101_b$ schrijven we dan als $11101_b$.
 
-## Oefenen
+:::{exercise} Oefenen
 Zet de volgende decimale getallen om naar binaire notatie:
 
 1. 25
@@ -75,6 +76,7 @@ Zet de volgende decimale getallen om naar binaire notatie:
 3. 99
 4. 200
 5. 327
+:::
 
 # Binaire getallen optellen
 Het optellen van binaire getallen gaat eigenlijk hetzelfde als bij decimale getallen. Het lijkt anders omdat je minder cijfers hebt. Zoals je $5$ en $3$ bij elkaar optelt, zo tel je $1$ en $0$ bij elkaar op.
@@ -130,7 +132,7 @@ $1011_b + 1011_b$
 
 Overigens zie je hier een fijne eigenschap van binaire getallen. Vermenigvuldigen met twee is heel eenvoudig. Je zet simpel een `0` achter het getal en je hebt het verdubbeld. Op zich is dit niet zo verrassend, want wanneer je in het decimale stelsel met $10$ vermenigvuldigd, is dat ook zo simpel als een $0$ achter het getal zetten.
 
-## Oefenen
+:::{exercise} Oefenen
 Tel de volgende binaire getallen bij elkaar op. Gebruik de methode zoals in de voorbeelden hierboven. Om het jezelf een stuk gemakkelijker te maken, gebruik potlood en papier!
 
 1. $101_b + 110_b$
@@ -147,6 +149,7 @@ Verdubbel de volgende twee binaire getallen:
 Uitdaging #1: vermenigvuldig het binaire getal $11010_b$ met $10_d$ en schrijf het resultaat als een binair getal op.
 
 Uitdaging #2: vermenigvuldig het binaire getal $11010_b$ met $10_b$ en schrijf het resultaat als een binair getal op.
+:::
 
 # Negatieve getallen
 Op zich is het vrij simpel om met negatieve binaire getallen te werken. Je zet er een $-$-tje voor en klaar is Kees. Je hebt een negatief binair getal gemaakt. Alleen is dit de simpele, wiskundige oplossing. Je weet nu nog steeds niet hoe je het verschil tussen twee binaire getallen moet berekenen en hoe zet je dit in hemelsnaam in een computer?
@@ -160,11 +163,12 @@ De woordlengte van de processor in je mobiele telefoon of de processor in je com
 18.446.744.073.709.551.616$. Retro-gaming consoles, zoals de NES, Sega Mega Drive of de Playstation 1 hebben respectievelijk woordlengtes van 8, 16 en 32 bit.
 
 ## Een minnetje ervoor zetten
-We gaan voor het gemak van het uitleggen even kijken naar een architectuur met een woordlengte van 4 bits.
+We gaan voor het gemak van het uitleggen even kijken naar een architectuur met een woordlengte van 4 bits. 
 
+:::{exercise}
 ## Oefenen
 1. Wat is de maximale grootte van getallen in een 8, 16 of 32 bit machine?
-
+:::
 
 ZEBRA 33 bit woordlengte
 
