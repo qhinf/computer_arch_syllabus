@@ -134,3 +134,5 @@ dmypy.json
 test-project/test-julia.ipynb
 test-project/test-python.ipynb
 test-project/test-r.ipynb
+syllabus/.DS_Store
+.gitignore
