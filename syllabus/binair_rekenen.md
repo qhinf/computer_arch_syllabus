@@ -31,6 +31,11 @@ Opgave: Zet het getal $10110_b$ om naar decimale notatie.
 
 $$10110 = 1 \times 2^4 + 0 \times 2^3 + 1 \times 2^2 + 1 \times 2^1 + 0 \times 2^0 = 16+0+4+2+0=22$$
 
+```{Tip}
+Leer de machten van $2$ van $2^0$ tot en met $2^10$ uit je hoofd!
+$1, 2, 4, 18, 16, 32, 64, 128, 256, 512, 1024$. 
+```
+
 :::{exercise} Oefenen
 
 Zet de volgende binaire getallen om naar decimale notatie:
@@ -162,10 +167,72 @@ Laten we even kijken naar de (maximale) grootte van binaire getallen in een proc
 De woordlengte van de processor in je mobiele telefoon of de processor in je computer is waarschijnlijk 64 bits. Dat wil zeggen dat de standaardeenheid waar de processor mee rekent, 64 bits groot is. Het maximale getal wat we in een woord van 64-bits kunnen uitdrukken is $2^64-1 = 
 18.446.744.073.709.551.616$. Retro-gaming consoles, zoals de NES, Sega Mega Drive of de Playstation 1 hebben respectievelijk woordlengtes van 8, 16 en 32 bit.
 
+```{woord}
+Een woord is de standaardeenheid van data waarmee een processor rekent.
+```
+
 ### Een minnetje ervoor zetten
-We gaan voor het gemak van het uitleggen even kijken naar een architectuur met een woordlengte van 4 bits. 
+We gaan voor het gemak van het uitleggen even kijken naar een architectuur met een woordlengte van 4 bits. Kijk even naar de volgende tabel:
+
+| Binair | Alleen positief | Minnetje ervoor |
+| :----: | :-------------: | :-------------: |
+| `0000` |       $0$       |       $0$       |
+| `0001` |       $1$       |       $1$       |
+| `0010` |       $2$       |       $2$       |
+| `0011` |       $3$       |       $3$       |
+| `0100` |       $4$       |       $4$       |
+| `0101` |       $5$       |       $5$       |
+| `0110` |       $6$       |       $6$       |
+| `0111` |       $7$       |       $7$       |
+| `1000` |       $8$       |      $-0$       |
+| `1001` |       $9$       |      $-1$       |
+| `1010` |      $10$       |      $-2$       |
+| `1011` |      $11$       |      $-3$       |
+| `1100` |      $12$       |      $-4$       |
+| `1101` |      $13$       |      $-5$       |
+| `1110` |      $14$       |      $-6$       |
+| `1111` |      $15$       |      $-7$       |
+
+In de derde kolom 'Minnetje ervoor' zie je dat de eerste bit van de 4 bits gebruiken om een minnetje aan te geven. Een `0` vooraan betekent dat het getal positief is, een `1` vooraan betekent dat het getal negatief is. Aan deze representatie zitten twee grote nadelen:
+
+1. Er zijn twee nullen. Dus je kunt effectief minder getallen representeren.
+2. Niet nadenken bij het binair optellen van deze getallen kan tot grote problemen leiden. Kijk maar.
+   $2_d - 4_d = 2_d + -4_d = -2_d$
+   wordt binair-met-een-minnetje-ervoor:
+   $0010_b + 1100_b = 1110_b = -6_d \neq -2_d$.
+   Dit betekent dat we alle processor logica voor het optellen moeten herzien.
+
+Er is een oplossing voor beide problemen. Wanneer negatieve getallen met de *twee-complements notatie* geschreven worden is er slechts één $0$ en hoeven we niet moeilijke oplossingen voor het optellen van getallen te verzinnen. We komen bij deze twee-complements notatie via een kleine omweg. We gaan eerst naar de *één-complements notatie*
+
+### Één-complements notatie
+
+Bij deze notatie gebruiken we nog steeds de eerste bit om een minnetje aan te geven. Maar we draaien de volgorde van de negatieve getallen om. Hoe doen we dit? We *flippen* alle bitten in een getal om het negatief te maken. Kijk nauwkeurig naar de volgende tabel:
+
+| Binair | Alleen positief | Minnetje ervoor | Één-complement |
+| :----: | :-------------: | :-------------: |:-:|
+| `0000` |       $0$       |       $0$       | $0$|
+| `0001` |       $1$       |       $1$       | $1$ |
+| `0010` |       $2$       |       $2$       | $2$|
+| `0011` |       $3$       |       $3$       |$3$|
+| `0100` |       $4$       |       $4$       |$4$|
+| `0101` |       $5$       |       $5$       |$5$|
+| `0110` |       $6$       |       $6$       |$6$|
+| `0111` |       $7$       |       $7$       |$7$|
+| `1000` |       $8$       |      $-0$       |$-7$ |
+| `1001` |       $9$       |      $-1$       |$ -6$|
+| `1010` |      $10$       |      $-2$       |$-5$|
+| `1011` |      $11$       |      $-3$       |$-4$|
+| `1100` |      $12$       |      $-4$       |$-3$|
+| `1101` |      $13$       |      $-5$       |$-2$|
+| `1110` |      $14$       |      $-6$       |$-1$|
+| `1111` |      $15$       |      $-7$       |$-0$|
+
+
+
+### Twee-complements notatie
 
 :::{exercise} Oefenen
+
 1. Wat is de maximale grootte van getallen in een 8, 16 of 32 bit machine?
 :::
 
