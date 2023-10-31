@@ -10,18 +10,18 @@ Wanneer je binair gaat tellen ziet dat er zo uit: `0, 1, 10, 11, 100, 101, 110, 
 
 ## Van binair naar decimaal
 Net zoals decimale getallen staan binaire getallen voor een hoeveelheid. Dus is het zinvol om van binair naar decimaal te rekenen en andersom. Om van binair naar decimaal te gaan, gaan we even kijken naar hoe een binair of decimaal getal is opgebouwd. Nemen we als voorbeeld het decimale getal $743$. Op de basisschool heb je geleerd dat je het getal $743$ kan splitsen in $700$, $40$ en $3$. Het hele getal is dan $700+40+3=743$. Hopelijk ben je het met me eens dat dit hetzelfde is als
-$$7\times 100 + 40 \times 10 +  3 \times 1$$
+$7\times 100 + 40 \times 10 +  3 \times 1$
 
 Hier zie je de honderdtallen, tientallen en eentallen goed naar voren komen. We kunnen een honderdtal ook als macht van $10$ schrijven. Dan ziet het er zo uit:
-$$7\times 10^2 + 40 \times 10^1 +  3 \times 10^0$$
+$7\times 10^2 + 40 \times 10^1 +  3 \times 10^0$
 
 Hier zie je duidelijk de machten van $10$ terugkomen, die bij het _tientallige stelsel_ horen. Net zo kun je kijken naar het binaire getal `1101`. Laten we het meteen met machten van $2$ schrijven.
 
-$$1101_b = 1\times 2^3 + 1\times 2^2 + 0\times 2^1 + 1 \times 2^0$$
+$1101_b = 1\times 2^3 + 1\times 2^2 + 0\times 2^1 + 1 \times 2^0$
 
 Wanneer we dit verder uitwerken, krijgen we:
 
-$$1101_b = 1\times 2^3 + 1\times 2^2 + 0\times 2^1 + 1 \times 2^0 = 8 + 4 + 1 = 13_d$$
+$1101_b = 1\times 2^3 + 1\times 2^2 + 0\times 2^1 + 1 \times 2^0 = 8 + 4 + 1 = 13_d$
 
 Zoals je misschien al gezien hebt, staat er een $b$-tje of een $d$-tje achter een getal. Dit is om aan te geven of het getal _b_inair of _d_ecimaal is.
 
@@ -29,12 +29,12 @@ Zoals je misschien al gezien hebt, staat er een $b$-tje of een $d$-tje achter ee
 
 Opgave: Zet het getal $10110_b$ om naar decimale notatie.
 
-$$10110 = 1 \times 2^4 + 0 \times 2^3 + 1 \times 2^2 + 1 \times 2^1 + 0 \times 2^0 = 16+0+4+2+0=22$$
+$10110 = 1 \times 2^4 + 0 \times 2^3 + 1 \times 2^2 + 1 \times 2^1 + 0 \times 2^0 = 16+0+4+2+0=22$
 
-```{Tip}
-Leer de machten van $2$ van $2^0$ tot en met $2^10$ uit je hoofd!
+:::{Tip}
+Leer de machten van $2$ van $2^0$ tot en met $2^{10}$ uit je hoofd!
 $1, 2, 4, 18, 16, 32, 64, 128, 256, 512, 1024$. 
-```
+:::
 
 :::{exercise} Oefenen
 
@@ -59,11 +59,12 @@ Om een decimaal getal naar een binair getal om te zetten, heb je nodig dat je go
 Wat we gedaan hebben is dat we door $2$ zijn blijven delen, totdat we niks meer overhebben. We hebben wel steeds de resten opgeschreven. Het binaire getal wat we zoeken is af te lezen uit de resten. Dus $21_d$ = $10101_b$.
 
 Je kunt nu controleren of dit correct is door $10101_b$ weer om te zetten naar decimaal. Dan krijg je:
-$$10101_b = 1\times 2^4 + 0\times 2^3 + 1\times 2^2 + 0 \times 2^1 + 1 \times 2^0 = 16+0+4+0+1 = 21_d$$
+$10101_b = 1\times 2^4 + 0\times 2^3 + 1\times 2^2 + 0 \times 2^1 + 1 \times 2^0 = 16+0+4+0+1 = 21_d$
 
 Het klopt!
 
-Nog een voorbeeld: Zet $46_d$ om in binaire notatie.
+```{admonition} Extra voorbeeld: Zet $46_d$ om in binaire notatie.
+:class: dropdown
 - $46/2 = 23$ rest $0$
 - $23/2 = 11$ rest $1$
 - $11/2 = 5$ rest $1$
@@ -72,6 +73,7 @@ Nog een voorbeeld: Zet $46_d$ om in binaire notatie.
 - $1/2 = 0$ rest $1$
 
 Dus $46_d = 011101_b$. Net zoals bij de decimale notatie, laten we nullen, die 'vooraan' staan, weg. Dus $011101_b$ schrijven we dan als $11101_b$.
+```
 
 :::{exercise} Oefenen
 Zet de volgende decimale getallen om naar binaire notatie:
@@ -94,7 +96,7 @@ Voor getallen met maar één cijfer is het eenvoudig.
 
 Bij de laatste combinatie moeten we even stil staan. Los van alle grapjes, die je over $1+1$ kan maken, is $1_d+1_d = 2_d$. Maar het cijfer $2$ komt niet in het binaire stelsel voor. We weten inmiddels ook dat $2_d = 10_b$. Er gebeurt eigenlijk zelfde wanneer we in het decimale stelsel $5_d+7_d$ berekenen. Dat is $2_d$, maar we gaan de 'tiental-grens' over, dus zetten we er een $1$ voor. Deze 'grens' is bij het binaire stelsel natuurlijk best snel bereikt. Dus
 
-$$1_b + 1_b = 10_b$$
+$1_b + 1_b = 10_b$
 
 Wanneer we langere binaire getallen bij elkaar op willen tellen, doen we dat op dezelfde manier als bij decimale getallen.
 1. Zet de getallen precies onder elkaar, zodat de rechterkanten van de getallen gelijk zijn en elk cijfer precies onder elkaar staat.
@@ -154,20 +156,30 @@ Verdubbel de volgende twee binaire getallen:
 Uitdaging #1: vermenigvuldig het binaire getal $11010_b$ met $10_d$ en schrijf het resultaat als een binair getal op.
 
 Uitdaging #2: vermenigvuldig het binaire getal $11010_b$ met $10_b$ en schrijf het resultaat als een binair getal op.
+
+```{admonition} Hint voor de uitdaging
+:class: dropdown
+Vermenigvuldigen kun je ook doen door herhaald optellen. Denk aan $3 \times 4 = 4 + 4 + 4$.
+```
 :::
 
 ## Negatieve getallen
 Op zich is het vrij simpel om met negatieve binaire getallen te werken. Je zet er een $-$-tje voor en klaar is Kees. Je hebt een negatief binair getal gemaakt. Alleen is dit de simpele, wiskundige oplossing. Je weet nu nog steeds niet hoe je het verschil tussen twee binaire getallen moet berekenen en hoe zet je dit in hemelsnaam in een computer?
 
 ### Binaire getallen in een computer
+
 Belangrijk om te weten is dat een processor voor elke actie, die je op getallen kan uitvoeren een stukje logische schakelingen moet hebben. Dus moeten er door de ontwerpers keuzes gemaakt worden over bijvoorbeeld de maximale grootte van getallen en of je al dan niet een apart deel maakt voor het aftrekken van binaire getallen. Want meer schakelingen op je processor betekent meer warmte productie en zeer waarschijnlijk hogere productiekosten. Dus hou in je achterhoofd dat ontwerpers van processoren het aantal schakelingen op een processor zo laag mogelijk willen houden.
 
 Laten we even kijken naar de (maximale) grootte van binaire getallen in een processor. In de computerarchitectuur noemen we dit de *woordlengte* van een architectuur of processor. De woordlengte van een processor bepaalt de maximale grootte van de binaire getallen en wordt uitgedrukt in het aantal *bits*. Een bit is de kleinste eenheid van data, die een computer kan opslaan. Een bit kan de waarde `1` of `0` en dat komt dan weer overeen met de binaire getallen, waar je nu mee aan het rekenen bent.
 
-De woordlengte van de processor in je mobiele telefoon of de processor in je computer is waarschijnlijk 64 bits. Dat wil zeggen dat de standaardeenheid waar de processor mee rekent, 64 bits groot is. Het maximale getal wat we in een woord van 64-bits kunnen uitdrukken is $2^64-1 = 
-18.446.744.073.709.551.616$. Retro-gaming consoles, zoals de NES, Sega Mega Drive of de Playstation 1 hebben respectievelijk woordlengtes van 8, 16 en 32 bit.
+```{admonition} Bits en bytes
+8 bits bij elkaar noemen we een *byte*.
+```
 
-```{woord}
+De woordlengte van de processor in je mobiele telefoon of de processor in je computer is waarschijnlijk 64 bits. Dat wil zeggen dat de standaardeenheid waar de processor mee rekent, 64 bits groot is. Het maximale getal wat we in een woord van 64-bits kunnen uitdrukken is $2^64-1 = 
+18.446.744.073.709.551.616$. Retro-gaming consoles, zoals de NES, Sega Mega Drive of de Playstation 1 hebben respectievelijk woordlengtes van 8, 16 en 32 bit. Dit zijn allemaal machten van 2. Dus nu zou je kunnen denken dat de alle computers een woordlengte hebben, die een macht van 2 is. Dat is niet helemaal waar. Grote computers uit het verleden (meer dan 60 jaar geleden) hadden woordlengtes als 30, 36 of 33 bits. De eerste Nederlandse computer, de [ARRA I](https://nl.wikipedia.org/wiki/ARRA_I) uit 1954 had een woordlengte van 30 bit.
+
+```{admonition} Woord
 Een woord is de standaardeenheid van data waarmee een processor rekent.
 ```
 
@@ -219,7 +231,7 @@ Bij deze notatie gebruiken we nog steeds de eerste bit om een minnetje aan te ge
 | `0110` |       $6$       |       $6$       |$6$|
 | `0111` |       $7$       |       $7$       |$7$|
 | `1000` |       $8$       |      $-0$       |$-7$ |
-| `1001` |       $9$       |      $-1$       |$ -6$|
+| `1001` |       $9$       |      $-1$       |$-6$|
 | `1010` |      $10$       |      $-2$       |$-5$|
 | `1011` |      $11$       |      $-3$       |$-4$|
 | `1100` |      $12$       |      $-4$       |$-3$|
@@ -227,16 +239,56 @@ Bij deze notatie gebruiken we nog steeds de eerste bit om een minnetje aan te ge
 | `1110` |      $14$       |      $-6$       |$-1$|
 | `1111` |      $15$       |      $-7$       |$-0$|
 
+Laten we even kijken naar het getal $6_d$. Dat is `0110` binair. We kunnen hier een negatief getal van maken in één-complementsnotatie door alle bitten te *flippen*. Elke `0` wordt een `1` en elke `1` wordt een `0`. Dus `0110` wordt `1001`. Volgens de tabel is dit $-6_d$.
 
+Gaat het nu ook goed met optellen? Zonder hier een wiskundig sluitend bewijs voor te geven, kijken we weer even naar het voorbeeld bij de vorige tabel.
+$2_d - 4_d = 2_d + -4_d = 0010_b + 1011_b = 1101_b = -2_d$. Gelukkig 😀
+
+Maar we zijn er nog niet helemaal. Door het bestaan van de twee nullen `0` en `-0` kan er nog steeds een probleem ontstaan bij grensgevallen. Één van de mogelijke oplossingen van dit probleem is de zogenaamde twee-complements notatie.
 
 ### Twee-complements notatie
+
+Deze notatie is een kleine, maar belangrijke wijziging. Bekijk het stappenplan hieronder:
+
+```{admonition} Stappenplan 
+**Negatief maken van een getal in twee-complements notatie**
+1. Flip alle bitten, zoals bij de één-complements notatie.
+2. Tel er 1 bij op.
+```
+
+```{admonition} Voorbeeld 1: *Bepaal het 4-bits twee-complement van $4_d$.*
+:class: dropdown
+1. Converteer naar binair: $4_d = 0100_b$.
+2. Flip alle bitten: `0100` wordt `1011`.
+3. Tel er 1 bij op: `1100`.
+4. Klaar.
+```
+
+```{admonition} Voorbeeld 2: *Bepaal het 8-bits twee-complement van $17_d$.*
+:class: dropdown
+1. Converteer naar binair: $17_d = 0001 0001_d$
+2. Flip alle bitten: `0001 0001` wordt `1110 1110`.
+3. Tel er 1 bij op: `1110 1111`.
+4. Klaar.
+```
 
 :::{exercise} Oefenen
 
 1. Wat is de maximale grootte van getallen in een 8, 16 of 32 bit machine?
-:::
 
-ZEBRA 33 bit woordlengte
+Zet de de volgende bytes om in negatieve getallen in twee-complements notatie
+
+2. `01110011`
+3. `00110101`
+4. `10001000`
+5. `10101010`
+
+Werk de volgende decimale sommen binair uit mbv twee-complements notatie:
+
+6. $26_d - 15_d$
+7. $-31_d - 6_d$
+8. $144_d - 156_d$
+:::
 
 ## Verdiepende opgaven:
 
@@ -245,8 +297,8 @@ Schrijf in je favoriete programmeertaal een programma, dat
 1. Een string met een binair getal omzet naar een string met een decimaal getal.
 2. Een string met een decimaal getal omzet naar een string met een binair getal.
 3. Twee strings met binaire getallen bij elkaar optelt.
-4. Het 2-complements negatieve binaire getal geeft van een gegeven binair getal(string).
-5. Beschrijf een procedure voor het aftrekken van twee binaire getallen (net zoals bij de paragraaf over optelling).
+8. Het 2-complements negatieve binaire getal geeft van een gegeven binair getal(string).
+16. Beschrijf een procedure voor het aftrekken van twee binaire getallen (net zoals bij de paragraaf over optelling).
 
 ### Met andere dan binaire getallen
 Nu je weet hoe je binair kan rekenen, zou je kunnen uitzoeken hoe het achttallige stelsel werkt? Of zelfs het zestientallige stelsel! Voor dit laatste zul je een trukje moeten uithalen met de cijfers. Want 'na' $9$ zijn de cijfers op. Dit los je op door als volgt te tellen: 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F. Het achttallige stelsel heet ook wel octaal en het zestientallige stelsel hexadecimaal. Hexadecimale getallen zul je misschien ook wel weer herkennen in computers. Het handige aan een hexadecimaal getal van lengte twee, is dat je dan precies een byte (8 bits) aan informatie voor je hebt staan.
@@ -254,4 +306,4 @@ Nu je weet hoe je binair kan rekenen, zou je kunnen uitzoeken hoe het achttallig
 1. Zoek uit hoe je van octaal naar decimaal en weer terug kan rekenen.
 2. Zoek uit hoe je van hexadecimaal naar decimaal en weer terug kan rekenen.
 3. Zoek uit hoe je van hexadecimaal naar binair en weer terug kan rekenen.
-8. misschien ook iets met hexadecimale getallen doet?
+8. Misschien ook iets met hexadecimale getallen doet?
