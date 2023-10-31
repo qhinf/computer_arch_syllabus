@@ -49,17 +49,17 @@ Zet de volgende binaire getallen om naar decimale notatie:
 :::
 
 ## Van decimaal naar binair
-Om een decimaal getal naar een binair getal om te zetten, heb je nodig dat je goed door twee kan delen en kan delen 'met rest'. We gaan als voorbeeld het getal $21_d$ omzetten naar een decimaal getal:
-- $21/2 = 10$ rest $1$
-- $10/2 = 5$ rest $0$
+Om een decimaal getal naar een binair getal om te zetten, heb je nodig dat je goed door twee kan delen en kan delen 'met rest'. We gaan als voorbeeld het getal $22_d$ omzetten naar een decimaal getal:
+- $22/2 = 11$ rest $0$
+- $11/2 = 5$ rest $1$
 - $5/2 = 2$ rest $1$
 - $2/2 = 1$ rest $0$
 - $1/2 = 0$ rest $1$
 
-Wat we gedaan hebben is dat we door $2$ zijn blijven delen, totdat we niks meer overhebben. We hebben wel steeds de resten opgeschreven. Het binaire getal wat we zoeken is af te lezen uit de resten. Dus $21_d$ = $10101_b$.
+Wat we gedaan hebben is dat we door $2$ zijn blijven delen, totdat we niks meer overhebben. We hebben wel steeds de resten opgeschreven. Het binaire getal wat we zoeken is af te lezen door de resten van onder naar boven over te nemen. Dus $22_d$ = $10110_b$.
 
-Je kunt nu controleren of dit correct is door $10101_b$ weer om te zetten naar decimaal. Dan krijg je:
-$10101_b = 1\times 2^4 + 0\times 2^3 + 1\times 2^2 + 0 \times 2^1 + 1 \times 2^0 = 16+0+4+0+1 = 21_d$
+Je kunt nu controleren of dit correct is door $10110_b$ weer om te zetten naar decimaal. Dan krijg je:
+$10110_b = 1\times 2^4 + 0\times 2^3 + 1\times 2^2 + 1 \times 2^1 + 0 \times 2^0 = 16+0+4+2+0 = 22_d$
 
 Het klopt!
 
@@ -72,7 +72,7 @@ Het klopt!
 - $2/2 = 1$ rest $0$
 - $1/2 = 0$ rest $1$
 
-Dus $46_d = 011101_b$. Net zoals bij de decimale notatie, laten we nullen, die 'vooraan' staan, weg. Dus $011101_b$ schrijven we dan als $11101_b$.
+Dus $46_d = 101110_b$. 
 ```
 
 :::{exercise} Oefenen
@@ -177,7 +177,7 @@ Laten we even kijken naar de (maximale) grootte van binaire getallen in een proc
 ```
 
 De woordlengte van de processor in je mobiele telefoon of de processor in je computer is waarschijnlijk 64 bits. Dat wil zeggen dat de standaardeenheid waar de processor mee rekent, 64 bits groot is. Het maximale getal wat we in een woord van 64-bits kunnen uitdrukken is $2^64-1 = 
-18.446.744.073.709.551.616$. Retro-gaming consoles, zoals de NES, Sega Mega Drive of de Playstation 1 hebben respectievelijk woordlengtes van 8, 16 en 32 bit. Dit zijn allemaal machten van 2. Dus nu zou je kunnen denken dat de alle computers een woordlengte hebben, die een macht van 2 is. Dat is niet helemaal waar. Grote computers uit het verleden (meer dan 60 jaar geleden) hadden woordlengtes als 30, 36 of 33 bits. De eerste Nederlandse computer, de [ARRA I](https://nl.wikipedia.org/wiki/ARRA_I) uit 1954 had een woordlengte van 30 bit.
+18.446.744.073.709.551.616$. Retro-gaming consoles, zoals de [NES](https://nl.wikipedia.org/wiki/Nintendo_Entertainment_System), [Sega Mega Drive](https://nl.wikipedia.org/wiki/Sega_Mega_Drive) of de [Playstation 1](https://nl.wikipedia.org/wiki/PlayStation_(spelcomputer)) hebben respectievelijk woordlengtes van 8, 16 en 32 bit. Dit zijn allemaal machten van 2. Dus nu zou je kunnen denken dat de alle computers een woordlengte hebben, die een macht van 2 is. Dat is niet helemaal waar. Grote computers uit het verleden (meer dan 60 jaar geleden) hadden woordlengtes als 30, 36 of 33 bits. De eerste Nederlandse computer, de [ARRA I](https://nl.wikipedia.org/wiki/ARRA_I) uit 1954 had een woordlengte van 30 bit.
 
 ```{admonition} Woord
 Een woord is de standaardeenheid van data waarmee een processor rekent.
@@ -271,6 +271,11 @@ Deze notatie is een kleine, maar belangrijke wijziging. Bekijk het stappenplan h
 3. Tel er 1 bij op: `1110 1111`.
 4. Klaar.
 ```
+
+**De voordelen van twee-complements notatie**
+
+1. Het optellen van negatieve binaire getallen is hetzelfde als het optellen van positieve binaire getallen. Daardoor heb je minder logica nodig (zie hoofdstuk ***TODO***). Dit levert een snelheidswinst en een kostenbesparing op.
+2. Er is maar een enkele $0$. Voor het systeem zijn $0$ en $-0$ niet hetzelfde, daardoor kunnen er fouten ontstaan en onverwachte resultaten komen bij berekening waar deze getallen in voorkomen. Je zou kunnen denken, daar kun je prima omheen programmeren. Dat klopt. Maar dat zorgt ervoor dat je weer meer logica in moet bouwen voor het detecteren van die situaties. Dus wordt de processor nodeloos groter voor iets wat met twee-complements notatie op te lossen is.
 
 :::{exercise} Oefenen
 
