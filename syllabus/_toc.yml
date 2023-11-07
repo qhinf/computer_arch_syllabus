@@ -8,6 +8,9 @@ options:
   numbered: 3
 chapters:
 - file: binair_rekenen
-#- file: down
+- file: logica
+- file: schakelingen
+- file: architectuur
+- file: machinetaal
 #- file: notebooks
 #- file: markdown-notebooks
