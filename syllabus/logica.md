@@ -47,3 +47,45 @@ Wat is de opvolger van ASCII?
 Uit hoeveel bits bestaat een teken van deze code?
 
 :::
+
+## Inleiding logische schakelingen
+
+In de processor van een computer wordt door de ALU, de Arithmetic Logic Unit (rekenkundig-logische eenheid, rekencentrum) rekenkundige en logische bewerkingen uitgevoerd. Dit is een complex proces van elektronica op microniveau. Wat ooit begon met onderdelen zoals forse schakelaars, relais, elektronenbuizen en transistors is nu zo geminiaturiseerd, dat een moderne processor miljarden schakelingen bevat op een oppervlakte niet veel groter dan je duimnagel. Dit in tegenstelling tot de eerste computers, gemaakt met elektronenbuizen. Deze coomputers waren zo groot dat je een flinke zaal nodig had om ze te kunnen 'hebben'. En daar bleef het niet bij: ze vraten zoveel stroom en genereerde zoveel warmte dat ze een aparte airconditioning nodig hadden. Door deze schakelingen loopt een elektronenstroom. Door de miniaturisatie zijn de afstanden die de elektronen af moeten leggen kleiner geworden.  Een kleinere afstand betekent sneller. Een duizend keer kleinere afstand wordt immers duizend keer vlugger afgelegd. Of het nu een primitieve kamerbrede computer is met airconditioning of een hypermoderne processor ter grootte van je duimnagel, het principe van de schakelingen, waar stroom doorheen gaat blijft hetzelfde.
+
+Slimme constructies van schakelingen maken het mogelijke dat een computer kan rekenen. Aan de invoerkant van zo’n constructie wordt een binair signaal aangeboden en aan de uitvoerkant komt het resultaat, ook weer een binair signaal.
+
+Een andere toepassing is die van opslag. Het is vaak noodzakelijk dat resultaten (of tussenresultaten) in het werkgeheugen van een computer worden opgeslagen om later weer te worden gebruikt.
+
+Om resultaten (uitvoer) verder te verwerken is het nodig dat de signalen, die deze resultaten bevatten, niet alleen kunnen worden opgeslagen, maar als het nodig is ook naar de juiste plek kunnen worden gestuurd. Dit doorsturen wordt mogelijk gemaakt met, je raadt het al, schakelingen.
+
+Verderop in dit hoofdstuk ga je zelf aan de slag met het ‘bouwen’ van constructies voor rekenen, opslag en doorschakelen (doorsturen).
+
+### Waarom logische schakelingen?
+
+Waarom zou je logische schakelingen gebruiken in een computer? Logische schakelingen kun je sturen met elektrische signalen. Ze zijn handig, omdat ze maar twee verschillende uitvoermogelijkheden hebben, die je kunt uitleggen als één en nul of waar en niet waar. Hetzelfde geldt voor de invoersignalen van deze schakelingen. De schakelingen worden daarmee bouwstenen waarmee je kunt ‘sturen’.
+
+Dus, als je aan het open of dicht zijn van schakelaars een betekenis geeft, heb je de basis gelegd voor het werken met code. Dicht of open, wel of geen stroom, wel of geen signaal, waar of niet waar, één of nul. De bit, als basiseenheid voor de code.
+
+Altijd énen of nullen? Dat is nog maar de vraag. De computers van nu werken hier wel mee. De Von Neuman-architectuur hangt hiermee samen. Deze wordt in een volgend hoofdstuk behandeld. Er zijn in het verleden ook experimentele computers geweest, die met een driewaardige logica werkten. Dit was slechts een academische oefening, [ternaire computers](https://en.wikipedia.org/wiki/Ternary_computer) zijn nooit uit het laboratorium gekomen. Een ontwikkeling, die mogelijk in de toekomst bruikbaar wordt en ongekende mogelijkheden beloofd, is, die van de quantumcomputer.
+
+Lees hiervoor meer op https://www.universiteitleiden.nl/wetenschapsdossiers/de-quantumcomputer
+
+::: {exercise}
+
+Wat is booleaanse logica?
+
+Maakt de quantumcomputer gebruik van bits? Leg uit!
+
+Wat is de belofte die de quantumcomputer hoopt waar te maken?
+
+Wat zou je, behalve stroom, nog meer kunnen gebruiken om 1-en en 0-en fysiek te representeren?
+
+:::
+
+Slimme constructies van schakelingen maken het mogelijke dat een computer kan rekenen. Aan de invoerkant van zo’n constructie wordt een binair signaal aangeboden en aan de uitvoerkant komt het resultaat.
+
+Een andere toepassing is die van opslag. Het is vaak noodzakelijk dat resultaten (of tussenresultaten) in het werkgeheugen van een computer worden opgeslagen om later weer te worden gebruikt.
+
+Om resultaten (uitvoer) verder te verwerken is het nodig dat de signalen, die deze resultaten bevatten, niet alleen kunnen worden opgeslagen, maar als het nodig is ook naar de juiste plek kunnen worden gestuurd. Dit doorsturen wordt mogelijk gemaakt met, je raadt het al, schakelingen.
+
+Verderop in dit hoofdstuk ga je zelf aan de slag met het ‘bouwen’ van constructies voor rekenen, opslag en doorschakelen (doorsturen).
