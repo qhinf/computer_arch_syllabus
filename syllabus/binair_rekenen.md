@@ -164,6 +164,7 @@ Vermenigvuldigen kun je ook doen door herhaald optellen. Denk aan $3 \times 4 = 
 :::
 
 ## Negatieve getallen
+
 Op zich is het vrij simpel om met negatieve binaire getallen te werken. Je zet er een $-$-tje voor en klaar is Kees. Je hebt een negatief binair getal gemaakt. Alleen is dit de simpele, wiskundige oplossing. Je weet nu nog steeds niet hoe je het verschil tussen twee binaire getallen moet berekenen en hoe zet je dit in hemelsnaam in een computer?
 
 ### Binaire getallen in een computer
@@ -205,7 +206,7 @@ We gaan voor het gemak van het uitleggen even kijken naar een architectuur met e
 | `1110` |      $14$       |      $-6$       |
 | `1111` |      $15$       |      $-7$       |
 
-In de derde kolom 'Minnetje ervoor' zie je dat de eerste bit van de 4 bits gebruiken om een minnetje aan te geven. Een `0` vooraan betekent dat het getal positief is, een `1` vooraan betekent dat het getal negatief is. Aan deze representatie zitten twee grote nadelen:
+In de derde kolom 'Minnetje ervoor' zie je dat de eerste bit van de 4 bits gebruiken om een minnetje aan te geven. Een `0` vooraan betekent dat het getal positief is, een `1` vooraan betekent dat het getal negatief is.  Aan deze representatie zitten twee grote nadelen:
 
 1. Er zijn twee nullen. Dus je kunt effectief minder getallen representeren.
 2. Niet nadenken bij het binair optellen van deze getallen kan tot grote problemen leiden. Kijk maar.
@@ -277,11 +278,17 @@ Deze notatie is een kleine, maar belangrijke wijziging. Bekijk het stappenplan h
 1. Het optellen van negatieve binaire getallen is hetzelfde als het optellen van positieve binaire getallen. Daardoor heb je minder logica nodig (zie hoofdstuk ***TODO***). Dit levert een snelheidswinst en een kostenbesparing op.
 2. Er is maar een enkele $0$. Voor het systeem zijn $0$ en $-0$ niet hetzelfde, daardoor kunnen er fouten ontstaan en onverwachte resultaten komen bij berekening waar deze getallen in voorkomen. Je zou kunnen denken, daar kun je prima omheen programmeren. Dat klopt. Maar dat zorgt ervoor dat je weer meer logica in moet bouwen voor het detecteren van die situaties. Dus wordt de processor nodeloos groter voor iets wat met twee-complements notatie op te lossen is.
 
+**Soorten bytes**
+
+Wanneer we een byte omzetten naar een decimaal getal, is het natuurlijk wel belangrijk om te weten of er een minnetje voor kan staan of niet *en* wat voor soort negatieve-getalsnotatie er gebruikt wordt. Gelukkig wordt meestal de twee-complementsnotatie gebruikt. Maar dan is het nog steeds belangrijk om te weten of die ene bit in een byte bij de hoeveelheid hoort of dat er iets met een minnetje gebeurd. 
+> We noemen een getal waar een minnetje voor kan staan **signed**. Een getal zonder een mogelijk minnetje noemen we **unsigned**.
+
+
 :::{exercise} Oefenen
 
 1. Wat is de maximale grootte van getallen in een 8, 16 of 32 bit machine?
 
-Zet de de volgende bytes om in negatieve getallen in twee-complements notatie
+Zet de de volgende signed bytes om in negatieve getallen in twee-complements notatie
 
 2. `01110011`
 3. `00110101`
@@ -293,6 +300,42 @@ Werk de volgende decimale sommen binair uit mbv twee-complements notatie:
 6. $26_d - 15_d$
 7. $-31_d - 6_d$
 8. $144_d - 156_d$
+:::
+
+## Hexadecimale getallen
+Programmeurs zijn over het algemeen mensen, die snel en in één oogopslag willen kunnen zien, wat er voor hun neus staat. Wanneer je de byte `11010111` voor je ziet, is het niet gemakkelijk te zien welk getal dit is. Ze zijn het nu eenmaal niet gewend. Ok, ok, er zijn programmeurs, die dit gemakkelijk kunnen. Maar toch. We kunnen het getal natuurlijk als decimaal getal opschrijven. Dat heb je nu geleerd: $11010111_b = 215_d$ wanneer we dit als *unsigned byte* beschouwen en $-41_d$ wanneer we dit als een *signed byte* beschouwen. Het probleem van de decimale notatie en bytes is dat we soms twee posities en meestal drie posities nodig hebben om een byte als decimaal getal uit te drukken. Hier is gelukkig een mooie oplossing voor. Schrijf een byte in de zogenaamde *hexadecimale* notatie. In normaal Nederlands noemen we dit ook wel *zestientallige* notatie. [^1]. We zijn gewend om met tientallige notatie te werken. Wanneer we bij de 9 zijn, beginnen we weer bij 0 en zetten er een 1 voor. In de zestientallige notatie hebben we nog extra symbolen nodig om tot de zestien te komen. Tellen in hexadecimaal ziet er dan zo uit: $1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10, 11, 12, 13, \ldots, 1E, 1F, 20, 21, \ldots$.
+
+In hexadecimale notatie kan *elke* byte geschreven worden met twee posities. Één cijfer in hexadecimale notatie is precies 4 bits ook wel een *half-byte*. Bekijk de onderstaande tabel. We gebruiken maar meteen de notatie, die programmeurs ook gebruiken om aan te geven of een getal binair of *hex* is. `0b` staat voor binair, `0x` staat voor hexadecimaal.
+
+| Binair | Hexadecimaal     | Binair | Hexadecimaal |
+| :-: | :-: | :-:|:-:|
+| `0b0000` | `0x0` | `0b1000` | `0x8`
+| `0b0001` | `0x1` | `0b1001` | `0x9`
+| `0b0010` | `0x2` | `0b1010` | `0xA`
+| `0b0011` | `0x3` | `0b1011` | `0xB`
+| `0b0100` | `0x4` | `0b1100` | `0xC`
+| `0b0101` | `0x5` | `0b1101` | `0xD`
+| `0b0110` | `0x6` | `0b1110` | `0xE`
+| `0b0111` | `0x7` | `0b1111` | `0xF`
+
+De eerder genoemde byte `0b11010111` wordt in hex dan `0xD7` of `D7`.
+
+:::{exercise} Oefenen
+
+Zet de volgende bytes om in hexadecimale notatie
+
+1. `01110011`
+2. `00110101`
+3. `10001000`
+4. `10101010`
+
+Zet de volgende hexadecimale getallen om in binaire getallen
+
+5. `0xFA`
+6. `0xCA`
+7. `0xDE`
+8. `0X5A`
+
 :::
 
 ## Verdiepende opgaven:
@@ -312,3 +355,5 @@ Nu je weet hoe je binair kan rekenen, zou je kunnen uitzoeken hoe het achttallig
 2. Zoek uit hoe je van hexadecimaal naar decimaal en weer terug kan rekenen.
 3. Zoek uit hoe je van hexadecimaal naar binair en weer terug kan rekenen.
 8. Misschien ook iets met hexadecimale getallen doet?
+
+[^1]: Ik weet zeker dat je dit heel normaal Nederlands vindt en het woord dagelijks meerder keren gebruikt 😜 
