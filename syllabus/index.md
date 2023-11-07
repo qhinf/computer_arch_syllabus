@@ -1,8 +1,8 @@
 # Computer Architectuur
 
-```{admonition} Let op!
+:::{warning} Let op!
 Deze module wordt in Blok 2 van '23-'24 voor het eerst gegeven. De syllabus is hevig in ontwikkeling en zal tijdens de looptijd van dit blok zeer regelmatig ververst worden.
-```
+:::
 
 De **deadlines** voor deze module zijn:
 
