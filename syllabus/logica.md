@@ -34,4 +34,16 @@ Om ervoor te zorgen dat een computer met tekens kan werken, zullen we hier dus a
 
 Bij moderne computers wordt elektriciteit gebruikt. Hoe simpel zou je de daarin gebruikte code kunnen maken? Als volgt: er is géén of wél stroom (eventueel spanning) aanwezig, waarbij we ‘geen’ aangeven met ‘0’ en ‘wel’ met ‘1’. Een code van twee mogelijkheden, de binaire code. Dit basiselement van de code wordt ‘bit’ genoemd. Een serie van 8 bits (een byte, by-eight) zorgt voor 256 verschillende combinaties. Je hebt hier in hoofdstuk {doc}`binair_rekenen` al mee leren rekenen. Nu de betekenis nog! De afspraken over de betekenis ervan moeten worden vastgelegd. Zo kun je met een binaire code rekenen, maar je kunt ook de computer via een instructie laten weten: nu volgt er een code, waarvan de betekenis is vastgelegd is in de ASCII-tabel.
 
-![](assets/ASCII table.png)
+![ASCII tabel](assets/ASCII table.png)
+
+::: {exercise}
+
+Schrijf met behulp van de bovenstaande ASCII-tabel de binaire tekenreeks van je voornaam. Tip: ga via de hexadecimale notatie naar binair.
+
+Wat is de beperking van de ASCII-tabel?
+
+Wat is de opvolger van ASCII?
+
+Uit hoeveel bits bestaat een teken van deze code?
+
+:::
