@@ -89,3 +89,7 @@ Een andere toepassing is die van opslag. Het is vaak noodzakelijk dat resultaten
 Om resultaten (uitvoer) verder te verwerken is het nodig dat de signalen, die deze resultaten bevatten, niet alleen kunnen worden opgeslagen, maar als het nodig is ook naar de juiste plek kunnen worden gestuurd. Dit doorsturen wordt mogelijk gemaakt met, je raadt het al, schakelingen.
 
 Verderop in dit hoofdstuk ga je zelf aan de slag met het ‘bouwen’ van constructies voor rekenen, opslag en doorschakelen (doorsturen).
+
+### Logische schakelingen
+
+NANDGAME.
