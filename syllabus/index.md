@@ -16,3 +16,14 @@ Inhoudsopgave:
 
 ```{tableofcontents}
 ```
+
+## Colofon
+
+Deze syllabus is samengesteld voor [Q-Highschool](https://q-highschool.nl/). Delen van deze syllabus zijn overgenomen en aangepast van niet-gepubliceerd materiaal van het [SLO](https://keuzethemas.nl/), andere delen zijn origineel.
+
+| Hoofdstuk                    | Herkomst                                                     |
+| ---------------------------- | ------------------------------------------------------------ |
+| Binair rekenen               | Pieter van Engelen (Q-Highschool)                            |
+| Van logica naar schakelingen | Adaptatie, oorspronkelijke auteur Leen de Gelder (SLO)       |
+| Machinetaal                  | Adaptatie, oorspronkelijke auteur Adriaan Dekker (Informatica Actief/SLO) |
+
