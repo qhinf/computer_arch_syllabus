@@ -154,7 +154,7 @@ Bouw in [Logicly](https://logic.ly/demo/) een schakeling met een XOR-poort. Deze
 
 #### NOT-poort
 
-![image-20231114153004938](assets/image-20231114153004938.png)
+<img src="assets/image-20231114153004938.png" alt="image-20231114153004938" style="zoom:67%;" />
 
 Een NOT-poort heeft slechts één ingang en één uitgang. Een NOT-poort stuurt een signaal naar de uitgang als er door de ingang geen signaal binnenkomt. Als er wel een signaal binnenkomt door de ingang, zal een NOT-poort geen signaal naar de uitgang sturen. Een NOT-poort keert het binnenkomende signaal als het ware om; een NOT-poort wordt daarom ook vaak een 'inverter' genoemd.
 
@@ -179,7 +179,7 @@ In deze paragraaf wordt gewerkt met waarheidstabellen. Als je wilt oefenen met d
 
 De NAND-poort doet het tegenovergestelde van een AND-poort. De afbeelding hieronder toont op welke manier deze schakeling gemaakt kan worden met behulp van een AND- en een NOT-poort. Alleen als beide ingangen een signaal ontvangen (of de schakelaars aan staan, 1) zal de AND-poort als resultaat een signaal (1) afgeven. Dit signaal wordt vervolgens door de NOT-poort tegengehouden, waardoor er geen signaal meer op de uitgang van de NOT-poort staat (0). Als daar een led op is aangesloten, zal deze niet branden. Wanneer één of beide ingangen geen signaal doorgeven, dus beide 0 zijn, wordt er geen signaal afgegeven door de AND-poort. De NOT-poort krijgt dan geen signaal binnen (0) en zal in dat geval wel als resultaat een signaal (1) afgeven. Een aangesloten led gaat zal branden.
 
-![image-20231114154142512](assets/image-20231114154142512.png)
+<img src="assets/image-20231114154142512.png" alt="image-20231114154142512" style="zoom:50%;" />
 
 :::{exercise}
 
@@ -229,7 +229,7 @@ In de laatste kolom wordt genoteerd wanneer de XOR-poort een signaal doorgeeft. 
 
 Het gedrag van de totale schakeling wordt weergegeven in de laatste kolom; het uitvoersignaal van de schakeling is enkel 1, wanneer de XOR-poort een signaal doorgeeft.
 
-::{exercise}
+:::{exercise}
 
 Neem de eerder gemaakte waarheidstabel van deze schakeling en gebruik nu een eigen kolom voor beide poorten. 
 
