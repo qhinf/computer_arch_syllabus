@@ -317,7 +317,8 @@ In onderstaande tabel moeten alle mogelijkheden worden beschreven die er zijn me
 
 ## Verdiepingsopdrachten en een game
 
-1. Hoe ver kom jij in de NAND Game? Maak een document aan met screenshots van de levels, die je opgelost hebt.
+1. Hoe ver kom jij in de [NAND Game](https://nandgame.com/)? De titel van het spel zegt het eigenlijk al: *Build a computer from scratch*. Bouw een computer vanuit het niets op. En daar is een leuke game voor gemaakt. Je kunt de informatie van dit hoofdstuk gebruiken om een eind te komen in deze game. Hoe ver kom jij? Lukt het jou om een schakeling te maken, waarmee je 2-complements getallen van elkaar af kan trekken? Of om zelfs een ALU te maken?
+   **Maak een document aan met screenshots van de levels, die je opgelost hebt.**
 
 2. Beschrijf, met behulp van een waarheidstabel, het gedrag van onderstaande schakeling. Met welke poort komt dit gedrag overeen?
    ![image-20231114161803419](assets/image-20231114161803419.png)
