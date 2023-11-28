@@ -250,3 +250,152 @@ Windows Taakbeheer
 
 6. Beredeneer waarom een processor aparte opslagplaatsen heeft voor  CIR, MAR en MDR
 :::
+
+## Geheugen
+
+### Korte-termijn geheugen
+
+Een computer heeft naast een verwerkingsmodule (de processor) ook een geheugenmodule nodig. Tegenwoordig zijn er twee soorten geheugen te onderscheiden in een computer: het korte-termijn geheugen en het lange-termijn geheugen. 
+
+```{figure} assets/image-20231128142719874.png
+---
+align: center
+scale: 75%
+---
+Lange termijn geheugen
+```
+
+Het lange-termijn geheugen slaat informatie voor langere tijd op, ook als de computer uit is geweest. Dit is bijvoorbeeld een harde schijf (HDD) of een Solid State Drive (SSD). Je slaat hier bestanden op zoals documenten, filmpjes, en geluid, maar ook programma’s worden bewaard op het lange-termijn geheugen. De grootte van je harde schijf of SSD wordt met gigabytes uitgedrukt, bijvoorbeeld 512 GB. Daar is veel opslagruimte nodig omdat deze informatie voor langere tijd bewaard moet worden en niet verdwijnt als de stroom wegvalt. Harde schijven en SSD’s zijn dan ook voorbeelden van niet-vluchtig geheugen. 
+
+```{figure} assets/image-20231128145947040.png
+---
+align: center
+scale: 75%
+---
+Korte termijn geheugen
+```
+Het korte-termijn geheugen slaat informatie maar tijdelijk op. Je hebt vast wel eens van werkgeheugen gehoord, maar ook de registers van de processor zou je onder korte-termijn geheugen kunnen scharen. Dit hoofdstuk gaan we verder in op het werkgeheugen. De Engelse term hiervoor is Random Access Memory (RAM). De grootte van het werkgeheugen wordt net als een harde schijf of SSD ook uitgedrukt in gigabytes, maar is vaak een stuk kleiner in opslagcapaciteit. In plaats van 512 GB of zelfs 1 TB moet je dan eerder denken aan 16 of 32 GB.  Het geheugen werkt met elektronische microchips en is bedoeld om informatie te bewaren voor programma’s die op dat moment actief zijn. Dit is vluchtig geheugen, dus wanneer de stroom wegvalt gaat de informatie in het geheugen verloren en ben je niet-opgeslagen informatie kwijt. Als je iets wilt bewaren moet je zorgen dat je op “opslaan” klikt zodat de informatie van het werkgeheugen naar je lange-termijn geheugen wordt verplaatst.
+
+### Random Access
+
+Wanneer je een bestand of programma opent wordt de bijbehorende informatie van de harde schijf of SSD naar het werkgeheugen verplaatst. Het werkgeheugen staat namelijk in directe verbinding met de processor en werkt een stuk sneller dan het lange-termijn geheugen. Dit is prettig wanneer je met een bestand of programma bezig bent, anders zou je computer heel traag functioneren. Vaak heb je meerdere bestanden en/of programma’s tegelijk open en wil je snel kunnen schakelen. Dat multitasken is niet zo vanzelfsprekend als het lijkt!
+
+```{figure} assets/image-20231128150507345.png
+---
+align: right
+scale: 30%
+---
+Een cassettebandje
+```
+
+```{figure} assets/image-20231128150641325.png
+---
+align: right
+scale: 40%
+---
+```
+
+
+Om uit te leggen waarom dat bijzonder is springen we even terug in de tijd. Weet je misschien nog wat een cassettebandje is? Daar luisterden we vroeger muziek op, maar cassettebandjes werden ook gebruikt om informatie voor de computer op te bewaren. Het nadeel van deze tapes is dat als je een stukje informatie ergens verderop het bandje nodig had dat je eerst langs de rest van het bandje moest gaan om er te komen. Wilde je het vijfde liedje van een album horen? Dan moest je toch echt eerst de andere nummers afspelen. Er was namelijk een vaste volgorde. Dit heet sequentieel geheugen. Moet je je voorstellen dat dat ook voor jouw computer zou gelden. Dan probeer jij van Word te wisselen naar het derde tabblad in Google Chrome, maar gaat je computer eerst nog alle andere programma’s en eerdere tabbladen langs. Irritant!
+
+Gelukkig werkt werkgeheugen niet op die manier. Werkgeheugen bestaat uit allemaal individuele opslagvakjes. Die vakjes bewaren informatie, en ze kunnen in iedere volgorde gelezen en aangepast worden. Je kan dus een specifiek vakje uitlezen zonder eerst de voorliggende vakjes door te moeten. Je kan opslagvakjes dan in willekeurige volgorde benaderen. Vandaar de term Random Access Memory (RAM). 
+
+### Hiërarchie
+
+```{figure} assets/image-20231128150850481.png
+---
+align: center
+---
+```
+We hebben net al een aantal vormen van opslag voorbij horen komen, waaronder het geheugen, de harde schijf, en tapes. Deze vormen van opslag worden meestal omschreven aan de hand van drie eigenschappen: snelheid, grootte, en kosten. Zo heb je inmiddels geleerd dat een harde schijf langzamer is dan het geheugen, maar wel meer opslagcapaciteit heeft. Het is mogelijk om verschillende vormen van opslag in te delen met behulp van deze eigenschappen. Het resultaat zie je in de bovenstaande piramide voor de geheugenhiërarchie. 
+
+:::{Tip}
+Bekijk ook de video [“How computer memory works - Kanawat Senanan”](https://www.youtube.com/watch?v=p3q5zWCw8J4) van TED-Ed (Nederlandse ondertiteling) 
+:::
+
+### Adressen en waardes
+
+```{figure} assets/image-20231128151058268.png
+---
+align: right
+scale: 70%
+---
+```
+
+Werkgeheugen bestaat uit opslagvakjes waar informatie bewaard wordt. Ieder vakje heeft een adres en een waarde. Het adres is het nummer van het vakje zelf, de waarde is de informatie die in het vakje opgeslagen staat.
+
+Adressen en waardes hebben een vaste lengte. Dit heet een “word”. Bij een 32-bits architectuur is dat een lengte van 32 bits. Bij 64-bits architecturen is dat een lengte van 64 bits. Dit betekent wel dat het vakje misschien groter is dan nodig. Een te groot vakje is gelukkig geen probleem. Een te klein vakje daarentegen is niet mogelijk.
+
+De waarde van een vakje is de opgeslagen informatie. Dit kan gewoon een getal zijn, maar meestal is het iets meer dan dat. De waarde bestaat dan uit een combinatie van twee stukken: een instructie en een doeladres. De instructie is iets wat uitgevoerd moet worden door de processor. Bijvoorbeeld optellen, van elkaar af halen, of naar een ander opslagvakje springen. De processor voert deze instructie uit en leest of schrijft de bijbehorende informatie in het opslagvakje wat in het doeladres benoemt wordt. Een waarde kan dus zijn: ‘*getal 9*’. Maar een waarde kan ook zijn: ‘*tel het getal uit opslagvakje 118 op bij het getal in de accumulator*’. Of: ‘*ga voor de volgende instructie naar opslagvakje 78 in plaats van het eerstvolgende postvakje*’.
+
+```{figure} assets/image-20231128151349812.png
+---
+align: left
+scale: 50%
+---
+Een voorbeeld van een versimpelde instructieset.
+```
+
+:::{warning} Let op!
+Elke architectuur heeft zijn eigen instructieset. Dus een programma, geschreven voor een ARM-processor is niet geschikt voor een Intel-machine of voor je grafische rekenmachine TI-84.
+:::
+
+### Samenwerking met de processor
+
+Eigenlijk hebben het werkgeheugen en de processor niet een directe verbinding maar wel drie directe verbindingen. De drie verbindingen zijn: De adresbus, de databus, en de controlebus. Deze drie bussen zijn samen de systeembus die zorgt voor de verbinding tussen de processor en het werkgeheugen. Iedere bus heeft zijn eigen doel. De adresbus is aangesloten op het Memory Address Register van de processor, de databus is aangesloten op het Memory Data Register, en de controlebus is aangesloten op de Control Unit. Een enkele verbinding kan namelijk maar 1 stukje data tegelijk versturen. De verbinding tussen de processor en het werkgeheugen is een van de onderdelen die de snelheid erg beperkt. Het komt de snelheid ten goede als er stukjes informatie parallel aan elkaar gestuurd kunnen worden in plaats van achter elkaar aan. Door de systeembus op te delen in meerdere bussen wordt dit mogelijk gemaakt. Gelijktijdig drie keer 64 bits versturen is sneller dan 192 bits achter elkaar aan moeten versturen. Maar zelfs met deze drie aparte bussen blijft de verbinding tussen de processor en het werkgeheugen het traagste onderdeel. Dit betekent dat de processor vaak aan het niksen is terwijl die wacht tot de informatie van het werkgeheugen eindelijk aangekomen is zodat de processor dit kan verwerken. Dat wordt de *Von Neumann Bottleneck* genoemd. 
+
+```{figure} assets/image-20231128153847758.png
+---
+align: center
+scale: 50%
+---
+Schema met adres-, data- en controlbus
+```
+
+De Von Neumann Bottleneck is niet zo makkelijk op te lossen. Processorsnelheden worden met de jaren flink verbeterd, maar de snelheid voor het overdragen van informatie met de systeembus blijft achter in de technologische ontwikkelingen. Toch zijn er een aantal dingen die gedaan worden om de Von Neumann Bottleneck te omzeilen. Een voorbeeld daarvan is caching. Daarmee bevindt zich in de processor zelf nog een klein stukje geheugen die nóg sneller is dan het werkgeheugen. De meestgebruikte stukjes informatie worden ook in de cache bewaard zodat ze niet uit het werkgeheugen opgehaald hoeven toe worden maar meteen beschikbaar zijn voor de processor. Zoals je in de geheugenhiërarchie kan zien is cache nog sneller dan werkgeheugen maar ook duurder en kleiner in opslagcapaciteit. De geheugencapaciteit van de cache is dan ook veel kleiner dan van het werkgeheugen. Cache geheugen is ook weer onderverdeeld in 3 soorten:
+
+- L1 cache: het dichtst 'tegen' een core aan. Het snelst, bedoeld voor data en instructies. Meestal enkele kilobytes groot.
+- L2 cache: iets 'verder' van een core af, minder snel, alleen bedoeld voor data, meestal een grootte van enkele megabytes.
+- L3 cache: de verschillende cores van een processor delen deze cache. Deze cache wordt alleen gebruikt voor data en is meestal enkele megabytes groot, groter dan een L2 cache.
+
+### Snelheid
+
+Het werkgeheugen kan een merkbare impact hebben op de snelheid van je computer. Dit heeft onder andere te maken met de grootte van je werkgeheugen. Hoe meer opslagcapaciteit je werkgeheugen heeft hoe meer informatie er tegelijk actief open kan staan zonder al te veel snelheidsverlies. Met het programma Taakbeheer kan je zien hoeveel ruimte van je werkgeheugen in gebruik is en welke programma’s het meeste werkgeheugen in beslag nemen. Is je computer traag omdat al het werkgeheugen in gebruik is? Sluit dan de actieve programma’s die je op dat moment toch niet nodig hebt.
+
+```{figure} assets/image-20231128153905879.png
+---
+align: center
+scale: 50%
+---
+```
+
+Wanneer je zelf je computer gaat bouwen zal je gegarandeerd op het punt komen waarbij je moet beslissen of je single channel of dual channel werkgeheugen wilt. Bij een single channel configuratie heb je een enkele werkgeheugenkaart van bijvoorbeeld 32 GB. Bij een dual channel configuratie heb je twee werkgeheugenkaarten, bijvoorbeeld twee kaarten van 16 GB. Dan heb je evenveel opslagcapaciteit voor je werkgeheugen, maar doordat je twee verbindingen hebt zou je meer informatie tegelijk kunnen uitwisselen met de processor. Dual channel zou dus sneller moeten zijn dan single channel, maar in de praktijk blijkt dit verschil niet meetbaar. De prijs zou nog wel een argument kunnen zijn. Het is vaak iets goedkoper om twee kaarten van 16 GB te kopen dan één van 32 GB. 
+
+```{figure} assets/image-20231128153955186.png
+---
+align: center
+scale: 50%
+---
+```
+
+:::{exercise}
+
+1. Waar valt de SSD in de geheugenhiërarchie? Leg je antwoord uit.
+
+2. Als het werkgeheugen zoveel sneller is dan een harde schijf, waarom wordt dan niet alles opgeslagen in het werkgeheugen? Leg je antwoord uit aan de hand van de geheugenhiërarchie.
+
+3. Er zijn nog meer eigenschappen van verschillende soorten geheugen die mogelijk meegenomen zou kunnen worden in de geheugenhiërarchie. Benoem een van deze eigenschappen en orden de verschillende geheugensoorten volgens de door jou gekozen eigenschap.
+
+4. De 32-bits architectuur is ouder dan de 64-bits architectuur. Waarom is de 64-bits architectuur ontwikkeld? Wat had dit voor toegevoegde waarde?
+
+5. Wat is het effect op je werkgeheugen wanneer je meerdere programma’s tegelijk aan het runnen bent?
+
+6. Wat gebeurt er wanneer je meer programma’s tegelijk wilt runnen dan dat je ruimte in je werkgeheugen hebt?
+
+7. Is een harde schijf Sequential Access Memory (SAM) of Random Access Memory (RAM)? Leg je antwoord uit.
+
+8. Een cache heeft heel weinig opslagruimte en moet dus regelmatig opgeschoond worden. Er kan natuurlijk een willekeurig stuk cache geleegd worden om ruimte te maken, maar er zijn nog andere strategieën om te bepalen welke bewaarde informatie uit te cache wordt verwijderd. Bedenk drie verschillende strategieën voor het opschonen van de cache of zoek ze op het internet.
+
+9. Open je taakbeheer en kijk bij de processen welke programma’s het meeste werkgeheugen gebruiken. Open eventueel nog wat extra programma’s als je niet zo veel open hebt staan. Welke programma’s hebben een hoge belasting op het werkgeheugen? Had je dat verwacht of verrast dit je?
+
+:::
