@@ -24,7 +24,7 @@ Deze syllabus is samengesteld voor [Q-Highschool](https://q-highschool.nl/). Del
 | Hoofdstuk                    | Herkomst                                                     |
 | ---------------------------- | ------------------------------------------------------------ |
 | Binair rekenen               | Pieter van Engelen (Q-Highschool)                            |
-| Architectuur | Adaptatie, oorspronkelijke auteur Tamara Nootenboom |
+| Architectuur | Adaptatie, oorspronkelijke auteur Tamara Nootenboom (Baarnsch Lyceum) |
 | Van logica naar schakelingen | Adaptatie, oorspronkelijke auteur Leen de Gelder (SLO)       |
 | Machinetaal                  | Adaptatie, oorspronkelijke auteur Adriaan Dekker (Informatica Actief/SLO) |
 
