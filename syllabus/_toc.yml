@@ -9,7 +9,6 @@ options:
 chapters:
 - file: binair_rekenen
 - file: logica
-#- file: schakelingen
 - file: architectuur
 - file: machinetaal
 - file: eindopdracht
