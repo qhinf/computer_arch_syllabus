@@ -114,7 +114,12 @@ In dit hoofdstuk worden schakelingen gemaakt met de poorten AND, OR, XOR en NOT.
 
 #### AND-poorten
 
-![](assets/AND-200.jpg)
+```{figure} assets/AND-200.jpg
+---
+align: left
+scale: 80%
+---
+```
 
 Een AND-poort heeft twee ingangen en één uitgang. Een AND-poort stuurt alleen een signaal naar de uitgang als er door beide ingangen een signaal binnenkomt.
 
@@ -130,7 +135,12 @@ In een tabel kun je aangeven welke invoersignalen en resultaten bij elkaar horen
 
 #### OR-poort
 
-![](assets/OR-200.jpg)
+```{figure} assets/OR-200.jpg
+---
+align: left
+scale: 80%
+---
+```
 
 Een OR-poort heeft, net als een AND-poort, twee ingangen en één uitgang. Een OR-poort stuurt een signaal naar de uitgang als er door ten minste één van beide ingangen een signaal binnenkomt.
 
@@ -142,7 +152,12 @@ Bouw in [Logicly](https://logic.ly/demo/) een schakeling met een OR-poort. Deze 
 
 #### XOR-poort
 
-![](assets/XOR-200.jpg)
+```{figure} assets/XOR-200.jpg
+---
+align: left
+scale: 80%
+---
+```
 
 Een XOR poort heeft eveneens twee ingangen en één uitgang. Een XOR-poort stuurt een signaal naar de uitgang als er door exact één van beide ingangen een signaal binnenkomt.
 
@@ -154,7 +169,12 @@ Bouw in [Logicly](https://logic.ly/demo/) een schakeling met een XOR-poort. Deze
 
 #### NOT-poort
 
-<img src="assets/image-20231114153004938.png" alt="image-20231114153004938" style="zoom:67%;" />
+```{figure} assets/image-20231114153004938.png
+---
+align: left
+scale: 50%
+---
+```
 
 Een NOT-poort heeft slechts één ingang en één uitgang. Een NOT-poort stuurt een signaal naar de uitgang als er door de ingang geen signaal binnenkomt. Als er wel een signaal binnenkomt door de ingang, zal een NOT-poort geen signaal naar de uitgang sturen. Een NOT-poort keert het binnenkomende signaal als het ware om; een NOT-poort wordt daarom ook vaak een 'inverter' genoemd.
 
@@ -177,9 +197,14 @@ Let op: Het sturen van een signaal (in het vervolg ‘S’) is gelijkwaardig aan
 In deze paragraaf wordt gewerkt met waarheidstabellen. Als je wilt oefenen met de mogelijke combinaties van ingangen/schakelaars en met waarheidstabellen kun je eerste het gedeelte ‘[Oefenen met waarheidstabellen](oefenen_waarheidstabellen)’ bestuderen. Daarna ga je met dit gedeelte verder.
 #### NAND-poort
 
+```{figure} assets/image-20231114154142512.png
+---
+align: right
+scale: 50%
+---
+```
 De NAND-poort doet het tegenovergestelde van een AND-poort. De afbeelding hieronder toont op welke manier deze schakeling gemaakt kan worden met behulp van een AND- en een NOT-poort. Alleen als beide ingangen een signaal ontvangen (of de schakelaars aan staan, 1) zal de AND-poort als resultaat een signaal (1) afgeven. Dit signaal wordt vervolgens door de NOT-poort tegengehouden, waardoor er geen signaal meer op de uitgang van de NOT-poort staat (0). Als daar een led op is aangesloten, zal deze niet branden. Wanneer één of beide ingangen geen signaal doorgeven, dus beide 0 zijn, wordt er geen signaal afgegeven door de AND-poort. De NOT-poort krijgt dan geen signaal binnen (0) en zal in dat geval wel als resultaat een signaal (1) afgeven. Een aangesloten led gaat zal branden.
 
-<img src="assets/image-20231114154142512.png" alt="image-20231114154142512" style="zoom:50%;" />
 
 :::{exercise}
 
@@ -190,22 +215,33 @@ De NAND-poort doet het tegenovergestelde van een AND-poort. De afbeelding hieron
 3. Maak zelf een XNOR-poort met behulp van een XOR- en een NOT-poort. Controleer of het resultaat alleen dan 1 is, wanneer één invoer 0 en één invoer 1 is.
 
 4. Beschrijf het gedrag van een NAND poort in een waarheidstabel, zoals hieronder aangegeven.
-
-   ![image-20231114154251113](assets/image-20231114154251113.png)
+	```{figure} assets/image-20231114154251113.png
+	---
+	scale: 50%
+	---
+	```
 
 5. Beschrijf het gedrag van een NOR poort in een waarheidstabel.
 
 6. Beschrijf het gedrag van een XNOR poort in een waarheidstabel.
 
 7. Beschrijf het gedrag van onderstaande schakeling in een waarheidstabel.
-
-   ![image-20231114154258787](assets/image-20231114154258787.png)
+   ```{figure} assets/image-20231114154258787.png
+   ---
+   scale: 50%
+   ---
+   ```
 
 :::
 
 Bestudeer onderstaande schakeling.
 
-![image-20231114154400242](assets/image-20231114154400242.png)
+```{figure} assets/image-20231114154400242.png
+---
+align: center
+scale: 60%
+---
+```
 
 Om het gedrag van deze schakeling te bepalen kun je hem namaken. Als je de vier verschillende mogelijkheden dan uitprobeert weet je exact hoe deze schakeling zich gedraagt.
 
@@ -213,19 +249,39 @@ Het is ook mogelijk om het gedrag van deze schakeling te bepalen zonder de schak
 
 In dit geval zou de waarheidstabel er als volgt uit kunnen zien:
 
-![image-20231114154415404](assets/image-20231114154415404.png)
+```{figure} assets/image-20231114154415404.png
+---
+align: center
+scale: 50%
+---
+```
 
 De OR-poort zal een signaal afgeven als ten minste één invoersignaal 1 is ). De NOT-poort zal een signaal afgeven als de onderste invoer (S2) 0 is. De kolom van de OR-poort en de kolom van de-NOT poort zijn dus redelijk eenvoudig in te vullen:
 
-![image-20231114154429985](assets/image-20231114154429985.png)
+```{figure} assets/image-20231114154429985.png
+---
+align: center
+scale: 50%
+---
+```
 
 De AND-poort lijkt misschien iets lastiger. Deze poort krijgt als inkomende signalen een signaal van S1 en een signaal van de NOT-poort. Er moet dus voor de AND-poort voor iedere regel worden gekeken naar wat staat er in de eerste kolom (S1) en in de vierde kolom (NOT). Alleen als er op deze regel in beide kolommen een 1 staat, zal de AND-poort een signaal afgeven (in dat geval komt er bij de AND-poort een 1 te staan).
 
-![image-20231114154443890](assets/image-20231114154443890.png)
+```{figure} assets/image-20231114154443890.png
+---
+align: center
+scale: 50%
+---
+```
 
 In de laatste kolom wordt genoteerd wanneer de XOR-poort een signaal doorgeeft. Hiervoor moet er worden gekeken naar wat er uit de OR-poort en uit de AND-poort komt. Er moet in de XOR-kolom een 1 komen te staan op de regels waarbij er in de OR- en AND-kolom exact één keer een 1 staat; op de overige regels in de XOR-kolom komt een 0.
 
-![image-20231114154457434](assets/image-20231114154457434.png)
+```{figure} assets/image-20231114154457434.png
+---
+align: center
+scale: 50%
+---
+```
 
 Het gedrag van de totale schakeling wordt weergegeven in de laatste kolom; het uitvoersignaal van de schakeling is enkel 1, wanneer de XOR-poort een signaal doorgeeft.
 
@@ -233,8 +289,12 @@ Het gedrag van de totale schakeling wordt weergegeven in de laatste kolom; het u
 
 Neem de eerder gemaakte waarheidstabel van deze schakeling en gebruik nu een eigen kolom voor beide poorten. 
 
-![image-20231114154533018](assets/image-20231114154533018.png)
-
+```{figure} assets/image-20231114154533018.png
+---
+align: center
+scale: 50%
+---
+```
 :::
 
 ### Optellen
@@ -245,7 +305,12 @@ We hebben het gehad over logische schakelingen en dat een processor opgebouwd is
 
 Een adder is een schakeling waarmee je binaire getallen (bits) kunt optellen. In de processor van een computer worden hiermee berekeningen gedaan in de Arithmetic Logic Unit (ALU), ook wel rekenkundig-logische-eenheid (RLE) genoemd. Een eenvoudige vorm is een half adder. Deze heeft twee ingangen en geeft als resultaat twee uitgangssignalen.
 
-![image-20231114160718880](assets/image-20231114160718880.png)
+```{figure} assets/image-20231114160718880.png
+---
+align: center
+scale: 50%
+---
+```
 
 :::{exercise}
 
@@ -265,15 +330,23 @@ Bij de ingangen, S1 en S2, worden de twee op te tellen bits aangeboden. Het resu
 
 De invoerbits worden A en B genoemd. De ‘rechterwaarde (R1)’ is de som S. De ‘linkerwaarde (R2)’ kan overgedragen worden aan een volgende optelling en heet daarom *Co* (Carry-out). Dit is wat je bij met pen en papier optellen hebt geleerd als '1 onthouden'. Hieronder de schakeling met de juiste letters erbij:
 
-![image-20231114161130035](assets/image-20231114161130035.png)
+```{figure} assets/image-20231114161130035.png
+---
+align: center
+scale: 50%
+---
+```
 
 #### Full-adder
 
 Bij een full adder wordt rekening gehouden met een eventuele Carry-out (Co) van een vorige optelling. De Carry-out van deze vorige optelling wordt gekoppeld aan de Carry-in van de volgende. Wanneer je een 4 bits full-adder wil maken, hoef je alleen maar 4x een 1-bits full adder op handige wijze aan elkaar te koppelen.
 
-![image-20231114161243869](assets/image-20231114161243869.png)
-
-
+```{figure} assets/image-20231114161243869.png
+---
+align: center
+scale: 50%
+---
+```
 
 :::{exercise}
 
@@ -295,23 +368,41 @@ Wanneer een schakeling maar één invoer heeft en één uitvoer, dan zijn er nie
 
 In een waarheidstabel:
 
-![image-20231114162644038](assets/image-20231114162644038.png)
+```{figure} assets/image-20231114162644038.png
+---
+align: center
+scale: 50%
+---
+```
 
 Wanneer een schakeling twee ingangen heeft (S1 en S2), dan beschrijft het gedrag  vier mogelijkheden. Het invoersignaal op S2 kan zowel 0 als 1 zijn. Ook op S1 zijn er twee mogelijkheden voor invoersignalen: 0 of 1. Dit geeft in totaal 2 x 2 combinaties, die opgenomen zijn in deze waarheidstabel.
 
-![image-20231114162700088](assets/image-20231114162700088.png)
+```{figure} assets/image-20231114162700088.png
+---
+align: center
+scale: 50%
+---
+```
 
 Bij drie ingangen zijn er in totaal acht combinaties mogelijk. Zoals we hiervoor hebben gezien zijn er bij twee ingangen (neem S2 en S3) vier verschillende combinaties. Deze vier combinaties zijn er bij elk van beide mogelijke ingangssignalen (0 of 1) voor S1. Dit geeft in totaal dus 2 x 4 = 8 combinaties.
-
-![image-20231114162724844](assets/image-20231114162724844.png)
+```{figure} assets/image-20231114162724844.png
+---
+align: center
+scale: 50%
+---
+```
 
 Bij vier ingangen zijn er 16 mogelijke combinaties: de 8 combinaties van drie ingangen als het invoersignaal op  vierde ingang 0 is én de 8 combinaties van deze drie ingangen als het invoersignaal op de vierde ingang 1 is. Totaal zijn dat 16 mogelijkheden. 
 
 :::{exercise}
 
 In onderstaande tabel moeten alle mogelijkheden worden beschreven die er zijn met vier ingangen. Vul deze tabel verder in.
-
-![image-20231114162824486](assets/image-20231114162824486.png)
+```{figure} assets/image-20231114162824486.png
+---
+align: center
+scale: 50%
+---
+```
 
 :::
 
@@ -321,21 +412,45 @@ In onderstaande tabel moeten alle mogelijkheden worden beschreven die er zijn me
    **Maak een document aan met screenshots van de levels, die je opgelost hebt.**
 
 2. Beschrijf, met behulp van een waarheidstabel, het gedrag van onderstaande schakeling. Met welke poort komt dit gedrag overeen?
-   ![image-20231114161803419](assets/image-20231114161803419.png)
+```{figure} assets/image-20231114161803419.png
+---
+align: center
+scale: 50%
+---
+```
+
 3. Beschrijf het gedrag van onderstaande schakeling. Waar komt dit gedrag mee overeen?
-   ![image-20231114161819083](assets/image-20231114161819083.png)
+```{figure} assets/image-20231114161819083.png
+---
+align: center
+scale: 50%
+---
+```
 
 Bij grotere samengestelde schakelingen is het raadzaam om alle logische poorten te nummeren en in de kopregel van de waarheidstabel de nummers te noteren van de betreffende poorten.
 
 Voorbeeld:
-
-![image-20231114162109877](assets/image-20231114162109877.png)
+```{figure} assets/image-20231114162109877.png
+---
+align: center
+scale: 50%
+---
+```
 
 In bovenstaande schakeling zijn de poorten genummerd. Bij de nummering van de poorten is gewerkt vanaf de invoer naar de uitvoer (in grote lijnen van links naar rechts, van boven naar beneden). Voor iedere poort (met het nummer) is een kolom opgenomen in de waarheidstabel. Het gedrag kan je nu bepalen door de kolommen van links naar rechts in te vullen. Je komt dan uit op onderstaande waarheidstabel.
-
-![image-20231114162125406](assets/image-20231114162125406.png)
+```{figure} assets/image-20231114162125406.png
+---
+align: center
+scale: 50%
+---
+```
 
 Het gedrag van de schakeling kan nu worden afgelezen uit de meest rechter kolom.
 
 4. Bepaal het gedrag van onderstaande schakeling:
-   ![image-20231114162412659](assets/image-20231114162412659.png)
+```{figure} assets/image-20231114162412659.png
+---
+align: center
+scale: 50%
+---
+```
