@@ -6,11 +6,21 @@ format: jb-book
 root: index
 options:
   numbered: 3
-chapters:
-- file: binair_rekenen
-- file: logica
-- file: architectuur
-- file: machinetaal
-- file: eindopdracht
+parts:
+- caption: Lesmateriaal
+  chapters:
+    - file: binair_rekenen
+    - file: logica
+    - file: architectuur
+    - file: machinetaal
+- caption: Verdiepingsmateriaal
+  chapters:
+    - file: verdieping_logica
+    - file: specialisatie
+- caption: De eindopdracht
+  chapters:
+    - file: eindopdracht
+
+
 #- file: notebooks
 #- file: markdown-notebooks
