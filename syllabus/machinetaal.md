@@ -141,6 +141,14 @@ Om rekensommen op te schrijven in assembly, volg je drie stappen:
 
 Volg dat stappenplan in de volgende oefening.
 
+### Assembly uitvoeren in de RISC-simulator
+Wanneer je je assembly-code uitvoert in de RISC-simulator (door op `RUN` te klikken), zie je een hoop beweging op je scherm. Je zult zien dat de Fetch-Decode-Execute cyclus uitgevoerd wordt.
+1. Het register PC wordt uitgelezen. Hier bevindt zich de locatie van de instructie, die opgehaald moet worden.
+2. Met de informatie uit dit register wordt de instructie opgehaald *en* met de incrementer het PC register met 1 opgehoogd, want daar staat vast wel de volgende instructie.
+3. De opgehaalde instructie wordt aan de control unit gegeven en die besluit welke deel van de processor de instructie gaat uitvoeren. Wanneer het bijvoorbeeld een `ADD`-instructie is, dan wordt de ALU aan de slag gezet om het resultaat te berekenen en wordt het resultaat weggeschreven in een register. Wanneer het nodig is om voor de instructie nog meer data uit het geheugen op te halen, wordt dat in deze fase ook uitgevoerd.
+
+Mocht de animatie te snel gaan, dan kun je met de knop '<<' de snelheid lager instellen.
+
 :::{exercise} Assembly schrijven
 Schrijf van alle onderstaande sommen op welke operaties je moet uitvoeren om de som uit te rekenen. Pak je uitwerking van oefening 1 erbij, daar heb je de eerste stap al gedaan: je hebt daar de operator en de operanden bepaald.
 
@@ -178,9 +186,57 @@ instructie 2: `ADD R1, #4 // 20 + 4`
 ^ betekent “tot de macht”, maar daarvoor is geen mnemonic beschikbaar. Welke operator kan je nu gebruiken in plaats van ^?
 :::
 
-:::
-
 ## Machinetaal
+In een computer moet alles in binaire getallen (digitaal) worden genoteerd. Ook instructies zijn dus reeksen van enen en nullen. Dat noemen we **machinetaal**. Hoe je op die manier een instructie opschrijft, is vastgelegd in de **instructieset** van een processor. Een onderdeel daarvan beschrijft bijvoorbeeld hoe je rekensommen kan noteren voor een processor. In deze paragraaf ontdek je hoe dat werkt met behulp van de [RISC simulator](https://peterhigginson.co.uk/RISC).
+
+Een programma dat geschreven is in assembly (afgekort ASM), moet dus eerst vertaald worden naar machinetaal voordat het uitgevoerd kan worden. Daarvoor wordt een **assembler** gebruikt. Dat is een programma dat ASM vertaalt naar machinetaal.
+
+In een RISC-architectuur heeft iedere instructie in machinetaal een vaste lengte. Bij de RISC-simulator is dat even groot als een woord. Die werkt met woorden van 16 bits, waardoor de instructies ook allemaal zo lang zijn. Een aantal van die bits is nodig om aan te geven wat er moet gebeuren, bijvoorbeeld optellen. Daardoor kan je in geen enkele instructie een getal van 16 bits gebruiken. Als je toch 16-bits getallen wilt gebruiken als operanden, dan moet je die getallen eerst in het geheugen of in de registers plaatsen.
+
+### Instructieformaten
+
+We gaan nu verder kijken hoe je een berekening kan opschrijven in machinetaal, dus in enen en nullen. Om alle benodigde gegevens in een instructie op te schrijven, wordt de instructie in velden opgedeeld. Een **veld** is een groepje van bits die samen een betekenis hebben. Een **instructieformaat** geeft aan hoe groot elk veld is. Een voorbeeld daarvan zie je in de onderstaande afbeelding, namelijk instructieformaat A. Dat is maar één van de instructieformaten uit de instructieset van de RISC-simulator. Verderop zullen we ook andere formaten ontdekken.
+
+```{figure} assets/image-20231212154452317.png
+---
+align: center
+---
+Een instructieformat van 16 bits
+```
+
+### Operation codes
+
+In de afbeelding hierboven zie je dat de drie velden allemaal een naam hebben. We zullen ze van links naar rechts doornemen, zodat je begrijpt wat de namen betekenen. Het eerste veld (op) is het **opcode** veld. Dat is een afkorting van **operation code**. Die geeft aan wat er moet gebeuren. Een mnemonic wordt door de assembler dus vertaald in een opcode. De RISC simulator heeft bijvoorbeeld de volgende binaire codes voor `ADD` en `SUB`: 00010 is `ADD` 00011 is `SUB`. In de tabel hieronder zie je alle 8 de opcodes die bij formaat A horen.
+
+| op-veld | betekenis                       |
+| ------- | ------------------------------- |
+| 00000   | halt                            |
+| 00001   | modulo nemen (Rsd = Rsd % imm8) |
+| 00010   | optellen (Rsd = Rsd + imm8)     |
+| 00011   | aftrekken (Rsd = Rsd - imm8)    |
+| 00100   | vergelijken (Rsd == imm8)       |
+| 00101   | waarde instellen (Rsd = imm8)   |
+| 00110   | logische EN (Rsd = Rsd & imm8)  |
+| 00111   | logische OF (Rsd = Rsd          |
+
+### Argumenten
+
+Na de eerste 5 bits voor de opcode, zijn er in formaat A nog 11 bits beschikbaar voor de argumenten. Die worden verdeeld in twee velden: een veld van 3 bits met de naam Rsd en een veld van 8 bits met de naam imm8. De namen van de velden geven aan wat de betekenis van het argument is, zoals uitgelegd bij assembly.
+
+Laten we nu een voorbeeld bekijken. Bij het optellen volgens formaat A, wordt er een getal van 8 bits (imm8) opgeteld bij de waarde van een bepaald register (Rsd). Het resultaat van de berekening word vervolgens weer opgeslagen in hetzelfde register. Als je bijvoorbeeld het getal 22 bij register 4 op wilt tellen, dan kan dat dus met de volgende instructie: 0001010000010110. In de afbeelding hieronder zie je welke waarde ieder veld dan heeft.
+
+```{figure} assets/image-20231212155513333.png
+---
+align: center
+---
+Een instructie
+```
+In deze instructie zijn de decimale waarden van de velden:
+- op = 2,
+- Rsd = 4,
+- imm8 = 22
+
+Dus deze instructie staat voor: `ADD R4, #22` oftewel R4 = R4 + 22.
 
 ## Compileren of interpreteren
 
