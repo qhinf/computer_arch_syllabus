@@ -124,7 +124,7 @@ Bekijk ook de video [“De transistor: een schakelaar voor de moderne tijd”](h
 
 ### ALU, CU, Registers
 
-In de vorige paragraaf heb je gezien dat wanneer we het Von Neumann-principe uitwerken, daar verschillende benodigdheden uit ontstaan. Het geheugen (memory) was hier een onderdeel van. Daar gaan we komende paragraaf 3.3 verder op in. De andere benodigdheden bevinden zich in de processor (Central Processing Unit). De Control Unit en de Arithmetic/Logic Unit zijn al besproken. We herhalen ze nog even.
+In de vorige paragraaf heb je gezien dat wanneer we het Von Neumann-principe uitwerken, daar verschillende benodigdheden uit ontstaan. Het geheugen (memory) was hier een onderdeel van. Daar gaan we bij {ref}`architectuur_geheugen` verder op in. De andere benodigdheden bevinden zich in de processor (Central Processing Unit). De Control Unit en de Arithmetic/Logic Unit zijn al besproken. We herhalen ze nog even.
 
 *Control Unit*: De CU zorgt ervoor dat instructies één voor één opgehaald worden uit het geheugen, uitgevoerd worden, en dat eventueel data terug naar het geheugen verplaatst wordt om op te slaan.
 
@@ -147,6 +147,8 @@ Nu iets nieuws: Dit tijdelijk onthouden van data gebeurt met *registers*. Een re
 *Memory Address Register (MAR):*  In de voorbeelden die hier voor de CIR gegeven worden is er dus nog een ander geheugenvakje nodig. Dit is het doelvakje voor de instructie. Wanneer de processor een instructie gaat uitvoeren zoals het lezen of schrijven van data, dan staat er in de MAR wat het adres van het doelvakje is en welk geheugenvakje er dan dus gelezen of beschreven gaat worden. 
 
 *Memory Data Register (MDR):* Ook de data die gelezen of geschreven wordt, gaat naar een register. Dit register bewaart dus geen instructies of adressen, maar alleen data in de vorm van getallen. Daar is weer een apart plekje voor (de CIR of de MAR).
+
+Naast deze registers met een specifiek doel, bevatten een behoorlijk aantal architecturen ook nog *General Purpose Registers*. Dit zijn registers, die gebruikt worden om tijdelijk resultaten op te slaan, zonder dat ze een specifieke betekenis hebben. Bijvoorbeeld tussenresultaten van een berekening kun je hierin opslaan.
 
 ```{warning} Let op!
 Met het Engelse woord ‘data’ in de naamgeving van MDR wordt hier dus specifiek data-getallen bedoeld. In de rest van de tekst gebruiken we het woord data om aan te geven dat het nog geïnterpreteerd moet worden. 
@@ -251,6 +253,7 @@ Windows Taakbeheer
 6. Beredeneer waarom een processor aparte opslagplaatsen heeft voor  CIR, MAR en MDR
 :::
 
+(architectuur_geheugen)=
 ## Geheugen
 
 ### Korte-termijn geheugen
