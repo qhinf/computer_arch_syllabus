@@ -12,7 +12,9 @@ parts:
     - file: binair_rekenen
     - file: logica
     - file: architectuur
-    - file: machinetaal
+    - file: machinetaal_instructies
+    - file: machinetaal_gegevens
+    - file: machinetaal_programma
 - caption: Verdiepingsmateriaal
   chapters:
     - file: verdieping_logica

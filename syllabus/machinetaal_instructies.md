@@ -1,10 +1,8 @@
-# Machinetaal
-
-## Instructies voor de processor
+# Machinetaal - Instructies voor de processor
 
 We weten nu hoe we met complexe schakelingen bijvoorbeeld de binaire optelling kunnen maken. Dit is slechts één voorbeeld van wat complexe schakelingen kunnen maken. Een processor is zelf een complexe schakeling, die vele malen ingewikkelder is dan de schakelingen waar wij mee bezig zijn geweest. We weten nu ook wat de functie van de processor is in de von Neumann architectuur en de Harvard architectuur. In dit hoofdstuk ga je leren hoe je de code schrijft, die ervoor zorgt dat de processor ook echt iets gaat doen voor je. We beginnen met assembly en gaat later door op machinetaal. Machinetaal is op het laagste niveau. Dichter bij de processor kun je eigenlijk niet komen. 
 
-### Assembly
+## Assembly
 
 Voordat we verder gaan kijken naar assembly, moet je goed begrijpen dat de instructies die we gaan schrijven niet bedoeld zijn voor de ALU, maar voor de besturingseenheid/control unit (CU) van de processor. De CU ontvangt de instructies en geeft die vervolgens door aan de ALU. Daarbij moet de besturingseenheid aangeven welke operator en operand(en) de ALU moet gebruiken. De operator is gebaseerd op de *mnemonic*, en de operand(en) op de argument(en). Een mnemonic is letterlijk vertaald een geheugensteuntje. In assembly beschouwen we deze geheugensteuntjes als super simpele instructies, die de CU kan begrijpen. In dit hoofdstuk zul je gaan leren welke instructies dit zijn en hoe je ze kan gebruiken om zelf een programma in assembly te schrijven.
 
@@ -14,11 +12,11 @@ align: center
 scale: 80%
 ---
 ```
-#### Mnemonics
+### Mnemonics
 
 Een mnemonic voor assemby is meestal een twee of drieletterige combinatie van letters, die een afkorting is van de taak die de betreffende mnemonic uitvoert weergeeft. Voorbeelden van mnemonics zijn `ADD`, `BE`, `HLT`, `MUL`,`JMP` en `MOV`. De mnemonic `ADD` staat voor een optel-instructie (addition), de mnemonic `BE` voor Branch-if-equal (maak een sprong wanneer iets gelijk aan elkaar is), de mnemonic `HLT` voor het stoppen van de processor. Deze instructies worden door de CU uit het geheugen opgehaald. De CU haalt vervolgens de argumenten/operanden voor de instructie op en geeft deze door aan de ALU. Bij een `ADD`-operatie moet je natuurlijk weten *wat* je bij elkaar op wil tellen. Instructies waar geen operanden voor nodig zijn, gaan ook niet langs de ALU. Een voorbeeld van zo'n argumentloze instructie is  `HLT`: halt. Als de processor die instructie krijgt, stopt die met het uitvoeren van opdrachten. Daarvoor hoeft de ALU niets te doen. Daarom heeft die instructie ook helemaal geen argumenten nodig. 
 
-#### Argumenten
+### Argumenten
 
 De besturingseenheid bepaalt de operanden voor de ALU op basis van de argumenten die in een instructie staan. Er zijn verschillende manieren waarop dat gebeurt. Een argument kan namelijk van alles zijn, bijvoorbeeld: 
 
@@ -80,7 +78,7 @@ De assembly code, die we nu schrijven, kun je ook online uitproberen in de [RISC
 
 We zullen nu kijken naar de twee argumenten die achter de mnemonics staan: een register en een getal.
 
-#### Registers als argument
+### Registers als argument
 
 Registers kunnen op verschillende manieren gebruikt worden: lezen en schrijven. Als een register gelezen moet worden, wordt er nog preciezer aangegeven wat het doel is om een register te lezen. De letters achter de `R` betekenen het volgende:
 
@@ -93,15 +91,15 @@ Registers kunnen op verschillende manieren gebruikt worden: lezen en schrijven. 
 
 Een argument kan ook aangeven dat een register voor meerdere doelen gebruikt worden. Dat zie je in de tabel met basis-instructies ook: daar staat als eerste argument vaak `Rsd`. Het register dat je op die plaats invult, wordt dus zowel gebruikt om de waarde voor de eerste operand uit te lezen, alsook om het antwoord op de berekening in op te slaan.
 
-#### Getallen als argument
+### Getallen als argument
 
 Het tweede argument in de basis-instructies is een getal van 8 bits. De naam imm8 betekent: 8-bit immediate value. De term **immediate** geeft aan dat hier een directe waarde van een operand in de instructie staat, en geen geheugenadres of register-nummer. Het is goed om je ervan bewust te zijn dat de maximale waarde van een 8-bits getal 255 is. Grotere getallen kan je dus niet opgeven als argument: dat levert een foutmelding op in de simulator.
 
-#### Code uitleggen
+### Code uitleggen
 
 Om coderegels uit te leggen, kan je **commentaar** toevoegen. Dat doe je door een dubbele schuine streep (slash) neer te zetten: `//`. Alles wat je daarachter typt, wordt niet uitgevoerd door de computer. Nog meer dan bij een programmeertaal als Python of Java(script) is het belangrijk om commentaar bij je code te zetten. Soms heb je echt geen idee *waarom* je een bepaalde instructie hebt geschreven. De cryptische vorm van assembly helpt je ook niet echt in het snel begrijpen waarom iets geschreven is.
 
-#### Assembly invoeren in de RISC-simulator
+### Assembly invoeren in de RISC-simulator
 
 ```{figure} assets/image-20231212120442724.png
 ---
@@ -143,7 +141,7 @@ Om rekensommen op te schrijven in assembly, volg je drie stappen:
 
 Volg dat stappenplan in de volgende oefening.
 
-#### Assembly uitvoeren in de RISC-simulator
+### Assembly uitvoeren in de RISC-simulator
 Wanneer je je assembly-code uitvoert in de RISC-simulator (door op `RUN` te klikken), zie je een hoop beweging op je scherm. Je zult zien dat de Fetch-Decode-Execute cyclus uitgevoerd wordt.
 1. Het register PC wordt uitgelezen. Hier bevindt zich de locatie van de instructie, die opgehaald moet worden.
 2. Met de informatie uit dit register wordt de instructie opgehaald *en* met de incrementer het PC register met 1 opgehoogd, want daar staat vast wel de volgende instructie.
@@ -188,14 +186,14 @@ instructie 2: `ADD R1, #4 // 20 + 4`
 ^ betekent “tot de macht”, maar daarvoor is geen mnemonic beschikbaar. Welke operator kan je nu gebruiken in plaats van ^?
 :::
 
-### Machinetaal
+## Machinetaal
 In een computer moet alles in binaire getallen (digitaal) worden genoteerd. Ook instructies zijn dus reeksen van enen en nullen. Dat noemen we **machinetaal**. Hoe je op die manier een instructie opschrijft, is vastgelegd in de **instructieset** van een processor. Een onderdeel daarvan beschrijft bijvoorbeeld hoe je rekensommen kan noteren voor een processor. In deze paragraaf ontdek je hoe dat werkt met behulp van de [RISC simulator](https://peterhigginson.co.uk/RISC).
 
 Een programma dat geschreven is in assembly (afgekort ASM), moet dus eerst vertaald worden naar machinetaal voordat het uitgevoerd kan worden. Daarvoor wordt een **assembler** gebruikt. Dat is een programma dat ASM vertaalt naar machinetaal.
 
 In een RISC-architectuur heeft iedere instructie in machinetaal een vaste lengte. Bij de RISC-simulator is dat even groot als een woord. Die werkt met woorden van 16 bits, waardoor de instructies ook allemaal zo lang zijn. Een aantal van die bits is nodig om aan te geven wat er moet gebeuren, bijvoorbeeld optellen. Daardoor kan je in geen enkele instructie een getal van 16 bits gebruiken. Als je toch 16-bits getallen wilt gebruiken als operanden, dan moet je die getallen eerst in het geheugen of in de registers plaatsen.
 
-#### Instructieformaten
+### Instructieformaten
 
 We gaan nu verder kijken hoe je een berekening kan opschrijven in machinetaal, dus in enen en nullen. Om alle benodigde gegevens in een instructie op te schrijven, wordt de instructie in velden opgedeeld. Een **veld** is een groepje van bits die samen een betekenis hebben. Een **instructieformaat** geeft aan hoe groot elk veld is. Een voorbeeld daarvan zie je in de onderstaande afbeelding, namelijk instructieformaat A. Dat is maar één van de instructieformaten uit de instructieset van de RISC-simulator. Verderop zullen we ook andere formaten ontdekken.
 
@@ -206,7 +204,7 @@ align: center
 Een instructieformat van 16 bits
 ```
 
-#### Operation codes
+### Operation codes
 
 In de afbeelding hierboven zie je dat de drie velden allemaal een naam hebben. We zullen ze van links naar rechts doornemen, zodat je begrijpt wat de namen betekenen. Het eerste veld (op) is het **opcode** veld. Dat is een afkorting van **operation code**. Die geeft aan wat er moet gebeuren. Een mnemonic wordt door de assembler dus vertaald in een opcode. De RISC simulator heeft bijvoorbeeld de volgende binaire codes voor `ADD` en `SUB`: 00010 is `ADD` 00011 is `SUB`. In de tabel hieronder zie je alle 8 de opcodes die bij formaat A horen.
 
@@ -221,7 +219,7 @@ In de afbeelding hierboven zie je dat de drie velden allemaal een naam hebben. W
 | 00110   | logische EN (Rsd = Rsd & imm8)  |
 | 00111   | logische OF (Rsd = Rsd          |
 
-#### Argumenten
+### Argumenten
 
 Na de eerste 5 bits voor de opcode, zijn er in formaat A nog 11 bits beschikbaar voor de argumenten. Die worden verdeeld in twee velden: een veld van 3 bits met de naam Rsd en een veld van 8 bits met de naam imm8. De namen van de velden geven aan wat de betekenis van het argument is, zoals uitgelegd bij assembly.
 
@@ -240,7 +238,7 @@ In deze instructie zijn de decimale waarden van de velden:
 
 Dus deze instructie staat voor: `ADD R4, #22` oftewel R4 = R4 + 22.
 
-#### Machinetaal invoeren in de RISC-simulator
+### Machinetaal invoeren in de RISC-simulator
 
 ```{figure} assets/image-20231219115603223.png
 ---
@@ -400,7 +398,7 @@ f. 8 & 29
 ````
 
 
-### Compileren of interpreteren
+## Compileren of interpreteren
 
 Je hebt nu gezien dat het schrijven van programma's in machinetaal best bewerkelijk is. Assembly lost deze bewerkelijkheid maar deels op. Machinetaal en assembly noemen we daarom ook **lagere programmeertalen**. Een lagere programmeertaal kenmerkt zich doordat je veel kleine instructies achter elkaar moet zetten om iets fatsoenlijks voor elkaar te krijgen. En hoe zit dat dan met talen als C, Java, Python, Rust en SQL? Dit zijn hogere programmeertalen. Programma's geschreven in deze hogere programmeertalen worden ook uitgevoerd door de computer, dus die zullen op een of andere manier bij de processor en machinetaal niveau uit moeten komen.
 
@@ -453,213 +451,3 @@ e. `0001110100000110`
 f. `0000000000000000`
 ````
 
-## Gegevens verwerken en verplaatsen
-
-Tot nu toe zagen we alleen hoe je instructies kan uitvoeren die werken met een register en een vaste waarde. Dat zijn namelijk de twee velden die formaat A heeft. Daarbij hebben we alleen gelet op berekeningen. Een processor kan veel meer dan dat. Daarom ga je in deze paragraaf nieuwe instructieformaten ontdekken waarmee je gegevens kan verwerken. Daarnaast leer je ook hoe je gebruik kan maken van het geheugen en van in- en uitvoer zodat je de gegevens ook kan verplaatsen naar andere plekken dan alleen registers.
-
-### Geheugen gebruiken
-
-In assembly-code kan je niet alleen instructies zetten, maar ook gewone getallen. Zoals eerder gezegd, zijn instructies in de [RISC-simulator](http://peterhigginson.co.uk/RISC/) één woord lang. Bij de RISC-simulator is dat 16 bits. Omdat een instructie altijd uit meerdere velden bestaat, kan een argument nooit 16 bits lang zijn. Er moet namelijk minstens een opcode-veld voor de argumenten staan. De processor kan wel rekenen met getallen van 16 bits. Daarom is er een manier om, naast de instructies, ook getallen van 16 bits in een programma op te nemen.
-
-Om een waarde in te voeren gebruik je de mnemonic `DAT`. Dat is het enige mnemonic die niet vertaald wordt in een opcode. Het geeft juist aan dat er alleen een waarde neergezet moet worden op die plaats in het geheugen. Een waarde kan je decimaal of hexadecimaal intypen. Om aan te geven dat een getal hexadecimaal is, zet je er `0x` voor. `DAT 10` doet dus precies hetzelfde als `DAT 0xA`.
-
-Het is goed om te weten dat de processor niet zelf kan bedenken wat jij hebt bedoeld met de bits van een programma. De processor ziet niet of er `DAT` voor stond in assembly, of niet. Sommige woorden (rijen van bits) zal de processor interpreteren als een instructie, en andere zal hij gebruiken als een gewoon getal. Hoe zorg je ervoor dat een getal niet per ongeluk wordt uitgevoerd alsof het een instructie is? In de volgende oefening denk je daarover na.
-
-:::{exercise} Betekenis van bits
-
-Zet het onderstaande programma in de [RISC-simulator](http://peterhigginson.co.uk/RISC/) (nog niet uitvoeren!).
-
-```
-DAT 0x294d
-DAT 4365
-DAT 0
-DAT 0x5104
-```
-
-Maak nu de onderstaande opdrachten.
-
-a. Wat denk je dat er gebeurt als je dit programma uitvoert?
-
-b. Voer het programma nu uit. Klopte je voorspelling? Wat is er anders?
-
-c. Schrijf `0x294D` eens op als binair getal. Wat is de betekenis hiervan als je het leest als machinecode (zie formaat A in 4.1)?
-
-d. Wat doet de processor met`DAT 0x294D`?
-
-   *Tip: gebruik de STEP-knop in de simulator om de instructies één voor één uit te voeren.*
-
-e. Wat doet de processor met `DAT 4365`?
-
-f. Wat doet de processor met`DAT 0`?
-
-g. Wat doet de processor met `DAT 0x5104`?
-
-h. Schrijf het programma nu op in assembly.
-:::
-
-Zoals je nu gezien hebt, hoeft de computer helemaal niet te weten wat de betekenis van een rij bits is. Als de program counter naar een geheugencel wijst, dan wordt wat daar staat geïnterpreteerd als instructie. Als het een gewoon getal is, dan moet je een instructie gebruiken die de waarde uit het geheugen haalt, om er vervolgens bijvoorbeeld een berekening mee uit te voeren. Uiteindelijk bepaal jij dus wat er gebeuren moet met een rij bits in het geheugen.
-
-```{figure} assets/image-20231224000454723.png
----
-scale: 40%
-align: right
----
-```
-
-Een programma moet altijd beginnen met instructies. Dat komt omdat de program counter begint bij 0. Na iedere instructie wordt daar 1 bij opgeteld. Daarom moet een programma altijd beginnen met de instructies die uitgevoerd moeten worden. Daartussen kan je niet zomaar een waarde neerzetten die je niet als instructie bedoelt, want de control unit van de processor kan niet bepalen of iets een getal of een instructie is.
-
-Het eerste gedeelte van een programma bestaat dus uit alleen instructies. Dat noemen we de **tekstsectie**. Die eindigt met de instructie `HLT` (halt). Daarachter kan je alle waarden neerzetten die in het programma gebruikt worden. Dat noemen we de **datasectie**.
-
-Bij de meeste instructies kan je als argumenten alleen immediates of registers gebruiken. Waarden uit het geheugen moeten daarom eerst in een register worden gezet. Daarvoor gebruik je de instructie LDR. Dat staat voor **L**oa**D R**egister. Een waarde uit een register kan ook weer opgeslagen worden in de datasectie. Daarvoor is de instructie STR. Dat staat voor **ST**ore **R**egister.
-
-```{list-table} Instructies voor geheugengebruik
-:header-rows: 1
-:width: 80%
-:align: center
-* - Instructie
-  - Betekenis
-* - `DAT` word
-  - Voeg een 16-bits waarde (word) in op deze plek in het programma
-* - `LDR` Rd, direct
-  - Laad de waarde voor een register uit het geheugen
-* - `STR` Rd, direct
-  - Schrijf een waarde van een register in het geheugen
-```
-
-Beide instructies hebben twee argumenten: een register en een geheugenadres. Dat is ook te zien in de tabel hiernaast. Rd en Rs zijn het doel- en bronregister (d: destination en s: source). Het argument direct is een **direct geheugenadres** waar de waarde vandaan komt of naartoe moet. Dit wordt “direct” genoemd, omdat je op deze manier iedere mogelijke geheugenplaats kan adresseren, in tegenstelling tot indirecte adressen. Bij een **indirect adres** geef je alleen aan hoeveel geheugenplaatsen je naar voren of naar achteren moet ten opzichte van een gegeven direct adres. Hier gaan we nu niet verder op in, omdat je indirecte adressen pas nodig hebt bij het verdiepingsonderdeel “Strings printen” dat later aan de orde komt.
-
-:::{exercise} Gegevens opslaan in het geheugen
-In deze kleine opdracht ga je een stuk code aanpassen. Bekijk de onderstaande code
-```
-DAT 7
-LDR R1, 0
-ADD R1, #23
-STR R1, 0
-HLT
-```
-a. Wat denk je dat er gebeurt als je dit programma uitvoert? Geef per instructie een omschrijving.
-
-b. Voer het programma nu uit. Klopte je voorspelling? Wat is er anders?
-
-c. Pas het programma zodanig aan dat de regel met `DAT 7` helemaal onderaan komt te staan en het resultaat hetzelfde blijft, wanneer je het programma uitvoert. *Hint* je zult iets aan de directe adressering moeten veranderen.
-:::
-
-Zoals gezegd gebruiken de meeste instructies alleen immediates of registers als argumenten. Je hebt tot nu toe alleen instructies gezien die een register en een immediate gebruiken. Dat zijn de instructies van formaat A. Er zijn ook andere formaten, waarbij je bijvoorbeeld **twee registers als argumenten** moet opgeven, bijvoorbeeld `ADD R1, R2`. Bij die instructie wordt de waarde die in register `R2` staat opgeteld bij de waarde die in register `R1` staat. Hieronder zie je een lijstje met instructies die je ook kan gebruiken.
-```{list-table} Instructies met registers als argumenten
-:header-rows: 1
-:width: 80%
-:align: center
-* - Instructie
-  - Betekenis
-* - `ADD` Rsd, Rb
-  - Rsd = Rsd + Rb
-* - `SUB` Rsd, Rb
-  - Rsd = Rsd - Rb
-* - `AND` Rsd, Rb
-  - Rsd = Rsd && Rb
-* - `ORR` Rsd, Rb
-  - Rsd = Rsd || Rb
-* - `MOD` Rsd, Rb
-  - Rsd = Rsd % Rb
-* - `CMP` Rd, Rb
-  - Rd == Rb
-* - `MOV` Rd, Rb
-  - Rd = Rb (*Toewijzing*)
-* - `MUL` Rsd, Rb
-  - Rsd = Rsd * Rb
-* - `DIV` Rsd, Rb
-  - Rsd = Rsd / Rb
-```
-
-Om een beeld te krijgen van hoe een programma eruit ziet met een datasectie, maak je de onderstaande oefening.
-
-`````{exercise} Datasectie gebruiken.
-In deze opdracht schrijf je sommen op in assembly. Gebruik daarvoor de getallen die al klaar staan in de datasectie in de onderstaande code. Je kan je antwoord testen in de [RISC-simulator](http://peterhigginson.co.uk/RISC/).
-
-```
-// zet hieronder de instructies neer die de berekeningen uitvoeren
-// hier komt opdracht a
-// hier komt opdracht b
-// hier komt opdracht c
-// hier komt opdracht d
-// hier komt opdracht e
-// hier komt opdracht f
-STR R1, // voer hier het adres voor het resultaat in
-HLT // start van de datasectie
-DAT 7  // getal P
-DAT 2  // getal Q
-DAT 11 // getal R
-DAT 45 // getal S
-DAT 0 // de plek voor antwoord A
-DAT 0 // de plek voor antwoord B
-DAT 0 // de plek voor antwoord C
-```
-In de tekstsectie laad je beide waarden uit de datasectie, voert de berekening daarmee uit, en schrijft het daarna weg op de juiste plek in de datasectie. De eerste is al voorgedaan. Volg dit voorbeeld bij de andere opgaven.
-
-a. P * Q
-
-````{admonition} Uitwerking
-:class: dropdown
-
-```
-LDR R1, 5 // laad de eerste operand (getal P) in R1
-LDR R2, 6 // laad de tweede operand (getal Q) in R2
-MUL R1, R2 // opdracht a
-STR R1, 9 // opslaan van antwoord A in het geheugen
-// hier komt opdracht b
-// hier komt opdracht c
-HLT // start van de datasectie
-DAT 7  // getal P (regel 5)
-DAT 2  // getal Q (regel 6)
-DAT 11 // getal R
-DAT 45 // getal S
-DAT 0 // de plek voor antwoord A (regel 9)
-DAT 0 // de plek voor antwoord B
-DAT 0 // de plek voor antwoord C
-```
-Test of het werkt: komt er inderdaad 14 te staan op de plek voor antwoord a?
-````
-
-b. P * Q + R
-
-  **Let op**: vergeet niet te testen nadat je deze opdracht hebt toegevoegd. Gaat opdracht a dan ook nog goed?
-
-````{admonition} Uitleg
-:class: dropdown
-De getallen die nu in R1 en R2 geladen worden, zijn niet 7 en 2 maar heel andere getallen. Hoe komt dat?
-
-Omdat je nieuwe regels in de tekst-sectie hebt toegevoegd, is de datasectie opgeschoven. Daarom moet je de adressen 5 en 6 veranderen naar de adressen waar de getallen 7 en 2 nu in het geheugen staan.
-
-Waarschijnlijk heb je drie instructies toegevoegd, dus kan je het oplossen door 5 te veranderen in 8 en 6 te veranderen in 9.
-
-Let op dat je ook het adres van antwoord A aanpast, want anders overschrijf je een getal dat daar al staat. Adres 9 is nu namelijk de plek waar getal Q staat.
-````
-
-````{admonition} Uitwerking (als je er echt niet uitkomt)
-:class: dropdown
-```
-LDR R1, 8 // laad de eerste operand (getal P) in R1
-LDR R2, 9 // laad de tweede operand (getal Q) in R2
-MUL R1, R2 // opdracht a
-STR R1, 12 // opslaan van antwoord A in het geheugen
-LDR R2, 10 // laad de tweede operand (getal R) in R2 
-ADD R1, R2  // opdracht b
-STR R1, 13 // opslaan van antwoord B in het geheugen
-// hier komt opdracht b
-// hier komt opdracht c
-HLT // start van de datasectie
-DAT 7  // getal P (regel 8)
-DAT 2  // getal Q (regel 9)
-DAT 11 // getal R (regel 10)
-DAT 45 // getal S
-DAT 0 // de plek voor antwoord A (regel 12)
-DAT 0 // de plek voor antwoord B (regel 13)
-DAT 0 // de plek voor antwoord C
-```
-Opmerking: het antwoord van a staat nog in R1, dus dat hoef je niet opnieuw uit het geheugen te laden.
-````
-
-c. S - (P * Q + R)
-`````
-
-Zoals je hebt gemerkt, is het lastig dat je van tevoren niet weet wat het adres van een waard in de datasectie is. Dat komt omdat je nog niet kan voorspellen hoe lang het programma wordt. Bovendien moet je op deze manier ook alle adressen aanpassen als je ook maar één instructie toevoegt of verwijdert. Gelukkig is daar een oplossing voor: **labels**
