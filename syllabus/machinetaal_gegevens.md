@@ -438,3 +438,95 @@ Maak een programma in de [RISC-simulator](http://peterhigginson.co.uk/RISC/) dat
 
 :::
 
+## Meer instructieformaten in machinetaal
+
+We gaan nu weer kijken naar machinetaal. Tot nu toe hebben we alleen gelet op “formaat A”. Daarmee kon je bewerkingen uitvoeren op één register (Rsd) met een vast getal (imm8: immediate van 8 bits lang). Hieronder zie je het schema van formaat A nog eens staan.
+
+```{figure} assets/image-20231229162951996.png
+---
+align: center
+---
+Instructieformaat A
+```
+
+Misschien is het je toen al opgevallen: alle instructies van formaat A beginnen met 00. De eerste twee bits geven bij de RISC-simulator aan welk formaat er gebruikt wordt. De instructieformaten zijn namelijk opgedeeld in vier **instructieformaatgroepen** (00, 01, 10 en 11): groep A, B, C en D. Formaatgroep A bestaat uit maar 1 formaat, maar de andere groepen bestaan uit meerdere formaten (groep B zelfs uit 12 formaten: B1 t/m B12). Nu gaan we op een paar van die formaten wat dieper in.
+
+Eerst kijken we nog even naar formaat A. Alle instructies van dat formaat beginnen dus met 00. De drie bits achter die groepscode geven bij formaat A aan welke operatie er precies uitgevoerd moest worden. Het op-veld moet dus eigenlijk nog in tweeën gesplitst worden qua betekenis:
+
+```{figure} assets/image-20231229163037996.png
+---
+align: center
+---
+Instructieformaat A
+```
+
+Het eerste veld geeft aan in welke groep het instructieformaat valt. Daarom wordt dat veld **op_g** genoemd: **opcode group**. Het tweede veld, **func**, geeft de functie aan die we gebruiken. Dat veld geeft aan wat de ALU te doen staat. Bij een enkele func-waarde is dat helemaal niets, bijvoorbeeld bij MOV (func is dan 101): dan hoeft er alleen een waarde in een register geladen te worden, zonder dat daar iets mee berekend wordt.
+
+We zullen nu twee andere formaten bekijken uit groep B (op_g == 01). Die groep bestaat uit twaalf sub-formaten. Dat betekent dat er verschillende velden nodig zijn voor de operations die met formaatgroep B kunnen worden genoteerd. We zullen nu alleen naar instructieformaten B1, B3 en B10 kijken. Alle overige formaten zijn te vinden in de [lijst van instructieformaten](assets/RISC-Simulator-Instruction-Set).
+
+```{figure} assets/image-20231229163137878.png
+---
+align: center
+---
+Instructieformaat B1
+```
+
+```{figure} assets/image-20231229163145491.png
+---
+align: center
+---
+Instructieformaat B3
+```
+
+```{figure} assets/image-20231229163153668.png
+---
+align: center
+---
+Instructieformaat B3
+```
+
+In deze drie formaten zie je nog en nieuwe veldnaam: **op_f**. Dat veld vormt samen met op_g de opcode. Zoals eerder gezegd, geeft op_g de groep aan. op_f geeft het instructieformaat binnen die groep aan. Als je de opcode weet (op_g en op_f), dan weet je ook de verdeling van de overige bits van de instructie in velden.
+
+Met deze nieuwe formaten is het mogelijk om berekeningen te doen waarbij beide waarden uit registers komen. Het register voor het eerste argument wordt Rs genoemd (source), net als in formaat A. Het register voor het tweede argument wordt Rb genoemd (base). In assembly noteer je dat zoals in de tabel hieronder is weergegeven.
+
+|Mnemonic|A(00)/B1(010) | B3 (0110) | B10 (011101) | opmerking |
+|-|-|-|-|-|
+|`ADD` |  Fun: 010(A)<br />`ADD` Rsd, #imm8| func:000<br />`ADD` Rd, Rs, Rb | | `ADD` Rsd, Rb, wordt door de assembler vertaald als `ADD` Rsd, Rsd, Rb |
+|`SUB` | func: 011(A)<br />`SUB` Rsd, #imm8 | func: 001<br />`SUB` Rd, Rs, Rb | | `SUB` Rsd, Rb wordt door de assembler vertaald als `SUB` Rsd, Rsd, Rb |
+|`MUL` | func: 011(A)<br />`MUL` Rsd, #imm8 |  | func: 1111<br />`MUL` Rsd, Rb |  |
+|`DIV` |  |  | func: 0101<br />`DIV` Rsd, Rb |  |
+|`MOD` | func: 001(A)<br />`MOD` Rsd, #imm8 |  | func: 0001<br />`MOD` Rsd, Rb |  |
+|`CMP` | func: 100(A)<br />`CMP` Rsd, #imm8 |  | func: 1010<br />`CMP` Rs, Rb |  |
+|`MOV` | func: 101(A)<br />`MOV` Rd, #imm8 |  | func: 1100<br />`MOV` Rd, Rs |  |
+|`NEG` |  |  | func: 0111<br />`NEG` Rd, Rs | Negativate: maakt het getal negatief, alsof je het vermenigvuldigd met -1. 2's complement-notatie |
+|`AND` | func: 110(A)<br />`AND` Rsd, #imm8 | func: 010<br />`AND` Rd, Rs, Rb |  | `AND` Rsd, Rb wordt door de assembler vertaald als `AND` Rsd, Rsd, Rb |
+|`OR` | func: 111(A)<br />`OR` Rsd, #imm8 | func: 010<br />`OR` Rd, Rs, Rb |  | `OR` Rsd, Rb wordt door de assembler vertaald als `OR` Rsd, Rsd, Rb |
+
+:::{exercise} Handmatig assembleren
+In deze oefening doe je het werk dat een assembler normaalgesproken voor je doet: assembleren. Vertaal de onderstaande opdrachten naar machinetaal. Bepaal daarvoor eerst welk formaat je hiervoor gebruikt (A/B1/B3/B10). De eerste opdracht is voorgedaan. Volg dat voorbeeld in je eigen uitwerkingen.
+
+a. `ADD` R3, R5
+    
+```{admonition} Uitwerking
+:class: dropdown
+    
+Formaat: B3, op = 0110
+
+*Opmerking: ADD R3, R5 wordt door de assembler vertaald naar ADD R3, R3, R5 in machinetaal, omdat er geen B10-variant van de ADD-instructie is*
+
+Functie: `ADD`, func = 000
+    
+Argumenten: Rd = 011 (3), Rs = 011 (3), Rb = 101 (5)
+    
+Instructie: `0110 000 011 011 101`
+```
+b. `MUL` R7, R2
+
+c. `MOD` R4, #5
+
+d. `SUB` R3, R2, R1
+
+e. `MUL` R7, #2
+
+f. `AND` R3, R7
+:::
