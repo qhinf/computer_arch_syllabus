@@ -247,6 +247,7 @@ $2_d - 4_d = 2_d + -4_d = 0010_b + 1011_b = 1101_b = -2_d$. Gelukkig 😀
 
 Maar we zijn er nog niet helemaal. Door het bestaan van de twee nullen `0` en `-0` kan er nog steeds een probleem ontstaan bij grensgevallen. Één van de mogelijke oplossingen van dit probleem is de zogenaamde twee-complements notatie.
 
+(twee-complement)=
 ### Twee-complements notatie
 
 Deze notatie is een kleine, maar belangrijke wijziging. Bekijk het stappenplan hieronder:

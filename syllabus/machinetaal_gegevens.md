@@ -462,7 +462,7 @@ Instructieformaat A
 
 Het eerste veld geeft aan in welke groep het instructieformaat valt. Daarom wordt dat veld **op_g** genoemd: **opcode group**. Het tweede veld, **func**, geeft de functie aan die we gebruiken. Dat veld geeft aan wat de ALU te doen staat. Bij een enkele func-waarde is dat helemaal niets, bijvoorbeeld bij MOV (func is dan 101): dan hoeft er alleen een waarde in een register geladen te worden, zonder dat daar iets mee berekend wordt.
 
-We zullen nu twee andere formaten bekijken uit groep B (op_g == 01). Die groep bestaat uit twaalf sub-formaten. Dat betekent dat er verschillende velden nodig zijn voor de operations die met formaatgroep B kunnen worden genoteerd. We zullen nu alleen naar instructieformaten B1, B3 en B10 kijken. Alle overige formaten zijn te vinden in de [lijst van instructieformaten](assets/RISC-Simulator-Instruction-Set).
+We zullen nu twee andere formaten bekijken uit groep B (op_g == 01). Die groep bestaat uit twaalf sub-formaten. Dat betekent dat er verschillende velden nodig zijn voor de operations die met formaatgroep B kunnen worden genoteerd. We zullen nu alleen naar instructieformaten B1, B3 en B10 kijken. Alle overige formaten zijn te vinden in de [lijst van instructieformaten](assets/RISC-Simulator-Instruction-Set.pdf).
 
 ```{figure} assets/image-20231229163137878.png
 ---
