@@ -5,9 +5,10 @@
 format: jb-book
 root: index
 options:
-  numbered: 3
+#  numbered: true
 parts:
 - caption: Lesmateriaal
+  numbered: 3
   chapters:
     - file: binair_rekenen
     - file: logica
@@ -16,6 +17,7 @@ parts:
     - file: machinetaal_gegevens
     - file: machinetaal_programma
 - caption: Verdiepingsmateriaal
+  numbered: true
   chapters:
     - file: verdieping_logica
     - file: specialisatie
