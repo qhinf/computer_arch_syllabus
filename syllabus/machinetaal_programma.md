@@ -57,3 +57,45 @@ Om aan te geven bij welke instructie het programma verder moet gaan, kan je ook 
 loop: MUL R1, #2
       BRA loop
 ```
+## Condities
+
+Meestal wil je helemaal geen infinite loop, maar een herhaling die door blijft gaan totdat er aan een voorwaarde wordt voldaan. Daarom gebruik je een branch-opdracht meestal samen met een conditie (voorwaarde). Daarin vergelijk je twee getallen met elkaar. Dat doe je met de instructie CMP. In de tabel hieronder zie je welke mogelijke argumenten je daarbij kan gebruiken. Hoe de ALU een vergelijking precies uitvoert, lees je verderop onder het kopje “waarden vergelijken”.
+
+```{list-table} Condities voor branching
+:header-rows: 1
+* - instructie
+  - betekenis
+* - `CMP` Rb, #imm8
+  - Vergelijk de waarde in Rb met een vaste waarde #imm8
+* - `CMP` Rb, Rs
+  - Vergelijk de waarde in Rb met de waarde in Rs
+```
+Nadat de ALU de vergelijking heeft uitgevoerd, kan je de program counter laten veranderen. Of dat moet gebeuren, is afhankelijk van het resultaat van de vergelijking. Om te kiezen op welk resultaat de program counter moet reageren, zijn er meerdere varianten beschikbaar van de branch-instructie. Allemaal beginnen ze wel met een B. Daarachter staan twee letters die aangeven wanneer de program counter aangepast moet worden. rechts hiervan zie je een deel van de mogelijkheden weergegeven. Er zijn nog negen andere, maar die zal jij voorlopig niet nodig hebben.
+```{list-table} Branch mnemonics
+:header-rows: 1
+* - conditie
+  - mnemonic
+  - betekenis
+* - geen
+  - `BRA` address
+  - **BR**anch **A**lways to address
+* - $A = B$
+  - `BEQ` address
+  - **B**anch if **EQ*ual to address
+* - $A\neq B$
+  - `BNE` address
+  - **B**ranch if **N**ot **E**qual to address
+* - $A<B$
+  - `BLT` address
+  - **B**ranch if **L**ess **T**han to address
+* - $A>B$
+  - `BGT` address
+  - **B**ranch if **G**reater **T**han to address
+* - $A\leq B$
+  - `BLE` address
+  - **B**ranch if **L**ess or **E**qual to address
+* - $A\geq B$
+  - `BGE` address
+  - **B**ranch if **G**reater or **E**equal to address
+```
+Je kan branchen met een conditie op twee manieren gebruiken: door de Program Counter (PC) achteruit te laten springen, of juist vooruit. Beide opties worden uitgelegd in de volgende drie deelparagrafen.
