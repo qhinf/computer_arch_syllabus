@@ -1,3 +1,4 @@
+(hoofdstuk-instructies)=
 # Machinetaal - Instructies voor de processor
 
 We weten nu hoe we met complexe schakelingen bijvoorbeeld de binaire optelling kunnen maken. Dit is slechts één voorbeeld van wat complexe schakelingen kunnen maken. Een processor is zelf een complexe schakeling, die vele malen ingewikkelder is dan de schakelingen waar wij mee bezig zijn geweest. We weten nu ook wat de functie van de processor is in de von Neumann architectuur en de Harvard architectuur. In dit hoofdstuk ga je leren hoe je de code schrijft, die ervoor zorgt dat de processor ook echt iets gaat doen voor je. We beginnen met assembly en gaat later door op machinetaal. Machinetaal is op het laagste niveau. Dichter bij de processor kun je eigenlijk niet komen. 

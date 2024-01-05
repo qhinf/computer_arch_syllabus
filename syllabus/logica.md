@@ -1,3 +1,4 @@
+(hoofdstuk-logica)=
 # Logica voor computers
 
 ## En zo begint het

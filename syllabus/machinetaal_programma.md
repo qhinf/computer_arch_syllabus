@@ -1,3 +1,4 @@
+(hoofdstuk-besturing)=
 # Machinetaal - Programmabesturing
 
 ## Springen door de code
@@ -412,3 +413,353 @@ Maak een raad-spel in de [RISC-simulator](http://peterhigginson.co.uk/RISC/) dat
 :::
 
 ## Uitgebreide keuzes
+
+Bij een keuze-structuur (`if`) kan je natuurlijk ook aangeven wat er moet gebeuren als de voorwaarde niet geldt (`else`). Die code kan je in assembly neerzetten tussen de twee branch-instructies (dus vlak voor de `BRA`-instructie). Hieronder zie je het uitgebreide stappenplan, met een extra stap op plek 5.
+
+```{admonition} Stappenplan keuze structuur vertalen
+1. **Registers laden**<br />
+Laad alle waarden van variabelen in registers
+2. **Voorwaarde berekenen**<br />
+Voer berekeningen uit. (niet altijd nodig)
+3. **Waarden vergelijken**<br />
+Zet een `CMP`-instructie neer met het juiste register en een waarde (of twee registers)
+4. **Branch-instructie indien waar**<br />
+Vertaal de conditie naar de juiste branch-instructie.
+5. **Instructies indien onwaar**<br />
+Zet de instructies neer die moeten worden uitgevoerd als er niet aan de voorwaarde is voldaan.
+6. **Branch-instructie indien onwaar**<br />
+Sluit af met een `BRA`-instructie voor het geval dat de voorwaarde niet waar is, zodat instruties overgeslagen worden die alleen uitgevoerd moeten worden als de voorwaarde wel waar is.
+7. **Label indien waar**
+Zet een label neer op de plek waar de instructies staan die alleen uitgevoerd moeten worden als aan de voorwaarde is voldaan.
+8. **Instructies indien waar**<br />
+Achter het label zet je de instructies neer die uitgevoerd moeten worden als aan de voorwaarde is voldaan. 
+9. **Label aan het einde**<br />
+Tenslotte zet je een label neer op de plek waar het programma verder gaat met instructies, die niet met de voorwaarde te maken hebben.
+```
+Dit stappenplan zullen we uitvoeren met een voorbeeld: bepalen of een cijfer voldoende is, of onvoldoende. De gebruiker moet eerst twee dingen invoeren: het maximale aantal punten en het gehaalde aantal punten. Dan berekent het programma of het resultaat voldoende (V) of onvoldoende (O) is. Hieronder zie je hoe de code er in een hogere programmeertaal uit zou kunnen zien.
+
+```Javascript
+if (score*10/max >= 6) {
+	print("V")
+}
+else {
+	print("O")
+}
+```
+
+**1. Registers laden**
+    
+Het programma vraagt de gebruiker eerst om twee getallen. Daarom begint het programma als volgt:
+```
+            INP R1, 2   // max. score
+            INP R2, 2   // score
+```
+
+**2. Voorwaarde berekenen**
+    
+In de voorwaarde staat nu ook een berekening die uitgevoerd moet worden voordat er twee getallen vergeleken kunnen worden: `score*10/max`. De code ziet er dan zo uit:
+
+```
+            INP R1, 2   // max. score
+            INP R2, 2   // score
+            MUL R2, #10 // score*10
+            DIV R2, R1  // score*10/max
+```
+
+**3. Waarden vergelijken**
+    
+De uitkomst van de berekening moeten we vergelijken met `6`:
+
+```
+            INP R1, 2   // max. score
+            INP R2, 2   // score
+            MUL R2, #10 // score*10
+            DIV R2, R1  // score*10/max
+            CMP R2, #6  // compare to 6
+```
+
+**4. Branch-instructie indien waar**
+    
+De vraag is of het groter of gelijk is, dus `BGE`:
+
+```
+            INP R1, 2   // max. score
+            INP R2, 2   // score
+            MUL R2, #10 // score*10
+            DIV R2, R1  // score*10/max
+            CMP R2, #6  // compare to 6
+            BGE sufficient
+```
+
+**5. Instructies indien onwaar**
+    
+Als de voorwaarde geldt, wordt de volgende code overgeslagen die staat tussen `BGE` en `BRA` (met daarna het label `sufficiënt`, zie bij stap 7). Hier laten we dus de letter `O` printen (ASCII: `0x4F` oftewel `79`):
+
+```
+            INP R1, 2   // max. score
+            INP R2, 2   // score
+            MUL R2, #10 // score*10
+            DIV R2, R1  // score*10/max
+            CMP R2, #6  // compare to 6
+            BGE sufficient
+            MOV R3, #79
+            OUT R3, 7
+```
+
+**6. Branch-instructie indien onwaar**
+    
+Nu zetten we een `BRA`-instructie neer om het gedeelte over te slaan dat alleen uitgevoerd moet worden als de voorwaarde geldt:
+
+```
+            INP R1, 2   // max. score
+            INP R2, 2   // score
+            MUL R2, #10 // score*10
+            DIV R2, R1  // score*10/max
+            CMP R2, #6  // compare to 6
+            BGE sufficient
+            MOV R3, #79
+            OUT R3, 7
+            BRA end
+```
+
+**7. Label indien waar**
+    
+Hierna komt het label waar de program counter naartoe moet springen als het cijfer wel minimaal een 6 was:
+
+```
+            INP R1, 2   // max. score
+            INP R2, 2   // score
+            MUL R2, #10 // score*10
+            DIV R2, R1  // score*10/max
+            CMP R2, #6  // compare to 6
+            BGE sufficient
+            MOV R3, #79
+            OUT R3, 7
+            BRA end
+sufficient: 
+```
+
+**8. Instructies indien waar**
+    
+Als het cijfer minimaal 6 was, printen we een V (ASCII: `0x56` oftewel 86):
+
+```
+            INP R1, 2   // max. score
+            INP R2, 2   // score
+            MUL R2, #10 // score*10
+            DIV R2, R1  // score*10/max
+            CMP R2, #6  // compare to 6
+            BGE sufficient
+            MOV R3, #79
+            OUT R3, 7
+            BRA end
+sufficient: MOV R3, #86
+            OUT R3, 7
+```
+
+**9. Label aan het einde**
+    
+Ten slotte zetten we het label `end` neer, zodat de program counter daarheen springt aan het einde van het else-gedeelte:
+
+```
+            INP R1, 2   // max. score
+            INP R2, 2   // score
+            MUL R2, #10 // score*10
+            DIV R2, R1  // score*10/max
+            CMP R2, #6  // compare to 6
+            BGE sufficient
+            MOV R3, #79
+            OUT R3, 7
+            BRA end
+sufficient: MOV R3, #86
+            OUT R3, 7
+end:        HLT
+```
+
+Dan is het nu weer tijd om er zelf mee te oefenen! Bij deze oefeningen heb je de [ASCII-tabel](https://stackoverflow.com/questions/7856930/mips-assembly-string-ascii-instructions) weer nodig, daarom staat deze hieronder. 
+
+```{figure} assets/ASCII_table.png
+---
+align: center
+---
+```
+
+:::{exercise} Kluis met pincode
+Schrijf een programma in de [RISC-simulator](http://peterhigginson.co.uk/RISC/) dat controleert of de gebruiker de juiste pincode invoert.
+
+1. Maak een variabele pincode aan in de datasectie.
+2. Zorg ervoor dat er om een pincode gevraagd wordt in de tekstsectie (je hoeft hiervoor geen tekst te printen, maar als je het leuk vindt mag dat natuurlijk wel).
+3. Laat de pincode controleren door een keuzestructuur. Als de pincode goed is, schrijf je “OK” naar de output. Als het fout is, schrijf je “WRONG PIN” naar de output.
+4. Laat de tekstsectie eindeloos herhalen.
+:::
+
+:::{exercise} Cijfer berekenen
+Als je een cijfer hebt gehaald, is het wel interessant om te weten of het een 6,2 is of een 6,8. In deze oefening schrijf je een programma in de [RISC-simulator](http://peterhigginson.co.uk/RISC/) dat een cijfer berekent met één cijfer achter de komma. Dat doe je aan de hand van het maximum aantal punten en het aantal  behaalde punten.
+
+1. Begin je programma met twee `INP`-instructies, net zoals in het uitgewerkte voorbeeld hierboven.
+2. Bereken het cijfer eerst op schaal van 0 tot 100 (kijk ook weer naar het uitgewerkte voorbeeld, daar wordt het op schaal van 0 tot 10 berekend).
+3.  Print nu drie ASCII-karakters: het cijfer (0-100) gedeeld door 10, een komma, en het cijfer modulo 10 (`MOD`-instructie).
+    
+    *Tip: de ASCII-karakters kan je berekenen door een getal op te tellen bij het cijfer dat je wilt printen. Kijk hiervoor in de ASCII-tabel!*
+    
+4. Wat nu als het cijfer een 10 is? Daar heb je een keuzestructuur voor nodig, omdat je dan een extra ASCII-karakter nodig hebt. Zorg ervoor dat er dan 10,0 geprint wordt.
+5. Extra: de cijfers worden niet goed afgerond, reken maar eens na: 23 punten van max. 40 moet een 6,2 opleveren (6,175), maar dat wordt nu een 6,1! Los dit probleem op door het cijfer eerst op schaal van 0 tot 1000 te bepalen, daar 5 bij-op te tellen, en er dan een cijfer van 0-100 van te maken.
+6. Extra: pas het programma aan, zodat het cijfer op schaal van 1 tot 10 wordt berekend (score / max * 9 + 1).
+7. Extra: laat de maximale score maar één keer invoeren, en herhaal de rest van het programma totdat de score 0 wordt ingevoerd. Zo kunnen docenten makkelijk meerdere cijfers laten uitrekenen achter elkaar! (en dat score 0 het cijfer 1 oplevert, daar hebben ze hopelijk geen programma bij nodig…)
+:::
+
+:::{exercise} Boete berekenen
+In 4.2 heb je ook al de boete berekent bij een snelheidsovertreding waar je 70 km/h mocht rijden. De formule daar werkte alleen bij snelheden tot 80 km/h. Boven die snelheid wordt er namelijk een andere formule gebruikt. Laad je code van die opdracht weer in de [RISC-simulator](http://peterhigginson.co.uk/RISC/).
+
+Pas het programma nu aan zodat het ook voldoet aan de volgende eisen:
+
+1. Als de snelheid niet wordt overtreden met meer dan 3 km/h, is de boete €0.
+2. Als de snelheid (v) met maximaal 10 km/h wordt overtreden, wordt de oude formule gebruikt: $(v - 3) * 7 + 18$.
+3. Als de snelheid met meer dan 10 km/h wordt overtreden, wordt de volgende formule gebruikt: $\frac{10}{51} v^2 + \frac{387}{100} v + 26$.
+4. Als de snelheid met meer dan 30 km/h wordt overtreden, print het programma: “OM!”, omdat het Openbaar Ministerie de hoogte van de boete dan moet bepalen.
+:::
+
+:::{exercise} Verdiepingsopdracht 1: cijfer berekenen als S/M/V/G/U
+
+Een cijfer kan natuurlijk meer zijn dan alleen voldoende of onvoldoende. Pas daarom het uitgewerkte voorbeeld aan, zodat de volgende letters weergegeven worden:
+
+S: 1-3 (slecht)
+
+M: 4-5 (matig)
+
+V: 6 (voldoende)
+
+G: 7-8 (goed)
+
+U: 9-10 (uitmuntend)
+
+Zorg ervoor dat het cijfer wordt berekend op schaal 1-10 en dat het goed afgerond wordt!
+:::
+
+## De ALU vergelijkt waarden
+
+Om twee getallen de vergelijken, trekt de ALU ze van elkaar af. De `CMP`-instructie doet dus eigenlijk hetzelfde als de `SUB`-instructie, behalve dat de processor het resultaat niet opslaat. Het resultaat maakt namelijk niet uit; alleen de uitkomst van de vergelijking is interessant. Die uitkomst wordt door de ALU altijd in het **condition-code-register (CC-register)** opgeslagen. Dat is een speciaal register waarvan vier bits iets aangeven over het resultaat van een berekening. Zulke bits met een bepaalde betekenis worden **flags** genoemd. Die vier bits in het CC-register worden ook wel de **condition flags** genoemd. In de RISC-simulator wordt dit register weergegeven boven het IR-register, zoals je op de afbeelding hieronder ook ziet.
+
+```{figure} assets/image-20240105011522080.png
+---
+align: right
+---
+```
+De vier condition flags hebben allemaal een letter: NZCV. De betekenis van deze flags lees je hieronder. De eerste twee zijn nodig bij vergelijkingen. Daarbij worden de twee getallen die vergeleken zijn A en B genoemd. De andere twee hebben te maken met getallen die te groot of te klein zijn om op te slaan in een register. 
+
+- N: negative. Het antwoord op de min-som is negatief. Dat betekent dat A kleiner is dan B.
+- Z: zero. Het antwoord op de min-som is 0. Dat betekent dat A en B gelijk zijn.
+- C: carry. Er is een extra bit nodig om het antwoord op te kunnen slaan. Bij de RISC-simulator betekent het dat het antwoord groter of gelijk is aan $2^{16}$, omdat een word daarin 16 bits is. 
+*Let op:* De carry-bit wordt ook 1 als er een min-som is uitgerekend! Dit komt omdat de carry-bit er niet vanuit gaat dat er gewerkt wordt met negatieve getallen.
+- V: overflow. Dit heeft ongeveer dezelfde betekenis als C, alleen wordt hierbij ook rekening gehouden met negatieve getallen.
+
+```{list-table} Condition flags
+:header-rows: 1
+:width: 50%
+* - flag
+  - naam
+  - betekenis
+* - N
+  - negative
+  - A < B
+* - Z
+  - zero
+  - A==B
+* - C
+  - carry
+  - antwoord is groter dan $2^{16}-1$
+* - V
+  - overflow
+  - antwoord is kleiner dan $-2^{15}$ of groter dan $2^{15}-1$
+```
+
+:::{exercise} Flags
+Voer de code van oefening 1 nog een keer uit, en let dan op de flags.
+
+1. Welke flag verandert er het eerste?
+2. Na hoeveel herhalingen veranderen de flags?
+:::
+
+:::{exercise} Logische poorten voor flags
+De flags worden bepaald door middel van logische poorten. De logische schakelingen die je nodig hebt, ga je in deze oefening maken. Gebruik als startpunt de schakeling die je eerder maakte voor een 4-bits full adder.
+
+1. Voor welke flag denk je dat je meer logische poorten nodig hebt? De N- of de Z-flag?
+2. Voeg een lampje toe aan je 4-bits adder voor de N-flag en zorg dat het lampje brandt als de uitkomst van een berekening negatief is.
+3. Voeg een lampje toe aan je 4-bits adder voor de Z-flag en zorg dat het lampje brandt als de uitkomst van een berekening nul is.
+4. Wat is het verschil tussen de N-flag en de C-flag?
+5. Voeg een lampje toe aan je 4-bits adder voor de C-flag en zorg dat het lampje brandt als de uitkomst van een berekening groter dan vier bits is.
+
+**Verdiepingsopdrachten:**
+
+6. Zou je voor de Z-flag minder transistoren kunnen gebruiken als je niet alleen logische poorten hoeft te gebruiken? Indien ja, hoe kan je dat dan doen?
+
+7. Maak de logische schakeling voor de V-flag.
+
+8. Wat is het verschil tussen de C-flag en de V-flag?
+:::
+
+:::{exercise} Flags (verdieping)
+Voorspel de waarde van de flags bij alle onderstaande berekeningen. Test je antwoord met de RISC-simulator. 
+
+```{admonition} Hint
+:class: drop-down
+Gebruik voor het testen van 1 t/m 4 alleen
+- een `MOV`-instructie; en
+- een `MUL`/`SUB`-instructie.
+```
+1. 0 * 3
+2. 5 - 4
+3. 5 - 5
+4. 255 * 255
+5. 256 * 256
+
+```{admonition} Hint
+:class: drop-down
+Let op: omdat dit 9-bits getallen zijn kan het niet als waarde in een imm8-veld meegegeven worden! Daarom heb je hiervoor de DAT-instructie nodig.
+```
+:::
+
+:::{exercise} Carry en Overflow (verdieping)
+Voer onderstaande berekeningen uit in de RISC-simulator. Doe dat in twee modussen:
+
+1. Signed (standaard)
+2. Unsigned (te selecteren bij “OPTIONS” in de simulator)
+
+Verklaar voor iedere som wat de waarde is van de C-flag en de V-flag.
+
+```{admonition} Hint
+:class: drop-down
+Gebruik voor het testen van a t/m c alleen:
+
+- een `LDR`-instructie;
+- een `ADD`- of `SUB`-instructie; en
+- een `DAT`-instructie.
+```
+
+1. 65535 + 1
+2. -32768 - 1
+3. 32767 + 1
+:::
+
+In een programma wil je natuurlijk meer opties hebben dan alleen `A<B` en `A==B`. Gelukkig is dat mogelijk door de flags N en Z te combineren. A<=B betekent namelijk dat één van beide flags 1 moet zijn: $N\vee Z$. Op dezelfde manier kan je ook bepalen of A>=B geldt: dan moet N 0 zijn ($\neg N$) óf Z 1. In logische formules staan alle mogelijkheden in de tabel hieronder weergegeven.
+
+```{list-table}
+:header-rows: 1
+:width: 50%
+* - conditie
+  - flags
+* - geen
+  - 
+* - $A=B$
+  - $Z$
+* - $A\neq B$
+  - $\neg Z$
+* - $A < B$
+  - $N$
+* - $A > B$
+  - $\neg N \wedge \neg Z$
+* - $A\leq B$
+  - $N \vee Z$
+* - $A\geq B$
+  - $\neg N \vee Z$
+```

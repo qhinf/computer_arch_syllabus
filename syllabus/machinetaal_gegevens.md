@@ -1,3 +1,4 @@
+(hoofdstuk-gegevens)=
 # Machinetaal - Gegevens verwerken
 
 Tot nu toe zagen we alleen hoe je instructies kan uitvoeren die werken met een register en een vaste waarde. Dat zijn namelijk de twee velden die formaat A heeft. Daarbij hebben we alleen gelet op berekeningen. Een processor kan veel meer dan dat. Daarom ga je in deze paragraaf nieuwe instructieformaten ontdekken waarmee je gegevens kan verwerken. Daarnaast leer je ook hoe je gebruik kan maken van het geheugen en van in- en uitvoer zodat je de gegevens ook kan verplaatsen naar andere plekken dan alleen registers.
@@ -14,7 +15,7 @@ Het is goed om te weten dat de processor niet zelf kan bedenken wat jij hebt bed
 
 Zet het onderstaande programma in de [RISC-simulator](http://peterhigginson.co.uk/RISC/) (nog niet uitvoeren!).
 
-```nasm
+```
 DAT 0x294d
 DAT 4365
 DAT 0
@@ -76,7 +77,7 @@ Beide instructies hebben twee argumenten: een register en een geheugenadres. Dat
 :::{exercise} Gegevens opslaan in het geheugen
 In deze kleine opdracht ga je een stuk code aanpassen. Bekijk de onderstaande code
 
-```nasm
+```
 DAT 7
 LDR R1, 0
 ADD R1, #23
@@ -124,7 +125,7 @@ Om een beeld te krijgen van hoe een programma eruit ziet met een datasectie, maa
 `````{exercise} Datasectie gebruiken.
 In deze opdracht schrijf je sommen op in assembly. Gebruik daarvoor de getallen die al klaar staan in de datasectie in de onderstaande code. Je kan je antwoord testen in de [RISC-simulator](http://peterhigginson.co.uk/RISC/).
 
-```nasm
+```
 // zet hieronder de instructies neer die de berekeningen uitvoeren
 // hier komt opdracht a
 // hier komt opdracht b
@@ -149,7 +150,7 @@ a. P * Q
 ````{admonition} Uitwerking
 :class: dropdown
 
-```nasm
+```
 LDR R1, 5 // laad de eerste operand (getal P) in R1
 LDR R2, 6 // laad de tweede operand (getal Q) in R2
 MUL R1, R2 // opdracht a
@@ -185,7 +186,7 @@ Let op dat je ook het adres van antwoord A aanpast, want anders overschrijf je e
 
 ````{admonition} Uitwerking (als je er echt niet uitkomt)
 :class: dropdown
-```nasm
+```
 LDR R1, 8 // laad de eerste operand (getal P) in R1
 LDR R2, 9 // laad de tweede operand (getal Q) in R2
 MUL R1, R2 // opdracht a
@@ -253,7 +254,7 @@ En bekijk nu hetzelfde programma in assembly.
 
 **Assembly**
 
-```nasm
+```
 // textsection
 // ...
 MOV R1, #5
@@ -342,7 +343,7 @@ In deze opdracht ga je oefenen met waarden naar de output schrijven. Daarvoor mo
 a. Print de letter C.
 ````{admonition} Uitwerking
 :class: dropdown
-```nasm
+```
 MOV R1, #0x43
 OUT R1, 7
 HLT

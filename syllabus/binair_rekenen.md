@@ -1,5 +1,5 @@
+(hoofdstuk-binair)=
 # Binair Rekenen voor Informatici
------
 
 Je werkt waarschijnlijk al een tijdje met computers en andere digitale apparatuur. In de kern verwerken computers gegevens door middel van electronische schakelingen. In deze schakelingen kunnen slechts twee toestanden te onderscheiden. _Aan_ of _Uit_. Deze toestanden worden weergegeven als 0 en 1. Deze twee cijfers vormen de basis voor wat we _binair rekenen_ noemen. In deze lesmodule leer je wat binaire getallen zijn, hoe je binaire getallen kunt omrekenen naar decimale getallen en omgekeerd, hoe je binaire getallen bij elkaar kunt optellen en hoe je hoe je negatieve getallen kan representeren.
 

@@ -1,3 +1,4 @@
+(hoofdstuk-architectuur)=
 # Architectuur
 
 ## Introductie
