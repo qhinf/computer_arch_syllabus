@@ -43,6 +43,9 @@ sphinx:
     # Definieer de keys die in de tekst vervangen kunnen worden. Handig voor
     # zaken die vaker terugkomen en bijvoorbeeld aangepast moeten worden voor
     # een volgende editie.
+    language: nl
+    numfig_format:
+      exercise: "Oefening %s"
     myst_substitutions:
       deadline: "donderdag 18 januari, 16:00"
       deadline_uitstel_aanvragen: "maandag 8 januari, 16:00"
