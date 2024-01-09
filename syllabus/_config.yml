@@ -1,7 +1,7 @@
 # Boek configuratie
 # https://jupyterbook.org/customize/config.html
 
-title: Syllabus Computer Architectuur
+title: Computer Architectuur
 
 # Auteur is verplicht, maar wordt voor de syllabus site automatisch aangepast op
 # basis van de commitgeschiedenis.
