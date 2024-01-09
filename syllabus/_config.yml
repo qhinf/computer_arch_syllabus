@@ -40,6 +40,13 @@ sphinx:
     - sphinx_exercise # https://ebp-sphinx-exercise.readthedocs.io/en/latest/syntax.html
   recursive_update: true
   config:
+    language: nl
+    # Vertaling van "Exercise" voor de exercise extensie. Werkt alleen voor
+    # genummerde oefeningen en iets vergelijkbaars is helaas niet mogelijk voor
+    # "Solution to".
+    # We wachten op https://github.com/executablebooks/sphinx-exercise/issues/13
+    numfig_format:
+      exercise: "Oefening %s"
     # Definieer de keys die in de tekst vervangen kunnen worden. Handig voor
     # zaken die vaker terugkomen en bijvoorbeeld aangepast moeten worden voor
     # een volgende editie.
