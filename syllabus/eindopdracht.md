@@ -15,7 +15,7 @@ $cijfer = \frac{score*7}{39}+1$
 
 Je kunt hoger dan een 8 scoren, door extra opdrachten te maken (verdiepende opdrachten of meer opdrachten van het laatste hoofdstuk)
 
-Maak je uitwerkingen in een tekst-editor zoals Notepad of Visual Studio Code. **Niet in Word**. Je mag eventueel [Markdown](https://www.markdownguide.org/cheat-sheet/) als opmaak gebruiken. Er is een voorbeeld van hoe je uitwerking eruit moet zien. Je kunt dit bestand [hier](assets/referentie_uitwerking.md) vinden. Open het in Visual Studio Code en je kunt er meteen mee aan de slag. Het kan zijn dat Visual Studio Code je allerlei vragen stelt over plug-ins voor Markdown. Advies: installeer deze. Voor meer info over het bewerken van Markdown in Visual Studio Code kun je [hier](https://code.visualstudio.com/docs/languages/markdown) vinden.
+Maak je uitwerkingen in een tekst-editor zoals Notepad of Visual Studio Code. **Niet in Word**. Je mag eventueel [Markdown](https://www.markdownguide.org/cheat-sheet/) als opmaak gebruiken. Er is een voorbeeld van hoe je uitwerking eruit moet zien. Je kunt dit bestand [hier](assets/referentie_uitwerking.txt)  vinden. Open het in Visual Studio Code en je kunt er meteen mee aan de slag. Het kan zijn dat Visual Studio Code je allerlei vragen stelt over plug-ins voor Markdown. Advies: installeer deze. Voor meer info over het bewerken van Markdown in Visual Studio Code kun je [hier](https://code.visualstudio.com/docs/languages/markdown) vinden.
 
 Zorg ervoor dat je assembly-code kopieerbaar en plakbaar is voor de RISC-simulator. Test dit zelf even :) 
 
