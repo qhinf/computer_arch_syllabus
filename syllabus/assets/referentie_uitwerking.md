@@ -2,7 +2,7 @@ Uitwerkingen Computerarchitectuur
 ---
 
 Naam: **zet hier je naam**
-Blok: 2324-1
+Blok: 2324-2
 
 # Hoofdstuk 1
 ## Oefening 1.1
