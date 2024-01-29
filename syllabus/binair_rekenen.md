@@ -1,12 +1,12 @@
 (hoofdstuk-binair)=
 # Binair Rekenen voor Informatici
 
-Je werkt waarschijnlijk al een tijdje met computers en andere digitale apparatuur. In de kern verwerken computers gegevens door middel van electronische schakelingen. In deze schakelingen kunnen slechts twee toestanden te onderscheiden. _Uit_ of _Aan_. Deze toestanden worden weergegeven als 0 en 1. Deze twee cijfers vormen de basis voor wat we _binair rekenen_ noemen. In deze lesmodule leer je wat binaire getallen zijn, hoe je binaire getallen kunt omrekenen naar decimale getallen en omgekeerd, hoe je binaire getallen bij elkaar kunt optellen en hoe je hoe je negatieve getallen kan representeren.
+Je werkt waarschijnlijk al een tijdje met computers en andere digitale apparatuur. In de kern verwerken computers gegevens door middel van electronische schakelingen. In deze schakelingen kunnen slechts twee toestanden te onderscheiden. _Uit_ of _Aan_. *Waar* of *Niet waar*. Deze toestanden worden weergegeven als 0 en 1. Deze twee cijfers vormen de basis voor wat we _binair rekenen_ noemen. In deze lesmodule leer je wat binaire getallen zijn, hoe je binaire getallen kunt omrekenen naar decimale getallen en omgekeerd, hoe je binaire getallen bij elkaar kunt optellen en hoe je hoe je negatieve getallen kan representeren.
 
 ## Binaire getallen
-Je bent al sinds de basisschool gewend om getallen op te schrijven met een combinatie van de cijfers 0 t/m 9. Je hebt hiermee leren optellen, de tafels uit je hoofd geleerd (en misschien nu weer vergeten), je hebt geleerd dat de volgorde van de cijfers een verschil maakt. Ik bedoel er is toch een behoorlijk verschil tussen een 8,3 of een 3,8 als resultaat van een toets. We gebruiken dus 10 verschillende symbolen, die we cijfers noemen, om onze getallen op te schrijven. Met een moeilijk woord noemen we dit het _decimale stelsel_ of _tientallige stelsel_. In dit decimale stelsel rekenen we met decimale getallen. In het _binaire stelsel_ rekenen we met _binaire getallen_. Het enige verschil tussen het decimale talstelsel en het binaire talstelsel is dat we niet met tien cijfers, maar met twee cijfers rekenen. De `0` en de `1`. Voorbeelden van binaire getallen zijn `10100` en `11001`. De binaire getallen zijn dus op dezelfde manier opgebouwd als decimale getallen, maar dan met minder cijfers.
+Je bent al sinds de basisschool gewend om getallen op te schrijven met een combinatie van de cijfers 0 t/m 9. Je hebt hiermee leren optellen, de tafels uit je hoofd geleerd (en misschien nu weer vergeten), je hebt geleerd dat de volgorde van de cijfers een verschil maakt. Ik bedoel er is toch een behoorlijk verschil tussen een 8,3 of een 3,8 als resultaat van een toets. Wanneer je iets moet betalen is er ook een aanzienlijk verschil tussen €123,- of €321,-. De volgorde van de getallen maakt dus uit. We hebben met elkaar afgesproken dat we de grootste getallen op de meest linker positie neerzetten. $321$ kunnen we dan ook schrijven als de som $3\times 100 + 2\times 10 + 1\times 1$. We gebruiken dus 10 verschillende symbolen, die we cijfers noemen, om onze getallen op te schrijven. Met een moeilijk woord noemen we dit het _decimale stelsel_ of _tientallige stelsel_. In dit decimale stelsel rekenen we met decimale getallen. Wanneer we beginnen te tellen bij $0$ en we tellen door tot $9$, dan komt er een moment dat de cijfers *'op'* zijn. We hebben dan afgesproken dat we met $10$ verder gaan. De $9$ wordt een $0$ en we zetten een $1$ links van de $0$.  In het _binaire stelsel_ rekenen we met _binaire getallen_. Het enige verschil tussen het decimale talstelsel en het binaire talstelsel is dat we niet met tien cijfers, maar met twee cijfers rekenen. De `0` en de `1`. De cijfers zijn dus veel eerder '*op*'. Voorbeelden van binaire getallen zijn `10100` en `11001`. De binaire getallen zijn dus op dezelfde manier opgebouwd als decimale getallen, maar dan met minder cijfers.
 
-Wanneer je binair gaat tellen ziet dat er zo uit: `0, 1, 10, 11, 100, 101, 110, 111, ...`. Dit is hetzelfde als $0, 1, 2, 3, 4, 5, 6, 7, \ldots$ in de decimale notatie. Je telt eigenlijk net zoals bij het decimale stelsel, alleen zijn de cijfers eerder 'op'.
+Wanneer je binair gaat tellen ziet dat er zo uit: `0, 1, 10, 11, 100, 101, 110, 111, ...`. Dit is hetzelfde als $0, 1, 2, 3, 4, 5, 6, 7, \ldots$ in de decimale notatie. Je telt eigenlijk net zoals bij het decimale stelsel, alleen passen er minder cijfers op elke positie van het getal..
 
 ## Van binair naar decimaal
 Net zoals decimale getallen staan binaire getallen voor een hoeveelheid. Dus is het zinvol om van binair naar decimaal te rekenen en andersom. Om van binair naar decimaal te gaan, gaan we even kijken naar hoe een binair of decimaal getal is opgebouwd. Nemen we als voorbeeld het decimale getal $743$. Op de basisschool heb je geleerd dat je het getal $743$ kan splitsen in $700$, $40$ en $3$. Het hele getal is dan $700+40+3=743$. Hopelijk ben je het met me eens dat dit hetzelfde is als
@@ -33,7 +33,20 @@ $10110 = 1 \times 2^4 + 0 \times 2^3 + 1 \times 2^2 + 1 \times 2^1 + 0 \times 2^
 
 :::{Tip}
 Leer de machten van $2$ van $2^0$ tot en met $2^{10}$ uit je hoofd!
-$1, 2, 4, 18, 16, 32, 64, 128, 256, 512, 1024$. 
+
+| 2-macht | decimaal | binair |
+|-|-|-|
+|$2^0$| $1$|`1`|
+|$2^1$| $2$|`10`|
+|$2^2$| $4$|`100`|
+|$2^3$| $8$|`1000`|
+|$2^4$| $16$|`1 0000`|
+|$2^5$| $32$|`10 0000`|
+|$2^6$| $64$|`100 0000`|
+|$2^7$| $128$|`1000 0000`|
+|$2^8$| $256$|`1 0000 0000`|
+|$2^9$| $512$|`10 0000 0000`|
+|$2^{10}$| $1024$|`100 0000 0000`|
 :::
 
 :::{exercise} Oefenen
@@ -163,11 +176,7 @@ Vermenigvuldigen kun je ook doen door herhaald optellen. Denk aan $3 \times 4 = 
 ```
 :::
 
-## Negatieve getallen
-
-Op zich is het vrij simpel om met negatieve binaire getallen te werken. Je zet er een $-$-tje voor en klaar is Kees. Je hebt een negatief binair getal gemaakt. Alleen is dit de simpele, wiskundige oplossing. Je weet nu nog steeds niet hoe je het verschil tussen twee binaire getallen moet berekenen en hoe zet je dit in hemelsnaam in een computer?
-
-### Binaire getallen in een computer
+## Binaire getallen in een computer
 
 Belangrijk om te weten is dat een processor voor elke actie, die je op getallen kan uitvoeren een stukje logische schakelingen moet hebben. Dus moeten er door de ontwerpers keuzes gemaakt worden over bijvoorbeeld de maximale grootte van getallen en of je al dan niet een apart deel maakt voor het aftrekken van binaire getallen. Want meer schakelingen op je processor betekent meer warmte productie en zeer waarschijnlijk hogere productiekosten. Dus hou in je achterhoofd dat ontwerpers van processoren het aantal schakelingen op een processor zo laag mogelijk willen houden.
 
@@ -183,6 +192,10 @@ De woordlengte van de processor in je mobiele telefoon of de processor in je com
 ```{admonition} Woord
 Een woord is de standaardeenheid van data waarmee een processor rekent.
 ```
+
+## Negatieve getallen
+
+Op zich is het vrij simpel om met negatieve binaire getallen te werken. Je zet er een $-$-tje voor en klaar is Kees. Je hebt een negatief binair getal gemaakt. Alleen is dit de simpele, wiskundige oplossing. Je weet nu nog steeds niet hoe je het verschil tussen twee binaire getallen moet berekenen en hoe zet je dit in hemelsnaam in een computer?
 
 ### Een minnetje ervoor zetten
 We gaan voor het gemak van het uitleggen even kijken naar een architectuur met een woordlengte van 4 bits. Kijk even naar de volgende tabel:
@@ -304,9 +317,9 @@ Werk de volgende decimale sommen binair uit mbv twee-complements notatie:
 :::
 
 ## Hexadecimale getallen
-Programmeurs zijn over het algemeen mensen, die snel en in één oogopslag willen kunnen zien, wat er voor hun neus staat. Wanneer je de byte `11010111` voor je ziet, is het niet gemakkelijk te zien welk getal dit is. Ze zijn het nu eenmaal niet gewend. Ok, ok, er zijn programmeurs, die dit gemakkelijk kunnen. Maar toch. We kunnen het getal natuurlijk als decimaal getal opschrijven. Dat heb je nu geleerd: $11010111_b = 215_d$ wanneer we dit als *unsigned byte* beschouwen en $-41_d$ wanneer we dit als een *signed byte* beschouwen. Het probleem van de decimale notatie en bytes is dat we soms twee posities en meestal drie posities nodig hebben om een byte als decimaal getal uit te drukken. Hier is gelukkig een mooie oplossing voor. Schrijf een byte in de zogenaamde *hexadecimale* notatie. In normaal Nederlands noemen we dit ook wel *zestientallige* notatie. [^1]. We zijn gewend om met tientallige notatie te werken. Wanneer we bij de 9 zijn, beginnen we weer bij 0 en zetten er een 1 voor. In de zestientallige notatie hebben we nog extra symbolen nodig om tot de zestien te komen. Tellen in hexadecimaal ziet er dan zo uit: $1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10, 11, 12, 13, \ldots, 1E, 1F, 20, 21, \ldots$.
+Programmeurs zijn over het algemeen mensen, die snel en in één oogopslag willen kunnen zien, wat er voor hun neus staat. Wanneer je de byte `11010111` voor je ziet, is het niet gemakkelijk te zien welk getal dit is. Ze zijn het nu eenmaal niet gewend. Ok, ok, er zijn programmeurs, die dit gemakkelijk kunnen. Maar toch. We kunnen het getal natuurlijk als decimaal getal opschrijven. Dat heb je nu geleerd: $11010111_b = 215_d$ wanneer we dit als *unsigned byte* beschouwen en $-41_d$ wanneer we dit als een *signed byte* beschouwen. Het probleem van de decimale notatie en bytes is dat we soms twee posities en meestal drie posities nodig hebben om een byte als decimaal getal uit te drukken. Hier is gelukkig een mooie oplossing voor. Schrijf een byte in de zogenaamde *hexadecimale* notatie. In normaal Nederlands noemen we dit ook wel *zestientallige* notatie. [^1]. We zijn gewend om met tientallige notatie te werken. Wanneer we bij de 9 zijn, beginnen we weer bij 0 en zetten er een 1 voor. In de zestientallige notatie hebben we nog extra symbolen nodig om tot de zestien te komen. Tellen in hexadecimaal ziet er dan zo uit: $0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10, 11, 12, 13, \ldots, 1E, 1F, 20, 21, \ldots$.
 
-In hexadecimale notatie kan *elke* byte geschreven worden met twee posities. Één cijfer in hexadecimale notatie is precies 4 bits ook wel een *half-byte*. Bekijk de onderstaande tabel. We gebruiken maar meteen de notatie, die programmeurs ook gebruiken om aan te geven of een getal binair of *hex* is. `0b` staat voor binair, `0x` staat voor hexadecimaal.
+In hexadecimale notatie kan *elke* byte geschreven worden met twee posities. Één cijfer in hexadecimale notatie is precies 4 bits ook wel een *nibble* of *half-byte*. Bekijk de onderstaande tabel. We gebruiken maar meteen de notatie, die programmeurs ook gebruiken om aan te geven of een getal binair of *hex* is. `0b` staat voor binair, `0x` staat voor hexadecimaal.
 
 | Binair | Hexadecimaal     | Binair | Hexadecimaal |
 | :-: | :-: | :-:|:-:|
