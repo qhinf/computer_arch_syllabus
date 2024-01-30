@@ -1,3 +1,4 @@
+(eindopdracht)=
 # Eindopdracht
 
 Je maakt uitwerkingen van de volgende opdrachten:
