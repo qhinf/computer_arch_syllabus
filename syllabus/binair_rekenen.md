@@ -13,7 +13,7 @@ Net zoals decimale getallen staan binaire getallen voor een hoeveelheid. Dus is 
 $7\times 100 + 40 \times 10 +  3 \times 1$
 
 Hier zie je de honderdtallen, tientallen en eentallen goed naar voren komen. We kunnen een honderdtal ook als macht van $10$ schrijven. Dan ziet het er zo uit:
-$7\times 10^2 + 40 \times 10^1 +  3 \times 10^0$
+$7\times 10^2 + 4 \times 10^1 +  3 \times 10^0$
 
 Hier zie je duidelijk de machten van $10$ terugkomen, die bij het _tientallige stelsel_ horen. Net zo kun je kijken naar het binaire getal `1101`. Laten we het meteen met machten van $2$ schrijven.
 
