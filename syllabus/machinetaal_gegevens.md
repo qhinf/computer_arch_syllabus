@@ -494,7 +494,7 @@ Met deze nieuwe formaten is het mogelijk om berekeningen te doen waarbij beide w
 |-|-|-|-|-|
 |`ADD` |  Fun: 010(A)<br />`ADD` Rsd, #imm8| func:000<br />`ADD` Rd, Rs, Rb | | `ADD` Rsd, Rb, wordt door de assembler vertaald als `ADD` Rsd, Rsd, Rb |
 |`SUB` | func: 011(A)<br />`SUB` Rsd, #imm8 | func: 001<br />`SUB` Rd, Rs, Rb | | `SUB` Rsd, Rb wordt door de assembler vertaald als `SUB` Rsd, Rsd, Rb |
-|`MUL` | func: 011(A)<br />`MUL` Rsd, #imm8 |  | func: 1111<br />`MUL` Rsd, Rb |  |
+|`MUL` | func: 10(B1)<br />`MUL` Rsd, #imm8 |  | func: 1111<br />`MUL` Rsd, Rb |  |
 |`DIV` |  |  | func: 0101<br />`DIV` Rsd, Rb |  |
 |`MOD` | func: 001(A)<br />`MOD` Rsd, #imm8 |  | func: 0001<br />`MOD` Rsd, Rb |  |
 |`CMP` | func: 100(A)<br />`CMP` Rsd, #imm8 |  | func: 1010<br />`CMP` Rs, Rb |  |
