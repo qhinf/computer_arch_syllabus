@@ -365,3 +365,253 @@ HLT
 ```
 
 # Hoofdstuk 5
+## 5.1
+a. Een voorspelling -> ll reflecteert er later op. 
+
+b. Reflectie
+
+c. `0x294D` = `0010 1001 0100 1101` = `00101 001 0100 1101` = `MOV R1, #7`
+
+d. plaats het direct in het geheugen. `DAT` is de mnemonic om direct gegevens in het geheugen te zetten.
+
+e. 4365 = `00010 001 0000 1101` = `ADD R1, #13`
+
+f. `DAT 0` wordt `0000 0000 0000 0000` en dat is de `HLT` instructie
+
+g. `0x5104` = ` 0101 0001 0000 0100` = `01010 001 0000 0100` = `MUL R1, #4` *Opmerking hier zit een mogelijke onduidelijkheid, want ik moest zelf flink zoeken om de MUL met immediate value te vinden. Misschien nog toevoegen aan 
+
+h.
+
+```
+    MOV R1, #7
+    ADD R1, #13
+    HLT
+    MUL R1, #4
+```
+
+## 5.2
+a. `DAT 7` plaatst de waarde 7 aan het begin van het programma (positie 0)
+
+`LDR R1, 0` plaatst de waarde op geheugenplaats `0` in `R1`.
+
+`ADD R1, #23` tel er 23 bij op.
+
+`STR R1, 0` plaats de waarde van `R1` weer op geheugenplaats `0`
+
+`HLT` stopt het programma
+
+Na afloop van het draaien van dit programma staat de waarde 30 op geheugenplaats `0`.
+
+b. -
+
+c. Bijvoorbeeld de onderstaande code. Het is belangrijk dat de directe adressering van de `LDR` en `STR` instructies op het juiste geheugenadres terecht komen.
+
+```
+    LDR R1, 4
+    ADD R1, #23
+    STR R1, 4
+    HLT
+    DAT 7
+```
+
+## 5.3
+
+```
+    LDR R1, 11 // laad de eerste operand (getal P) in R1   0
+    LDR R2, 12 // laad de tweede operand (getal Q) in R2   1
+    MUL R1, R2 // opdracht a                               2
+    STR R1, 15 // opslaan van antwoord A in het geheugen   3
+    LDR R2, 13 // laad de tweede operand (getal R) in R2   4
+    ADD R1, R2  // opdracht b                              5
+    STR R1, 16 // opslaan van antwoord B in het geheugen   6
+    LDR R2, 14 // laad de derde operand (getal S) in R2    7
+    SUB R2, R1 // opdracht c                               8
+    STR R2, 17 // opslaan van antwoord C in het geheugen   9
+    HLT // start van de datasectie                        10
+    DAT 7  // getal P (regel 8)                           11
+    DAT 2  // getal Q (regel 9)                           12
+    DAT 11 // getal R (regel 10)                          13
+    DAT 45 // getal S                                     14
+    DAT 0 // de plek voor antwoord A (regel 12)           15
+    DAT 0 // de plek voor antwoord B (regel 13)           16
+    DAT 0 // de plek voor antwoord C                      17
+```
+
+Het hernummeren van de directe referentie naar de data plekken is belangrijk!
+
+## 5.4
+Opletten:
+- wordt de waarde goed berekend?
+- wordt de waarde weer terug gezet op de juiste plek?
+
+a.
+
+```
+// textsection
+    LDR R1, brightness  // laad de brightness in R1
+    ADD R1, #10         // tel 10 op bij de brightness
+    STR R1, brightness  // sla het resultaat weer op in het geheugen
+    HLT
+// datasection
+brightness: DAT 50
+```
+
+b.
+
+```
+// textsection
+    LDR R1, balance     // laad de balance in R1
+    LDR R2, amount      // laad amount in R2
+    SUB R1, R2          // R1 = R1 - R2
+    STR R1, balance     // balance = balance - amount
+    HLT
+// datasection
+balance:    DAT 100
+amount:     DAT 15
+```
+
+c.
+```
+// textsection
+    LDR R1, speed_y     // laad speed_y in R1
+    LDR R2, gravity     // laad gravity in R2
+    SUB R1, R2          // R1 = R1 - R2
+    STR R1, speed_y     // speed_y = speed_y - gravity
+    LDR R2, y           // laad y in R2
+    ADD R2, R1          // R2 = R2 + R1
+    STR R2, y           // y = y + speed_y
+    HLT
+// datasection
+y:          DAT 34
+speed_y:    DAT 0
+gravity:    DAT 2
+```
+
+## 5.5
+a.
+```
+    MOV R1, #0x43
+    OUT R1, 7
+    HLT
+```
+
+b.
+```
+    MOV R1, 135
+    OUT R1, 4
+    HLT
+```
+
+c.
+```
+    MOV R1, #16
+    OUT R1, 6
+    HLT
+```
+
+d.
+```
+    MOV R1, #0x19
+    OUT R1, 4
+    HLT
+```
+
+e.
+```
+    MOV R1, #0x65   // 'e' in R1
+    OUT R1, 7       // druk 'e' af
+    MOV R1, #0x6C   // 'l' in R1
+    OUT R1, 7       // druk 'l' af
+    MOV R1, #0x66   // 'f' in R1
+    OUT R1, 7       // druk 'f' af
+    HLT
+```
+
+f.
+```
+    MOV R1, #0x34   // '4' in R1
+    OUT R1, 7       // druk '4' af
+    MOV R1, #0x2B   // '+' in R1
+    OUT R1, 7       // druk '+' af
+    MOV R1, #0x38   // '8' in R1
+    OUT R1, 7       // druk '8' af
+    MOV R1, #0x3D   // '=' in R1
+    OUT R1, 7       // druk '4' af
+    MOV R1, #4      // zet de waarde 4 in R1
+    ADD R1, #8      // tel er 8 bij op
+    OUT R1, 4       // druk de waarde decimaal af
+```
+
+## 5.6
+```
+    INP R1, 2   // Haal invoer
+    OUT R1, 7   // druk af al ASCII-karakter
+    HLT
+```
+
+## 5.7
+De eerste regel mag met `LDR` of met `INP`.
+- Invoer 'veilig' stellen (1p)
+- AND herhaaldelijk inzetten (1p)
+- geen DIV bij laatste bit (1p)
+- correcte uitvoer (1p)
+
+```     
+    LDR R1, invoer  // haal invoer op
+    MOV R4, R1      // sla de invoer op
+    MOV R2, #8      //
+    DIV R1, R2      // Deel invoer door 8
+    AND R1, #1      // Zorg dat er zeker 0 of 1 staat
+    OUT R1, 4       // print getal
+    MOV R1, R4      // haal invoer opnieuw op
+    MOV R2, #4      //
+    DIV R1, R2      // Deel invoer door 4
+    AND R1, #1      // Zorg dat er zeker 0 of 1 staat
+    OUT R1, 4       // print getal
+    MOV R1, R4      // haal invoer opnieuw op
+    MOV R2, #2      //
+    DIV R1, R2      // Deel invoer door 2
+    AND R1, #1      // Zorg dat er zeker 0 of 1 staat
+    OUT R1, 4       // print getal
+    MOV R1, R4      // haal invoer opnieuw op
+    AND R1, #1      // Zorg dat er zeker 0 of 1 staat
+    OUT R1, 4       // print getal
+    HLT
+invoer: DAT 12
+```
+
+## 5.8
+```
+// textsection
+    LDR R1, gemeten_snelheid
+    LDR R2, meet_correctie
+    SUB R1, R2                  // gemeten_snelheid -= meet_correctie
+    LDR R2, maximale_snelheid
+    SUB R1, R2                  // km_tehard = gemeten_snelheid - maximale_snelheid
+    MUL R1, #7                  // km_tehard * 7
+    ADD R1, #18                 // km_tehard * 7 + 18 = boetebedrag
+    LDR R2, admin_kosten        
+    ADD R1, R2                  // totaal = boetebedrag + admin_kosten
+    OUT R1, 4
+    HLT
+// datasection
+gemeten_snelheid:   DAT 78
+meet_correctie:     DAT 3
+maximale_snelheid:  DAT 70
+admin_kosten:       DAT 9
+```
+
+De administratiekosten mogen gegokt worden (of die zijn juist die 18 euro). Administratiekosten zijn opgezocht op de site van CJIB.
+
+## 5.9
+| Instructie | Formaat | Functie | Argumenten | Machinetaal|
+|-|-|-|-|-|
+| `ADD R3, R5` | B3, op = `0110` | `ADD`, func = `000`| Rd = `011`, Rs = `011`, Rb = `101`| `0110 00 011 011 101`|
+| `MUL R7, R2` | B10, op = `011101`| `MUL`, func = `1111`| Rsd = `111`, Rb = `010`| `0111 0111 1111 1010`|
+| `MOD R4, #5` | A, op = `00`| `MOV`, func = `001`| Rsd = `100`, #imm8 = `0000 0101`| `0000 1100 0000 0101`|
+| `SUB R3, R2, R1` |B3, op = `0110` | `SUB`, func = `001`| Rd = `011`, Rs = `010`, Rb = `001`| `0110 0010 1101 0001`|
+| `MUL R7, #2` | B1, op = `010`| `MUL`, func = `10`| Rsd = `111`, #imm8 = `0000 0010`| `0101 0111 0000 0010`|
+| `AND R3, R7` | B3, op = `0110`| `AND`, func = `010`| Rd = `011`, Rs = `011`, Rb = `111`| `0110 0100 1101 1111`|
+
+Gecontroleerd met de RISC simulator
+
