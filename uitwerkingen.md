@@ -118,7 +118,7 @@ Een uitgang voor het resultaat, een uitgang voor de carry.
 -
 
 ## 2.12
-Waarheidstabel met 16 entries voor 4 variables
+Waarheidstabel met 16 entries voor 4 variables. Geen resultaat kolom.
 
 ## Verdiepende opdrachten
 1. NAND game
@@ -126,7 +126,7 @@ Waarheidstabel met 16 entries voor 4 variables
 3. NOT((S1 XNOR S2) AND (S1 OR S2)) == S1 NAND S2
 4. -
 
-# Hoofdstuk 3
+# Hoofdstuk 3 (2p)
 ## 3.1
 1. Kast
 2. DVD drive
@@ -138,7 +138,7 @@ Waarheidstabel met 16 entries voor 4 variables
 8. CPU/processor/koeling
 9. PSU
 
-## 3.2
+## 3.2 (4p)
 1. Processor opzoeken
 2. Redenering over kracht processor: leeftijd, aantal cores, klok frequentie
 3. Voordeel: snellere berekeningen, meer taken tegelijk. Nadeel: prijs, energieverbruik, warmte
@@ -148,7 +148,7 @@ Waarheidstabel met 16 entries voor 4 variables
 7. De wet van Moore zal niet voor altijd gelden: quantum tunnel effect.
 8. CIR, MAR, MDR: Current instruction register, Memory Address Register en Memory Data Register. CIR op de CPU: dan kan de instructie sneller gedecodeerd worden. Geen verkeer op databus. MAR: address voor de databus, MDR: de inhoud van of naar het address in het MAR
 
-## 3.3
+## 3.3 (3p)
 1. SSD valt in de Harddisk plek. Na de RAM, voor de offline storage (tapes etc)
 2. Werkgeheugen is erg kostbaar om een vergelijkbare hoeveelheid opslag te hebben. Bovendien is het vluchtig geheugen
 3. -
@@ -226,7 +226,7 @@ instructie: `MOV R1, #2`
 
 Instructies opschrijven
 
-instructie 1: `MUL R1, #3 // 2 + 3`
+instructie 1: `MUL R1, #3 // 2 * 3`
 
 instructie 2: `MUL R1, #5 // 6 * 5`
 
@@ -365,7 +365,7 @@ HLT
 ```
 
 # Hoofdstuk 5
-## 5.1
+## 5.1 (3p)
 a. Een voorspelling -> ll reflecteert er later op. 
 
 b. Reflectie
@@ -497,7 +497,7 @@ a.
 
 b.
 ```
-    MOV R1, 135
+    MOV R1, #135
     OUT R1, 4
     HLT
 ```
@@ -615,3 +615,134 @@ De administratiekosten mogen gegokt worden (of die zijn juist die 18 euro). Admi
 
 Gecontroleerd met de RISC simulator
 
+# Hoofdstuk 6
+
+## 6.1
+a. De processor springt terug naar de `MUL` instructie. Inzicht: begin met `0` te tellen
+
+b. Na 10 herhalingen: $2^10 = 1024$
+
+c. Na 15 herhalingen: $2^15 = 32.768$
+
+d. Na 20 herhalingen: $2^20 = 1.048.576$
+
+e. Bij 16384 springt `R1` over naar -32768. Vanwege twee complements notatie. Daarna naar 0. En blijft op 0.
+
+f. `0x8000`
+
+## 6.2
+
+```
+begin:  INP R1, 2       // lees de input
+        CMP R1, #30     // is de input gelijk aan 30?
+        BNE begin       // niet gelijk -> begin
+einde:  MOV R1, #0      // print het getal 0
+        OUT R1, 4
+        HLT        
+```
+
+## 6.3
+```
+// text
+                INP R1, 2       // batterij-niveau opvragen via input
+                CMP R1, #10
+                BLT if_batlow   // if bat<10
+                BRA skip_batlow // if not skip_batlow
+if_batlow:      LDR R2, warning // uitroepteken inladen
+                OUT R2, 7       // uitroepteken weergeven
+skip_batlow:    HLT
+// data
+warning: DAT 0x21
+```
+
+## 6.4
+```
+// text
+begin:          INP R1, 2         // lees het te raden getal
+                MOV R3, #0        // aantal pogingen = 0
+nog_een_keer:   INP R2, 2         // lees de gok
+                ADD R3, #1        // poging +1
+                CMP R2, R1        // vergelijk gok en getal
+                BLT kleiner       // getal is kleiner
+                BGT groter        // getal is groter
+                BEQ gelijk        // getal is gelijk
+kleiner:        MOV R4, #0x3C     // < teken inladen
+                OUT R4, 7         // < teken weergeven
+                BRA nog_een_keer  // nog een raadpoging
+groter:         MOV R4, #0x3E     // > teken inladen
+                OUT R4, 7         // > teken weergeven
+                BRA nog_een_keer  // nog een raadpoging
+gelijk:         OUT R3, 4         // druk het aantal pogingen af
+                HLT
+```
+
+## 6.5
+De sturings logica is niet ingewikkeld aan deze opdracht. Wat de opdracht ingewikkeld maakt is het afdrukken van de tekst. Interessant is om te zien of leerlingen een CRLF aan het einde van een tekst bedenken :)
+
+```
+// text
+vraag:          INP R1, 2           // lees de ingevoerde pincode
+                LDR R2, pincode     // laad de juiste pincode
+                CMP R1, R2          // vergelijk de codes
+                BEQ pincode_juist   // de pincode is juist
+                BNE pincode_onjuist // de pincode is onjuist
+pincode_juist:  MOV R1, #0x4F       // laad 'O'
+                OUT R1, 7           // 'O' weergeven
+                MOV R1, #0x4B       // laad 'K'
+                OUT R1, 7           // 'K' weergeven
+                BRA vraag           // ga weer terug
+pincode_onjuist:MOV R1, #0x57       // laad 'W'
+                OUT R1, 7           // 'W' weergeven
+                MOV R1, #0x52       // laad 'R'
+                OUT R1, 7           // 'R' weergeven
+                MOV R1, #0x4F       // laad 'O'
+                OUT R1, 7           // 'O' weergeven
+                MOV R1, #0x4E       // laad 'N'
+                OUT R1, 7           // 'N' weergeven
+                MOV R1, #0x47       // laad 'G'
+                OUT R1, 7           // 'G' weergeven
+                MOV R1, #0x20       // laad ' '
+                OUT R1, 7           // ' ' weergeven
+                MOV R1, #0x50       // laad 'P'
+                OUT R1, 7           // 'P' weergeven
+                MOV R1, #0x49       // laad 'I'
+                OUT R1, 7           // 'I' weergeven
+                MOV R1, #0x4E       // laad 'N'
+                OUT R1, 7           // 'N' weergeven
+                BRA vraag           // ga weer terug
+// data
+pincode: DAT 4367
+```
+
+## 6.6
+```
+// text
+inp_max:    INP R1, 2           // max.score
+            STR R1, max_score   // sla de max_score op
+inp_score:  INP R1, 2           // de score in R1
+            MUL R1, #10         // bereken het cijfer
+            LDR R2, max_score   // laad de max_score
+            DIV R1, R2          // het cijfer staat in R1
+            CMP R1, #100        // is het een maximaal cijfer?
+            BEQ druk_10         // druk een 10,0 af
+            MOV R3, R1          // zet het cijfer in R3
+            MOV R4, #10
+            DIV R3, R4          // deel door 10
+            OUT R3, 4           // druk het getal af
+            MOV R3, #0x2C       // laad ',' teken
+            OUT R3, 7           // druk ',' teken af
+            MOV R3, R1          // zet het cijfer in R3
+            MOD R3, #10         // pik het cijfer achter de komma op
+            OUT R3, 7           // druk dit cijfer af
+            BRA einde
+druk_10:    MOV R3, #10         // zet 10 in R3
+            OUT R3, 4           // druk 10 af
+            MOV R3, #0x2C       // laad ',' teken
+            OUT R3, 7           // druk ',' teken af
+            MOV R3, #0x30       // laad '0' teken
+            OUT R3, 7           // druk '0' teken af
+einde:      HLT
+
+// data
+max_score:  DAT 0
+```
