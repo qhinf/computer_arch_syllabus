@@ -1,12 +1,14 @@
 # Computer Architectuur
 
 :::{warning} Let op!
-Deze module wordt in Blok 3 van '23-'24 voor de tweede keer gegeven. Er zitten nog kinderziektes en kleine foutjes in de syllabus. Wanneer je vermoedt een fout gevonden te hebben, laat dit asjeblieft per mail weten aan *{{docent_email}}*
+Deze module wordt in Blok 2 van '24-'25 voor de derde keer gegeven. Er kunnen fouten in de syllabus zitten. Wanneer je vermoedt een fout gevonden te hebben, laat dit asjeblieft per mail weten aan *{{docent_email}}*
+
+Er wordt momenteel (okt/nov '24) nog hard gewerkt aan een flinke update van de syllabus. Gebruik deze syllabus pas bij de start van de module 2425-1 op 14 november
 :::
 
 ## Planning
 
-Deze syllabus is opgedeeld in zeven weken, want er zitten zeven lesweken in een module. Per week staat er beschreven wat de onderwerpen voor die week zijn. Het is een geadviseerde planning. Dus wanneer je wat druk bent en een beetje achter loopt is dat niet erg.
+Deze syllabus is opgedeeld in zeven weken, want er zitten zeven lesweken in een module. Per week staat er beschreven wat de onderwerpen voor die week zijn. Het is een geadviseerde planning. Dus wanneer je wat druk bent en een beetje achter loopt is dat niet erg. Het is een pittige module. Met name het einde van de module is moeilijk en daar kan veel tijd in gaan zitten.
 
 ```{list-table}
 :header-rows: 1
@@ -14,28 +16,25 @@ Deze syllabus is opgedeeld in zeven weken, want er zitten zeven lesweken in een 
   - Datum
   - Thema/werkzaamheden
 * - 1
-  - 30 januari
+  - 14 november
   - Hoofdstuk 1 {ref}`hoofdstuk-binair`
 * - 2
-  - 6 februari
+  - 21 november
   - Hoofdstuk 2 {ref}`hoofdstuk-logica`
-* - Vakantie
-  - 12 februari
-  - Vakantie
 * - 3
-  - 20 februari
+  - 28 november
   - Hoofdstuk 3: {ref}`hoofdstuk-architectuur`
 * - 4
-  - 27 februari
+  - 5 december
   - Hoofdstuk 4: {ref}`hoofdstuk-instructies`
 * - 5
-  - 5 maart
+  - 12 december
   - Hoofdstuk 5: {ref}`hoofdstuk-gegevens`
 * - 6
-  - 12 maart
+  - 19 december
   - Hoofdstuk 6: {ref}`hoofdstuk-besturing`
 * - 7
-  - 19 maart
+  - 9 januari
   - Werken aan de {ref}`eindopdracht`
 ```
 
@@ -49,7 +48,7 @@ De **deadlines** voor deze module zijn:
 
 ## Lessen en ondersteuning
 
-Dit is een zelfstudie module. Dat betekent dat er geen vaste lesmomenten met uitgebreide uitleg zijn. In principe moet je zelf door deze module 'heen werken'. De docent {{docent}} zal in Teams enkele momenten aankondigen, waarop er gelegenheid is om vragen te stellen. Heb je tussendoor vragen, waardoor je niet verder kan? Stuur een mail aan de docent op *{{docent_email}}*.
+In blok 2425-2 gaat deze module voor het eerst als lesmodule gegeven worden in plaats van als zelfstudie module. Er wordt nog veel van je zelfwerkzaamheid verwacht in deze module. Zorg dat je voor de lessen je vragen over de stof klaar hebt. Je kunt ze alvast sturen aan de {{docent}} op {{docent_email}}.
 
 ## Colofon
 
