@@ -1,3 +1,4 @@
+(hoofdstuk_meer_logica)=
 # Meer computerlogica
 
 - Volledigheid NAND/NOR

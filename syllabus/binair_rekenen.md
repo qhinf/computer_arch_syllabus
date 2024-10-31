@@ -183,7 +183,7 @@ Belangrijk om te weten is dat een processor voor elke actie, die je op getallen 
 Laten we even kijken naar de (maximale) grootte van binaire getallen in een processor. In de computerarchitectuur noemen we dit de *woordlengte* van een architectuur of processor. De woordlengte van een processor bepaalt de maximale grootte van de binaire getallen en wordt uitgedrukt in het aantal *bits*. Een bit is de kleinste eenheid van data, die een computer kan opslaan. Een bit kan de waarde `1` of `0` en dat komt dan weer overeen met de binaire getallen, waar je nu mee aan het rekenen bent.
 
 ```{admonition} Bits en bytes
-8 bits bij elkaar noemen we een *byte*.
+8 bits bij elkaar noemen we een *byte*. 4 bits bij elkaar worden ook wel een *half-byte* of *nibble* genoemd. Half-bytes of nibbles kom je in de praktijk niet zo vaak tegen. 
 ```
 
 De woordlengte van de processor in je mobiele telefoon of de processor in je computer is waarschijnlijk 64 bits. Dat wil zeggen dat de standaardeenheid waar de processor mee rekent, 64 bits groot is. Het maximale getal wat we in een woord van 64-bits kunnen uitdrukken is $2^64-1 = 
@@ -289,7 +289,7 @@ Deze notatie is een kleine, maar belangrijke wijziging. Bekijk het stappenplan h
 
 **De voordelen van twee-complements notatie**
 
-1. Het optellen van negatieve binaire getallen is hetzelfde als het optellen van positieve binaire getallen. Daardoor heb je minder logica nodig (zie hoofdstuk ***TODO***). Dit levert een snelheidswinst en een kostenbesparing op.
+1. Het optellen van negatieve binaire getallen is hetzelfde als het optellen van positieve binaire getallen. Daardoor heb je minder logica nodig (zie hoofdstuk {ref}`hoofdstuk_meer_logica`). Dit levert een snelheidswinst en een kostenbesparing op.
 2. Er is maar een enkele $0$. Voor het systeem zijn $0$ en $-0$ niet hetzelfde, daardoor kunnen er fouten ontstaan en onverwachte resultaten komen bij berekening waar deze getallen in voorkomen. Je zou kunnen denken, daar kun je prima omheen programmeren. Dat klopt. Maar dat zorgt ervoor dat je weer meer logica in moet bouwen voor het detecteren van die situaties. Dus wordt de processor nodeloos groter voor iets wat met twee-complements notatie op te lossen is.
 
 **Soorten bytes**
@@ -309,11 +309,11 @@ Zet de de volgende signed bytes om in negatieve getallen in twee-complements not
 4. `10001000`
 5. `10101010`
 
-Werk de volgende decimale sommen binair uit mbv twee-complements notatie:
+Werk de volgende decimale sommen binair uit mbv twee-complements notatie. Ga uit van een 8-bits woordlengte.
 
 6. $26_d - 15_d$
 7. $-31_d - 6_d$
-8. $144_d - 156_d$
+8. $44_d - 56_d$
 :::
 
 ## Hexadecimale getallen
@@ -348,7 +348,7 @@ Zet de volgende hexadecimale getallen om in binaire getallen
 5. `0xFA`
 6. `0xCA`
 7. `0xDE`
-8. `0X5A`
+8. `0x5A`
 
 :::
 
