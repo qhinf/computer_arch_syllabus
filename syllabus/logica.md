@@ -43,10 +43,9 @@ Schrijf met behulp van de bovenstaande ASCII-tabel de binaire tekenreeks van je 
 
 Wat is de beperking van de ASCII-tabel?
 
-Wat is de opvolger van ASCII?
+Wat is de opvolger van ASCII, die we nu gebruiken?
 
-Uit hoeveel bits bestaat een teken van deze code?
-
+Hier zijn drie varianten van. Wat is de lengte in bits van ieder van deze varianten? En welke variant wordt het vaakst gebruikt? Waarom zou dat zijn?
 :::
 
 ## Inleiding logische schakelingen
