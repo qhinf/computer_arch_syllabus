@@ -3,7 +3,7 @@
 :::{warning} Let op!
 Deze module wordt in Blok 2 van '24-'25 voor de derde keer gegeven. Er kunnen fouten in de syllabus zitten. Wanneer je vermoedt een fout gevonden te hebben, laat dit asjeblieft per mail weten aan *{{docent_email}}*
 
-Er wordt momenteel (okt/nov '24) nog hard gewerkt aan een flinke update van de syllabus. Gebruik deze syllabus pas bij de start van de module 2425-1 op 14 november
+Er wordt momenteel (okt/nov '24) nog hard gewerkt aan een flinke update van de syllabus. Gebruik deze syllabus pas bij de start van de module 2425-1 op 14 november 
 :::
 
 ## Planning
