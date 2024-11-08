@@ -1,7 +1,10 @@
 name: Update syllabi
 
 on:
-  push
+  push:
+    branches-ignore:
+      - "main" # Don't run with the main branch, because we want version-branches
+      - "draft/**" # Don't publish draft branches
 
 jobs:
   update_syllabi:
