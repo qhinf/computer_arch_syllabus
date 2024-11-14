@@ -54,9 +54,6 @@ De **deadlines** voor deze module zijn:
 - Aanvragen van uitstel: {{ deadline_uitstel_aanvragen }}
   - Uitgestelde deadline: {{ deadline_uitstel }}
 
-## Lessen en ondersteuning
-
-In blok 2425-2 gaat deze module voor het eerst als lesmodule gegeven worden in plaats van als zelfstudie module. Er wordt nog veel van je zelfwerkzaamheid verwacht in deze module. Zorg dat je voor de lessen je vragen over de stof klaar hebt. Je kunt ze alvast sturen aan de {{docent}} op {{docent_email}}.
 
 ## Colofon
 
