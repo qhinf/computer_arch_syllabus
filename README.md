@@ -9,3 +9,7 @@ Deze deelmodule kan eventueel ook ingezet worden bij Basis van Computer Science.
 # Handige links
 
 - https://inf107.telecom-paris.fr/exercises/part-1/homework-asm.html
+
+# TODO
+- [ ] Een rollenspel over CPU in een fysieke les verwerken: https://github.com/MarcoLardelli/CPU_RolePlay?tab=readme-ov-file 
+

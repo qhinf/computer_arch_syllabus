@@ -1,0 +1,104 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{tcolorbox}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{graphicx}
+\usepackage{parskip}
+
+% Configure the style for the cards
+\tcbset{
+  colback=white,
+  colframe=black,
+  width=7cm, % Set square card width
+  height=7cm, % Set square card height
+  halign=center, % Center align text
+  valign=center, % Center align text vertically
+  fonttitle=\bfseries\fontsize{14pt}{16pt}\selectfont,
+  fontupper=\fontsize{12pt}{14pt}\selectfont,
+  coltitle=white, % Title text color
+}
+
+\begin{document}
+
+\section*{Categorie 1: Onderdelen}
+
+% Onderdelen (blauw titelbalk)
+\tcbset{colbacktitle=blue!70}
+\begin{center}
+\begin{tabular}{c@{\hskip 1cm}c}
+  \begin{tcolorbox}[title=ALU \\ (Arithmetic Logic Unit)]
+    Voert berekeningen en logische operaties uit, zoals optellen (ADD) of vergelijken.
+  \end{tcolorbox} &
+  \begin{tcolorbox}[title=CU \\ (Control Unit)]
+    Coördineert de werking van de CPU door instructies te decoderen en onderdelen aan te sturen.
+  \end{tcolorbox} \\[1cm]
+  \begin{tcolorbox}[title=Registers]
+    Slaan gegevens tijdelijk op die snel toegankelijk moeten zijn voor de CPU.
+  \end{tcolorbox} &
+  \begin{tcolorbox}[title=Geheugen (RAM)]
+    Slaat programma-instructies en gegevens op.
+  \end{tcolorbox} \\[1cm]
+  \begin{tcolorbox}[title=Gegevensbus]
+    Verplaatst gegevens tussen onderdelen.
+  \end{tcolorbox} &
+  \begin{tcolorbox}[title=Adresbus]
+    Geeft aan waar in het geheugen gegevens of instructies te vinden zijn.
+  \end{tcolorbox}
+\end{tabular}
+\end{center}
+
+\newpage
+
+\section*{Categorie 2: Acties}
+
+% Acties (groen titelbalk)
+\tcbset{colbacktitle=red!25!green!70!blue!80}
+\begin{center}
+\begin{tabular}{c@{\hskip 1cm}c}
+  \begin{tcolorbox}[title=Fetch]
+    Haalt een instructie op uit het geheugen via de adresbus.
+  \end{tcolorbox} &
+  \begin{tcolorbox}[title=Decode]
+    De CU vertaalt de opgehaalde instructie in acties.
+  \end{tcolorbox} \\[1cm]
+  \begin{tcolorbox}[title=Execute]
+    De ALU voert de bewerking van de instructie uit (bijvoorbeeld optellen of vergelijken).
+  \end{tcolorbox} &
+  \begin{tcolorbox}[title=Store]
+    Het resultaat van de bewerking wordt opgeslagen in een register of in het geheugen.
+  \end{tcolorbox} \\[1cm]
+  \begin{tcolorbox}[title=Load]
+    Gegevens worden uit het geheugen geladen naar een register.
+  \end{tcolorbox} &
+  \begin{tcolorbox}[title=Branch]
+    De CU bepaalt of de uitvoering naar een andere instructie moet springen op basis van een voorwaarde.
+  \end{tcolorbox}
+\end{tabular}
+\end{center}
+
+\newpage
+
+\section*{Categorie 3: Gegevens en Instructies}
+
+% Gegevens en Instructies (oranje titelbalk)
+\tcbset{colbacktitle=orange!70}
+\begin{center}
+\begin{tabular}{c@{\hskip 1cm}c}
+  \begin{tcolorbox}[title=Instructie]
+    ADD R1, R2 → Optel de waarde van register R1 bij R2.
+  \end{tcolorbox} &
+  \begin{tcolorbox}[title=Gegevens]
+    42 → Een getalwaarde die verwerkt moet worden.
+  \end{tcolorbox} \\[1cm]
+  \begin{tcolorbox}[title=Adres]
+    0x002A → De locatie in het geheugen waar de instructie of gegevens staan.
+  \end{tcolorbox} &
+  \begin{tcolorbox}[title=Resultaat]
+    84 → Het resultaat van een berekening of operatie.
+  \end{tcolorbox}
+\end{tabular}
+\end{center}
+
+\end{document}
