@@ -17,8 +17,14 @@ geschikt voor één enkele taak
 
 Het woord computer komt van *computare* wat berekenen betekent. Tot zo'n honderd jaar geleden was het woord *computer* een functieomschrijving voor mensen die berekeningen deden. Het apparaat *computer* was in het begin ook niet veel meer dan een apparaat wat berekeningen deed. De eerste computers werden gebouwd met een specifiek doel voor ogen. Een voorbeeld daarvan zijn simpele rekenmachines. Deze computers konden alleen berekeningen uitvoeren waar ze op gebouwd waren. Dat betekende dat je een apart apparaat moest hebben, wanneer je verschillende soorten berekeningen wilde uitvoeren.
 
-Dit veranderde ten tijde van de Tweede Wereldoorlog. De Britten en de Amerikanen waren onafhankelijk van elkaar bezig met het conceptualiseren van een computer die niet voor 1 doel gebouwd was, maar die geherprogrammeerd kon worden. In het Verenigd Koninkrijk was dit Alan Turing in 1936 met zijn ideeën over een *universal machine*. In de Tweede Wereldoorog ging Turing voor de Britse overheid werken om de codes van de Duitsers te kraken. Om te helpen bij het kraken van de Duitse encryptiemethode Enigma, zijn de *bombes* gebouwd. Dit waren computers, geschikt voor één enkele taak. Wat nieuw aan deze, van relais gebouwde, bombes was, was dat er logica en statistiek gebruikt werden als basis van het ontwerp. Bij het kraken van een moeilijkere Duitse encryptiemethode, kon de bombe niet meer gebruikt worden. De Colossus werd ontworpen. Hierbij werd niet meer gebruik gemaakt van relais, maar van electronenbuizen.
-De Britten waren er met de Colossus in geslaagd om een programmeerbare computer te bouwen, twee jaar voordat de Amerikanen dat lukte. Dit gebeurde alleen in het diepste geheim, omdat deze computers een belangrijke rol speelden in de oorlog. Kijktip: The Imitation Game. Je zult in deze film de bombes aan het werk zien.
+Dit veranderde ten tijde van de Tweede Wereldoorlog. De Britten en de Amerikanen waren onafhankelijk van elkaar bezig met het conceptualiseren van een computer die niet voor 1 doel gebouwd was, maar die geherprogrammeerd kon worden. In het Verenigd Koninkrijk was dit Alan Turing in 1936 met zijn ideeën over een *universal machine*. In de Tweede Wereldoorog ging Turing voor de Britse overheid werken om de codes van de Duitsers te kraken. Om te helpen bij het kraken van de Duitse encryptiemethode Enigma, zijn de *bombes* gebouwd. Dit waren computers, geschikt voor één enkele taak. Dit was best revolutionair. Tot die tijd werden codes met pen, papier en wat codeboeken gekraakt. Handwerk dus. De Enigma-codes waren zo moeilijk, dat handwerk niet meer toereikend was. Deze van klikkende relais gebouwde bombes, maakten gebruik van logica en statistiek. Bij het kraken van een nog moeilijkere Duitse encryptiemethode, kon de bombe niet meer gebruikt worden. De Colossus werd ontworpen. Hierbij werd niet meer gebruik gemaakt van relais, maar van electronenbuizen.
+De Britten waren er met de Colossus in geslaagd om een programmeerbare computer te bouwen, twee jaar voordat de Amerikanen dat lukte. Dit gebeurde alleen in het diepste geheim, omdat deze computers een belangrijke rol speelden in de oorlog. 
+
+```{admonition} 
+**Kijktip**: The Imitation Game. Je zult in deze film de bombes aan het werk zien. 
+
+**Reistip**: [Bletchley Park](https://www.bletchleypark.org.uk) is tegenwoordig een museum op ongeveer 45 minuten van Londen
+``` 
 
 ```{figure} assets/image-20231127120234994.png
 ---
@@ -26,7 +32,7 @@ align: center
 ---
 De Colossus in Bletchley Park
 ```
-In de Verenigde Staten waren het Eckert en Mauchly die zich bezighielden met een concept voor het opslaan van programma’s in herprogrammeerbaar geheugen. Von Neumann ging met dit concept aan de haal en publiceerde het werk van de heren onder zijn naam. Daarom kennen we nu het begrip “von Neumann principe”. Uiteindelijk slaagden de Amerikanen erin om de ENIAC te bouwen. De ENIAC was niet alleen programmeerbaar, maar ook herprogrammeerbaar. De Amerikaanse belastingbetaler werd voorgeschoteld dat de ENIAC gebruikt werd voor het berekenen van weersvoorspelling. Dit was ook de dagtaak van de ENIAC. Maar ’s nachts werd de ENIAC in het geheim gebruikt door het Amerikaanse leger om berekeningen te maken voor de ontwikkeling van H-bommen (een atoombom op basis van waterstof).
+In de Verenigde Staten waren het de wetenschappers Eckert en Mauchly die zich bezig hielden met een concept voor het opslaan van programma’s in herprogrammeerbaar geheugen. Von Neumann ging met dit concept aan de haal en publiceerde het werk van de heren onder zijn naam. Daarom kennen we nu het begrip “von Neumann principe”. Uiteindelijk slaagden de Amerikanen erin om de ENIAC te bouwen. De ENIAC was niet alleen programmeerbaar, maar ook herprogrammeerbaar. De Amerikaanse belastingbetaler werd voorgeschoteld dat de ENIAC gebruikt werd voor het berekenen van weersvoorspelling. Dit was ook de dagtaak van de ENIAC. Maar ’s nachts werd de ENIAC in het geheim gebruikt door het Amerikaanse leger om berekeningen te maken voor de ontwikkeling van H-bommen (een atoombom op basis van waterstof).
 
 ```{figure} assets/image-20231127120643374.png
 ---
@@ -58,7 +64,7 @@ Bekijk ook de [video "How computers work: CPU, Memory, Input & Output"](https://
 
 ### Een stukje technischer
 
-De uitwerking van het von Neumann principe leidt tot een computerarchitectuur die verschillende onderdelen bevat. Die onderdelen werken samen om een programma uit te voeren. Vooral de verwerkingseenheid heeft een hoop verschillende onderdelen met ieder zijn eigen taakje.
+De uitwerking van het von Neumann principe leidt tot een computerarchitectuur die verschillende onderdelen bevat. Die onderdelen werken samen om een programma uit te voeren. Vooral de verwerkingseenheid heeft een hoop verschillende onderdelen. Elk van die onderdelen heeft zijn eigen taakje.
 
 Het *geheugen* (*memory*) is een opslagplek met heel veel vakjes. Ieder vakje kan een beperkte hoeveelheid data bevatten. De data in de vakjes zijn instructies voor een *processor*. De processor verwerkt de data en maakt op basis daarvan berekeningen en keuzes. Meerdere instructies samen vormen een *computerprogramma*.
 
