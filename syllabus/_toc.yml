@@ -23,7 +23,7 @@ parts:
     - file: specialisatie
 - caption: De eindopdracht
   chapters:
-    - file: eindopdracht
+    - file: eindopdracht_new
 
 
 #- file: notebooks
