@@ -68,9 +68,35 @@ Maak een lijst van plaatsen en acties die nodig zijn om de instructie: *Tel de w
 *Vergelijk de waarde van register R1 met R2. Als R1 groter is, spring naar instructie op adres 0x0030*
 
 ## Assembly programma (27p)
-Schrijf een programma dat controleert of een ingevoerd getal een priemgetal is. Het programma kan met herhaalde delingen controleren of een getal deelbaar is door enig ander getal dan 1 en zichzelf. 
+Schrijf een programma dat controleert of een ingevoerd getal een priemgetal is. Het programma kan met herhaalde delingen controleren of een getal deelbaar is door enig ander getal dan 1 en zichzelf. Deze herhalingen programmeer je uit in een lus.
 
 Het programma schrijf je zo, dat het werkt in de RISC-simulator van Higginson. Deze simulator heb vaker gebruikt in deze module.
+
+Hou met het volgende rekening:
+- 1 is geen priemgetal
+- Om te controleren of een getal $n$ deelbaar is door getal $i$, kijk je naar de rest na deling. Daar is een mooie assembly instructie voor.
+- In de meest simpele versie controleer je elk getal van 2 tot aan het getal van de invoer of het de invoer deelt.
+- Een iets geavanceerdere versie stopt wanneer je het kwadraat van het controle getal groter is dan de invoer.
+
+Is de invoer een priemgetal? Dan zet je "J" op de output. Is het geen priemgetal, zet dan "N" op de output.
+
+De pseudocode voor de geavanceerde versie ziet er als volgt uit:
+```
+let n = input_int()
+let i = 2
+    
+while (i * i) <= n
+{
+  if (n mod i) == 0
+  {
+    print("N")
+    halt 
+  } 
+  i = i + 1
+}
+
+print("J")
+```
 
 De code voor je assembly-programma zet je ook in je Markdown-bestand. Hoe? Zie {ref}`markdown`.
 
@@ -83,7 +109,7 @@ Je assembly programma wordt beoordeeld op de volgende criteria. Je kunt een aant
 | Nauwkeurige besturingslogica | Zorg ervoor dat de beslissingen in je code (zoals `if-then-else` en `loops`) goed zijn opgezet en logisch werken. Gebruik bijvoorbeeld de juiste instructies om je code te laten springen naar het juiste deel, zonder onnodige stappen. Je code moet vloeiend doorlopen zonder fouten, zoals onnodige sprongen of vastlopen. | 5 |
 | Correct gebruik van basisbewerkingen | Gebruik de basishandelingen (zoals `MOV`, `ADD` of `SUB`) op de juiste manier. Dit betekent dat je weet hoe je deze instructies moet toepassen in je code om dingen goed te laten werken. Als de basisbewerkingen niet goed zijn gebruikt, werkt je programma waarschijnlijk niet zoals het hoort. | 5|
 | Efficiënt gebruik van geheugen en registers | Probeer zo slim mogelijk om te gaan met de opslagruimte in je code. Bewaar alleen dingen, die echt nodig zijn en gebruik registers om waarden tijdelijk op te slaan in plaats van steeds naar het geheugen te schrijven. Je programma wordt hierdoor sneller en je leert efficiént werken met geheugenruimte. | 5| 
-| Duidelijkheid en leesbaarheid van de code | Schrijf je code zo dat anderen (en jijzelf later) makkelijk kunnen begrijpen wat je hebt gedaan. Zorg dat er uitleg bij de lastige delen staat, gebruik duidelijke namen voor variabelen en labels, en houd je stijl consistent. Dit helpt iedereen om je code snel te lezen en te begrijpen. | 2|
+| Duidelijkheid en leesbaarheid van de code | Schrijf je code zo dat anderen (en jijzelf later) makkelijk kunnen begrijpen wat je hebt gedaan. Zorg dat er uitleg in de vorm van commentaar bij de lastige delen staat, gebruik duidelijke namen voor variabelen en labels, en houd je stijl consistent. Dit helpt iedereen om je code snel te lezen en te begrijpen. | 2|
 
 
 ### Duidelijkheid en leesbaarheid van je code
