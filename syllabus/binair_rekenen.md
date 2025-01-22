@@ -186,7 +186,7 @@ Laten we even kijken naar de (maximale) grootte van binaire getallen in een proc
 8 bits bij elkaar noemen we een *byte*. 4 bits bij elkaar worden ook wel een *half-byte* of *nibble* genoemd. Half-bytes of nibbles kom je in de praktijk niet zo vaak tegen. 
 ```
 
-De woordlengte van de processor in je mobiele telefoon of de processor in je computer is waarschijnlijk 64 bits. Dat wil zeggen dat de standaardeenheid waar de processor mee rekent, 64 bits groot is. Het maximale getal wat we in een woord van 64-bits kunnen uitdrukken is $2^64-1 = 
+De woordlengte van de processor in je mobiele telefoon of de processor in je computer is waarschijnlijk 64 bits. Dat wil zeggen dat de standaardeenheid waar de processor mee rekent, 64 bits groot is. Het maximale getal wat we in een woord van 64-bits kunnen uitdrukken is $2^{64}-1 = 
 18.446.744.073.709.551.616$. Retro-gaming consoles, zoals de [NES](https://nl.wikipedia.org/wiki/Nintendo_Entertainment_System), [Sega Mega Drive](https://nl.wikipedia.org/wiki/Sega_Mega_Drive) of de [Playstation 1](https://nl.wikipedia.org/wiki/PlayStation_(spelcomputer)) hebben respectievelijk woordlengtes van 8, 16 en 32 bit. Dit zijn allemaal machten van 2. Dus nu zou je kunnen denken dat de alle computers een woordlengte hebben, die een macht van 2 is. Dat is niet helemaal waar. Grote computers uit het verleden (meer dan 60 jaar geleden) hadden woordlengtes als 30, 36 of 33 bits. De eerste Nederlandse computer, de [ARRA I](https://nl.wikipedia.org/wiki/ARRA_I) uit 1954 had een woordlengte van 30 bit.
 
 ```{admonition} Woord
