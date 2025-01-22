@@ -1,8 +1,9 @@
 # Computer Architectuur
 
 :::{warning} Let op!
-Deze module wordt in Blok 3 van '24-'25 voor de vierde keer gegeven. Er kunnen nog steeds fouten in de syllabus zitten. Wanneer je vermoedt een fout gevonden te hebben, laat dit asjeblieft per mail weten aan *{{docent_email}}*
+Deze module wordt in Blok 2 van '24-'25 voor de derde keer gegeven. Er kunnen fouten in de syllabus zitten. Wanneer je vermoedt een fout gevonden te hebben, laat dit asjeblieft per mail weten aan *{{docent_email}}*
 
+Er wordt momenteel (okt/nov '24) nog hard gewerkt aan een flinke update van de syllabus. Gebruik deze syllabus pas bij de start van de module 2425-1 op 14 november 
 :::
 
 ## Planning
@@ -16,32 +17,32 @@ Deze syllabus is opgedeeld in zeven weken, want er zitten zeven lesweken in een 
   - Fysiek/online
   - Thema/werkzaamheden
 * - 1
-  - 22 januari
+  - 14 november
   - Online
   - Hoofdstuk 1 {ref}`hoofdstuk-binair`
 * - 2
-  - 29 januari
-  - Geen bijeenkomst
+  - 21 november
+  - Fysiek
   - Hoofdstuk 2 {ref}`hoofdstuk-logica`
 * - 3
-  - 5 februari
+  - 28 november
   - Online
   - Hoofdstuk 3: {ref}`hoofdstuk-architectuur`
 * - 4
-  - 12 februari
+  - 5 december
   - Fysiek
   - Hoofdstuk 4: {ref}`hoofdstuk-instructies`
 * - 5
-  - 19 februari
+  - 12 december
   - Online
   - Hoofdstuk 5: {ref}`hoofdstuk-gegevens`
 * - 6
-  - 26 februari
-  - Fysiek
+  - 19 december
+  - Online
   - Hoofdstuk 6: {ref}`hoofdstuk-besturing`
 * - 7
-  - 12 maart
-  - Online
+  - 9 januari
+  - Fysiek
   - Werken aan de {ref}`eindopdracht`
 ```
 
