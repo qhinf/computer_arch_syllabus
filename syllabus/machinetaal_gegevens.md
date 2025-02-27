@@ -484,7 +484,7 @@ Instructieformaat B3
 ---
 align: center
 ---
-Instructieformaat B3
+Instructieformaat B10
 ```
 
 In deze drie formaten zie je nog en nieuwe veldnaam: **op_f**. Dat veld vormt samen met op_g de opcode. Zoals eerder gezegd, geeft op_g de groep aan. op_f geeft het instructieformaat binnen die groep aan. Als je de opcode weet (op_g en op_f), dan weet je ook de verdeling van de overige bits van de instructie in velden.
