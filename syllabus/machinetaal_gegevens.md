@@ -439,6 +439,7 @@ Maak een programma in de [RISC-simulator](http://peterhigginson.co.uk/RISC/) dat
 
 :::
 
+(meer_instructieformaten)=
 ## Meer instructieformaten in machinetaal
 
 We gaan nu weer kijken naar machinetaal. Tot nu toe hebben we alleen gelet op “formaat A”. Daarmee kon je bewerkingen uitvoeren op één register (Rsd) met een vast getal (imm8: immediate van 8 bits lang). Hieronder zie je het schema van formaat A nog eens staan.

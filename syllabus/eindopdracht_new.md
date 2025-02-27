@@ -25,49 +25,64 @@ De schakeling
 ### Functie van deze schakeling (2p)
 De schakeling heeft ook een functie in het binair rekenen. Welke functie is dit? Onderbouw je antwoord.
 
-## Architectuuropdracht (8p)
-In hoofdstuk {ref}`hoofdstuk-architectuur` heb je gelezen over de *Fetch-Decode-Execute* cycle. Je weet dat een processor door verschillende fases gaat om een instructie uit te voeren.
+## Architectuuropdracht (11p)
+In hoofdstuk {ref}`hoofdstuk-architectuur` heb je gelezen over de *Fetch-Decode-Execute* cycle. Je weet dat een processor door verschillende fases gaat om een instructie uit te voeren. Je gaat voor deze opdracht de uitvoering van een gegeven instructie tot in detail beschrijven. Dit doe je aan de hand van die *Fetch-Decode-Execute* cycle.
 
-Aanschouw de volgende locaties, die voor een Von Neumann-architectuur processor van belang zijn:
-1. ALU
-2. CU
-3. Registers
-4. RAM
-5. Gegevensbus
-6. Adresbus
+Er zijn drie belangrijke actoren in deze opdracht. Dat zijn de Control Unit (CU), de Arithmetic & Logic Unit en de Registers. Hieronder staan de mogelijke acties die ze uit kunnen voeren.
 
-En de volgende acties:
-1. Fetch *Haalt een instructie op uit het geheugen via de adresbus*
-2. Decode *De CU vertaal de opgehaalde instrcutie in acties*
-3. Execute *De ALU voert de bewerking van de instructie uit*
-4. Store *Het resultaat van de bwerking wordt opgeslagen in een register of RAM*
-5. Load *Gegevens worden ui het geheugen geladen naar een register*
-6. Branch *De CU bepaalt of de uitvoering naar een andere instructie moet springen op basis van een voorwaarde*
+De mogelijke acties van de *Control Unit*
+- Laad inhoud van geheugen op plek [X] in CU
+- Decodeer instructie (*zie uitleg hieronder*)
+- Zet vlag `N`, `Z`, `C` of `V` op waarde `0` of `1`
+- Lees status vlag `N`, `Z`, `C` of `V`
 
-Je gaat bij een gegeven instructie een lijst van plaatsen en acties maken, die de processor doorloopt om deze instructie uit te voeren.
+De mogelijke acties van de *ALU*
+- Voer rekenkundige bewerking uit op (`add`, `sub`, `mult`, `div`, `mod`, `inc`, `dec`)
+- Voer logische bewerking uit (`or`, `and`, `xor`, `not`)
+- Voer andere bewerking uit (`shift`, `rotate`, `compare`)
 
-### Voorbeeld 
-Maak een lijst van plaatsen en acties die nodig zijn om de instructie: *Tel de waarde van register R1 en register R2 op en sla het resultaat op in register R3.* uit te voeren.
+De mogelijke acties van/op een register
+- Lees register R*x* en stuur naar ALU of CU
+- Schrijf register R*x*
+- Lees PC
+- Schrijf PC
+- Hoog PC 1 op
 
-- Geheugen
-- Fetch
-- Adresbus
-- CU
-- Decode
-- Register
-- ALU
-- Execute
-- Register
-- Store
+Een uitgewerkt voorbeeld van de instructie `MOV R0, #42` is als volgt:
 
-### Instructie 1 (4p)
+**Fetch**<br/>
+Register: lees PC en stuur naar CU <br/>
+Register: hoog PC 1 op<br/>
+CU: laad inhoud van geheugen op plek [PC] in CU.<br/>
 
-*Laad een getal uit het geheugen (0x002A) in register R1 en vermenigvuldig het met de waarde van R2.*
+**Decode**<br/>
+CU: Decodeer instructie<br/>
+CU: Decodeer instructie <br/>
+`0010 1000 0010 1010`<br/>
+>  Opcode: `00` (Formaat A)<br/>
+>  Func: `101` (Mov)<br/>
+>  Rsd: `000` (R0)<br/>
+>  Imm8: `0010 1010` (#42)<br/>
 
-### Instructie 2 (4p)
-*Vergelijk de waarde van register R1 met R2. Als R1 groter is, spring naar instructie op adres 0x0030*
+**Execute/Store**<br/>
+Register: schrijf waarde `#42` in register R0<br/>
 
-## Assembly programma (27p)
+
+*Opdracht*
+
+Schrijf nu voor de volgende instructies een gedetailleerde beschrijving
+
+1. `ADD R1, #42`   (3 punten)
+2. `CMP R2, R3`   (4 punten) Je mag ervan uitgaan dat zowel R2 als R3 de waarde 0 bevatten.
+3. `BNE #42`  (4 punten)
+
+Tip:
+- Voor het deel van het decoderen van de instructie, kun je gebruik maken van deze stof: {ref}`meer_instructieformaten`.
+- Je hoeft een instructie met mnemonics natuurlijk niet met de hand naar machinetaal te vertalen. Dit kun je uitstekend door de RISC simulator laten uitvoeren. Kies bij OPTIONS voor binary, dan krijg je de 16-bits instructie.
+- Kom je er echt niet uit? Voer de instructie in bij de simulator en ‘step’ deze. Door de balletjes te volgen, krijg je al een idee wat de volgorde van acties is. Je moet ze dan alleen nog in de juiste fase van Fetch, Decode, Execute plaatsen.
+
+
+## Assembly programma (24p)
 Schrijf een programma dat controleert of een ingevoerd getal een priemgetal is. Het programma kan met herhaalde delingen controleren of een getal deelbaar is door enig ander getal dan 1 en zichzelf. Deze herhalingen programmeer je uit in een lus.
 
 Het programma schrijf je zo, dat het werkt in de RISC-simulator van Higginson. Deze simulator heb vaker gebruikt in deze module.
@@ -110,7 +125,7 @@ Je assembly programma wordt beoordeeld op de volgende criteria. Je kunt een aant
 | Correct gebruik van basisbewerkingen | Gebruik de basishandelingen (zoals `MOV`, `ADD` of `SUB`) op de juiste manier. Dit betekent dat je weet hoe je deze instructies moet toepassen in je code om dingen goed te laten werken. Als de basisbewerkingen niet goed zijn gebruikt, werkt je programma waarschijnlijk niet zoals het hoort. | 5|
 | Efficiënt gebruik van geheugen en registers | Probeer zo slim mogelijk om te gaan met de opslagruimte in je code. Bewaar alleen dingen, die echt nodig zijn en gebruik registers om waarden tijdelijk op te slaan in plaats van steeds naar het geheugen te schrijven. Je programma wordt hierdoor sneller en je leert efficiént werken met geheugenruimte. | 5| 
 | Duidelijkheid en leesbaarheid van de code | Schrijf je code zo dat anderen (en jijzelf later) makkelijk kunnen begrijpen wat je hebt gedaan. Zorg dat er uitleg in de vorm van commentaar bij de lastige delen staat, gebruik duidelijke namen voor variabelen en labels, en houd je stijl consistent. Dit helpt iedereen om je code snel te lezen en te begrijpen. | 2|
-
+| Geavanceerde versie | Werk de geavanceerde versie, zoals beschreven in de bovenstaande pseudo-code, uit | 2|
 
 ### Duidelijkheid en leesbaarheid van je code
 - Zorg dat je regelmatig uitleg toevoegt bij je code. Denk aan commentaarregels als korte notities die anderen (en jijzelf) helpen begrijpen wat er gebeurt. Voor elk blok code (zoals een herhaling of een keuze) voeg je tenminste één regel commentaar toe.
