@@ -56,7 +56,6 @@ Register: hoog PC 1 op<br/>
 CU: laad inhoud van geheugen op plek [PC] in CU.<br/>
 
 **Decode**<br/>
-CU: Decodeer instructie<br/>
 CU: Decodeer instructie <br/>
 `0010 1000 0010 1010`<br/>
 >  Opcode: `00` (Formaat A)<br/>
@@ -74,7 +73,7 @@ Schrijf nu voor de volgende instructies een gedetailleerde beschrijving
 
 1. `ADD R1, #42`   (3 punten)
 2. `CMP R2, R3`   (4 punten) Je mag ervan uitgaan dat zowel R2 als R3 de waarde 0 bevatten.
-3. `BNE #42`  (4 punten)
+3. `BNE 42`  (4 punten) Je mag ervan uitgaan dat de vlaggen `NZCV` op `0000` staan.
 
 Tip:
 - Voor het deel van het decoderen van de instructie, kun je gebruik maken van deze stof: {ref}`meer_instructieformaten`.
