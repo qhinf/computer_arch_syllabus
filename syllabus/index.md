@@ -1,9 +1,5 @@
 # Computer Architectuur
 
-:::{warning} Let op!
-Deze module wordt in Blok 3 van '24-'25 voor de vierde keer gegeven. Er kunnen nog steeds fouten in de syllabus zitten. Wanneer je vermoedt een fout gevonden te hebben, laat dit asjeblieft per mail weten aan *{{docent_email}}*
-
-:::
 
 ## Planning
 
