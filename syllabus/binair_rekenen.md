@@ -287,6 +287,25 @@ Deze notatie is een kleine, maar belangrijke wijziging. Bekijk het stappenplan h
 4. Klaar.
 ```
 
+| Binair | Alleen positief | Minnetje ervoor | Één-complement | Twee-complement |
+| :----: | :-------------: | :-------------: |:-:| :-: |
+| `0000` |       $0$       |       $0$       | $0$| $0$ |
+| `0001` |       $1$       |       $1$       | $1$ | $1$ |
+| `0010` |       $2$       |       $2$       | $2$| $2$ |
+| `0011` |       $3$       |       $3$       |$3$| $3$ |
+| `0100` |       $4$       |       $4$       |$4$| $4$ |
+| `0101` |       $5$       |       $5$       |$5$| $5$ |
+| `0110` |       $6$       |       $6$       |$6$| $6$ |
+| `0111` |       $7$       |       $7$       |$7$| $7$ |
+| `1000` |       $8$       |      $-0$       |$-7$| $-8$ | 
+| `1001` |       $9$       |      $-1$       |$-6$| $-7$ |
+| `1010` |      $10$       |      $-2$       |$-5$| $-6$ |
+| `1011` |      $11$       |      $-3$       |$-4$| $-5$|
+| `1100` |      $12$       |      $-4$       |$-3$| $-4$|
+| `1101` |      $13$       |      $-5$       |$-2$| $-3$|
+| `1110` |      $14$       |      $-6$       |$-1$| $-2$|
+| `1111` |      $15$       |      $-7$       |$-0$| $-1$|
+
 **De voordelen van twee-complements notatie**
 
 1. Het optellen van negatieve binaire getallen is hetzelfde als het optellen van positieve binaire getallen. Daardoor heb je minder logica nodig (zie hoofdstuk {ref}`hoofdstuk_meer_logica`). Dit levert een snelheidswinst en een kostenbesparing op.
