@@ -52,7 +52,7 @@ sphinx:
     # een volgende editie.
     myst_substitutions:
       deadline: "donderdag 15 januari, 16:00"
-      deadline_uitstel_aanvragen: "donderdag 5 februari, 16:00"
+      deadline_uitstel_aanvragen: "donderdag 5 januari, 16:00"
       deadline_uitstel: "donderdag 18 december, 16:00"
       docent: "Pieter van Engelen-san"
       docent_email: "p punt vanengelen apenstaartje quadraam punt nl"
