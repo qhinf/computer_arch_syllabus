@@ -20,7 +20,8 @@ parts:
   numbered: true
   chapters:
     - file: verdieping_logica
-    - file: specialisatie
+    - file: verdieping_architectuur
+    - file: verdieping_assembly
 - caption: De eindopdracht
   chapters:
     - file: eindopdracht_new
