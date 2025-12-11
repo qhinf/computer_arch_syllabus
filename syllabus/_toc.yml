@@ -19,6 +19,7 @@ parts:
 - caption: Verdiepingsmateriaal
   numbered: true
   chapters:
+    - file: verdieping_binair
     - file: verdieping_logica
     - file: verdieping_architectuur
     - file: verdieping_assembly

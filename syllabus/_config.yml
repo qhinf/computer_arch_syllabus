@@ -38,6 +38,7 @@ sphinx:
   # toe aan requirements.txt, als je hier een extensie toevoegt!
   extra_extensions:
     - sphinx_exercise # https://ebp-sphinx-exercise.readthedocs.io/en/latest/syntax.html
+    - sphinxcontrib.mermaid # voor diagrammdn
   recursive_update: true
   config:
     language: nl
