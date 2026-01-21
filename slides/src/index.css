@@ -1,0 +1,103 @@
+:root {
+    --font-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    --r-main-font: system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, Helvetica, Arial, "Helvetica Neue", sans-serif, var(--font-emoji);
+
+    --r-heading-font: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif, var(--font-emoji);
+    --r-heading-font-weight: 600;
+    --r-heading-text-transform: none;
+}
+
+.reveal a {
+    text-decoration: underline;
+}
+
+.reveal table.noborder td {
+    border-bottom: none;
+}
+
+@counter-style mc-teams {
+    system: fixed;
+    symbols: "\1F44D" "\2764\FE0F" "\1F606" "\1F62E";
+    suffix: "  ";
+}
+
+@counter-style mc-hands {
+    system: fixed;
+    symbols: "\1F590\FE0F" "\270C\FE0F" "\270A" "\1F64C";
+    suffix: "  ";
+}
+
+.mc-teams ul.mc {
+    list-style: mc-teams;
+}
+
+.mc-hands ul.mc {
+    list-style: mc-hands;
+}
+
+ul.mc {
+    min-width: 60%;
+}
+
+ul.mc li {
+    padding: 0 .5em;
+}
+
+ul.mc:not(.grid) li:not(:last-child) {
+    padding-bottom: .3em;
+    margin-bottom: .3em;
+    border-bottom: 1px solid var(--r-main-color);
+}
+
+ul.mc.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+ul.mc.grid li {
+    /* TODO: not a great solution, find a way to get the bullet within the grid
+    cells without messing up the list-item layout */
+    list-style-position: inside;
+}
+
+.reveal section.full-height {
+    top: 0;
+    height: 100%;
+    display: flex !important;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: var(--r-block-margin);
+}
+
+.reveal section.full-height > * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.columns {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Table with divider between column groups */
+.reveal table.split-columns td:nth-child(4),
+.reveal table.split-columns th:nth-child(4) {
+    border-left: 3px solid var(--r-main-color);
+}
+
+/* Voordoen slides - klein font, linksbovenin voor schrijfruimte */
+.reveal section.voordoen {
+    text-align: left;
+    font-size: 0.65em;
+}
+
+.reveal section.voordoen h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.reveal .slides section.voordoen {
+    top: 0 !important;
+    transform: translateY(0) !important;
+}
