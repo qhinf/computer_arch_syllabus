@@ -93,6 +93,7 @@ Leerlingen gaan daarna zelf aan de slag.
 ***
 
 ## Werkblok 1: Basispoorten
+<!-- .slide: style="font-size: 0.8em" -->
 
 **Opdracht** (werk in tweetallen):
 
@@ -117,77 +118,6 @@ Loop rond en help waar nodig. Stel vragen zoals:
 - "Heb je alle combinaties geprobeerd?"
 - "Zie je een patroon?"
 
----
-
-## AND-poort
-
-Een AND-poort geeft alleen 1 als **beide** ingangen 1 zijn
-
-Symbool:
-
-![AND poort](assets/bijeenkomst_2/AND-poort.png)
-
-**Vraag:** Wanneer zou je dit gebruiken?
-
-Notes:
-
-Zet deze slide klaar voor als leerlingen vastlopen. Bespreek eventueel na het werkblok.
-
-Voorbeeld toepassing: Beveiligingssysteem - deur gaat alleen open als je zowel de juiste code hebt EN je vingerafdruk klopt.
-
----
-
-## OR-poort
-
-Een OR-poort geeft 1 als **minimaal één** ingang 1 is
-
-Symbool:
-
-![OR poort](assets/bijeenkomst_2/OR-poort.png)
-
-**Vraag:** Wanneer zou je dit gebruiken?
-
-Notes:
-
-Voorbeeld toepassing: Alarm afgaat als raam open is OF deur open is.
-
----
-
-## XOR-poort
-
-Een XOR-poort geeft 1 als **precies één** ingang 1 is
-
-(Niet als beide 1 zijn!)
-
-Symbool:
-
-![XOR poort](assets/bijeenkomst_2/XOR-poort.png)
-
-**Vraag:** Wat is het verschil met OR?
-
-Notes:
-
-XOR = "exclusive OR" = "het ene OF het andere, maar niet beide"
-
-Dit is handig voor detecteren of twee bits verschillend zijn.
-
----
-
-## NOT-poort
-
-Een NOT-poort **keert het signaal om**
-
-Ook wel een **inverter** genoemd
-
-Symbool:
-
-![NOT poort](assets/bijeenkomst_2/NOT-poort.png)
-
-Heeft maar één ingang!
-
-Notes:
-
-NOT-poort wordt gebruikt om een signaal te inverteren. Handig in combinatie met andere poorten.
 
 ---
 
@@ -208,7 +138,7 @@ Laat een paar groepen hun bevindingen delen. Vraag naar concrete voorbeelden van
 ***
 
 ## Werkblok 2: Samengestelde poorten
-
+<!-- .slide: style="font-size: 0.8em" -->
 **Opdracht:**
 
 Nu ga je poorten combineren. Bouw deze drie poorten:
@@ -486,7 +416,6 @@ Volgende week: processorarchitectuur en machinetaal
 
 ## Vragen?
 
-Goed gedaan vandaag! 🎉
 
 Notes:
 
