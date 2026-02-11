@@ -286,8 +286,6 @@ Duur: 2 minuten. Introduceer het tweede deel van de les.
 
 Een computer begrijpt alleen:
 - 0 en 1
-- Aan en uit  
-- Stroom en geen stroom
 
 Dus ook instructies zijn reeksen van bits
 
