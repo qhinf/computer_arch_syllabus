@@ -5,7 +5,7 @@ In het hoofdstuk {doc}`architectuur` heb je de basis van de von Neumann architec
 
 ## SIMD en MIMD: parallelle verwerking
 
-Computers worden steeds sneller, niet alleen door hogere kloksnelheden, maar ook door *parallellisme*: meerdere berekeningen tegelijk uitvoeren. Er zijn verschillende manieren om dit te doen. De computerarchitect Michael Flynn bedacht in 1966 een classificatie die nog steeds gebruikt wordt: Flynn's taxonomie.
+Computers worden steeds sneller, niet alleen door hogere kloksnelheden, maar ook door *parallellisme*: meerdere berekeningen tegelijk uitvoeren. Er zijn verschillende manieren om dit te doen. De computerarchitect Michael Flynn bedacht in 1966 een classificatie die nog steeds gebruikt wordt: [Flynn's taxonomie](https://nl.wikipedia.org/wiki/Taxonomie_van_Flynn).
 
 ### Flynn's taxonomie
 
@@ -22,7 +22,7 @@ Dit geeft vier combinaties:
 | **MISD** | Multiple | Single | Meerdere instructies op hetzelfde stuk data |
 | **MIMD** | Multiple | Multiple | Meerdere instructies op meerdere data tegelijk |
 
-**SISD** (Single Instruction, Single Data) is de basis von Neumann architectuur die je al kent. Eén processor voert één instructie uit op één stuk data.
+**SISD** (Single Instruction, Single Data) is de basis {ref}`von Neumann architectuur <von-neumann-architectuur>` die je al kent. Eén processor voert één instructie uit op één stuk data.
 
 **MISD** (Multiple Instruction, Single Data) komt in de praktijk bijna niet voor. Het theoretische voorbeeld is een systeem waarbij meerdere processors verschillende berekeningen doen op hetzelfde getal.
 
@@ -120,7 +120,7 @@ Voor taken met veel `if`-statements of onvoorspelbare patronen werkt SIMD minder
 
 3. Waarom is SIMD minder geschikt voor het sorteren van een lijst met getallen?
 
-4. Zoek op welke SIMD-instructieset jouw processor ondersteunt (SSE, AVX, AVX2, AVX-512, NEON, etc.).
+4. Zoek op welke SIMD-instructieset de processor van jouw computer of telefoon ondersteunt (SSE, AVX, AVX2, AVX-512, NEON, etc.). Zoek van die SIMD-instructieset een paar voorbeelden op. 
 
 :::
 
@@ -150,10 +150,10 @@ graph LR
 
 **Voorbeeld:**
 
-Core 1: Compileert code
-Core 2: Speelt muziek af
-Core 3: Rendert een video
-Core 4: Download een bestand
+- Core 1: Compileert code
+- Core 2: Speelt muziek af
+- Core 3: Rendert een video
+- Core 4: Download een bestand
 
 Allemaal tegelijk, allemaal verschillende taken!
 
@@ -192,11 +192,16 @@ with Pool(4) as p:  # 4 cores
 
 **Amdahl's wet**
 
-De snelheidswinst van parallellisme wordt beperkt door het deel van het programma dat *niet* geparallelliseerd kan worden.
+[Amdahl's wet](https://nl.wikipedia.org/wiki/Wet_van_Amdahl) is een belangrijke wet in de computerwetenschap die de theoretische snelheidswinst van parallellisme beschrijft. De wet is geformuleerd door Gene Amdahl in 1967.
+
+**Het kernprincipe:**
+
+De snelheidswinst van parallellisme wordt beperkt door het deel van het programma dat *niet* geparallelliseerd kan worden. Dit is cruciaal om te begrijpen voordat je investeert in meer cores of parallel programmeren.
 
 Als 90% van je programma parallel kan en je hebt oneindig veel cores, dan is de maximale snelheidswinst 10× (niet oneindig!). Dit komt omdat je nog steeds die 10% sequentieel moet uitvoeren.
 
-De formule:
+**De formule:**
+
 $$S(n) = \frac{1}{(1-p) + \frac{p}{n}}$$
 
 Waarbij:
@@ -211,6 +216,8 @@ Waarbij:
 $$S(4) = \frac{1}{0.25 + \frac{0.75}{4}} = \frac{1}{0.4375} = 2.29$$
 
 Je programma wordt 2.29× sneller, niet 4×!
+
+**Praktische implicatie:** Wil je meer snelheidswinst? Dan moet je eerst proberen het sequentiële deel (25%) te verkleinen, voordat je meer cores toevoegt!
 
 :::{exercise}
 
@@ -280,10 +287,10 @@ graph TD
         G6[...]
         G7[...]
         G8[...]
-        G9[Core]
-        G10[Core]
-        G11[Core]
-        G12[Core]
+        G1021[Core]
+        G1022[Core]
+        G1023[Core]
+        G1024[Core]
     end
 ```
 
@@ -554,7 +561,7 @@ We zien een trend naar steeds meer gespecialiseerde hardware:
 - Nog efficiënter dan general-purpose
 
 **In-memory computing**
-- Berekeningen doen waar data opgeslagen is
+- Berekeningen doen waar data opgeslagen is. Nu wordt de data nog van het geheugen naar de verwerkingseenheid getransporteerd en weer terug.
 - Elimineert geheugen bottleneck
 
 **Neuromorphic chips**
@@ -689,25 +696,101 @@ Signaalverwerking gaat over het manipuleren van signalen:
 
 **1. Convolutie**
 
-Voor filters, echo's, reverb:
+[Convolutie](https://nl.wikipedia.org/wiki/Convolutie) is een wiskundige operatie waarbij je twee signalen combineert om een nieuw signaal te maken. Dit wordt veel gebruikt voor:
+- **Filters**: Bijvoorbeeld een blur filter op een foto - elk pixel wordt het gemiddelde van zijn buren
+- **Echo's en reverb**: Het originele geluid wordt gemengd met vertraagde kopieën
+- **Edge detection**: In beeldverwerking om randen te vinden
+
+**Wat betekent de formule?**
+
+De formule $y[n] = \sum_{k} x[k] \cdot h[n-k]$ zegt eigenlijk:
+- $x[k]$ is het ingangssignaal (bijvoorbeeld geluid of een rij pixels)
+- $h[n-k]$ is de "impulse response" of filter-kern (bijvoorbeeld: hoeveel echo, of welke pixels tel je mee)
+- Voor elke output positie $n$ tel je alle $x[k]$ waarden op, gewogen met $h[n-k]$
+
+**Simpel voorbeeld:** Gemiddelde van 3 getallen
 ```
-y[n] = Σ x[k] · h[n-k]
+Ingang:  [5, 10, 15, 20, 25]
+Filter:  [1/3, 1/3, 1/3]  (gemiddelde van 3)
+Output:  [10, 15, 20]     (elk getal is het gemiddelde van 3 buren)
+```
+
+```{figure} assets/verdieping_architectuur/convolutie_voorbeeld.png
+---
+scale: 50%
+align: center
+---
+Convolutie: elk output sample is een gewogen som van input samples
 ```
 
 **2. FFT (Fast Fourier Transform)**
 
-Voor frequentie-analyse, compressie (MP3, JPEG):
-```
-Tijd domein → Frequentie domein
+De [Snelle Fourier-transformatie](https://nl.wikipedia.org/wiki/Snelle_Fouriertransformatie) zet een signaal om van het tijdsdomein naar het frequentiedomein. Dit klinkt ingewikkeld, maar het idee is simpel:
+
+**Tijdsdomein**: Je ziet hoe een signaal verandert in de tijd
+**Frequentiedomein**: Je ziet welke frequenties (tonen) in het signaal zitten
+
+**Toepassingen:**
+- **MP3 compressie**: Verwijder frequenties die mensen niet kunnen horen
+- **JPEG compressie**: Verwijder hoge frequenties (details) die je oog niet ziet
+- **Stemherkenning**: Analyseer welke tonen iemand uitspreekt
+- **Equalizer**: Pas specifieke frequenties aan (bas, midden, hoog)
+
+```{figure} assets/verdieping_architectuur/fft_tijdfrequentie.png
+---
+scale: 50%
+align: center
+---
+FFT zet een tijdsignaal om naar frequenties
 ```
 
 **3. Correlatie**
 
-Voor patroonherkenning, synchronisatie
+[Correlatie](https://nl.wikipedia.org/wiki/Correlatie) meet hoe vergelijkbaar twee signalen zijn. Het is vergelijkbaar met convolutie, maar dan zoek je naar overeenkomsten.
+
+**Toepassingen:**
+- **Patroonherkenning**: Zoek een specifiek geluid in een audio-opname
+- **GPS synchronisatie**: Vind het juiste tijdstip in satelliet signalen
+- **Barcode/QR-code scanning**: Herken eenvoudige patronen in camera beelden
+- **Radar en sonar**: Detecteer een echo van een uitgezonden puls
+
+**Voorbeeld:** Zoek de melodie "do-re-mi" in een lange muziekopname. Correlatie geeft een hoge waarde waar de melodie voorkomt.
+
+```{figure} assets/verdieping_architectuur/correlatie_patroon.png
+---
+scale: 50%
+align: center
+---
+Correlatie vindt patronen in signalen
+```
 
 **4. FIR/IIR filters**
 
-Voor geluid- en beeldverwerking
+[Digitale filters](https://nl.wikipedia.org/wiki/Digitaal_filter) zijn essentieel in signaalverwerking om bepaalde frequenties te behouden of te verwijderen.
+
+**FIR (Finite Impulse Response)**
+- Gebruikt alleen input samples
+- Altijd stabiel (kan niet "ontploffen")
+- Gebruikt voor: lineaire-fase filters, equalizers
+
+**IIR (Infinite Impulse Response)**
+- Gebruikt ook eerdere output samples (heeft "geheugen")
+- Efficiënter (minder berekeningen)
+- Gebruikt voor: bas/treble filters, compressors
+
+**Toepassingen:**
+- **Audio equalizer**: Verhoog bas, verlaag treble
+- **Noise cancellation**: Filter achtergrondgeluid eruit
+- **Anti-aliasing**: Voorkom vervelende artefacten bij sampling
+- **Beeldverwerking**: Blur, sharpen, edge detection
+
+```{figure} assets/verdieping_architectuur/fir_iir_filters.png
+---
+scale: 50%
+align: center
+---
+FIR en IIR filters in actie
+```
 
 ### DSP architectuur kenmerken
 
@@ -750,7 +833,7 @@ Loops zonder extra cycli voor loop-controle (teller, vergelijking, sprong)
 
 **5. Fixed-point arithmetic**
 
-Veel DSP's gebruiken fixed-point (vaste komma) in plaats van floating point:
+Veel DSP's gebruiken {ref}`fixed-point <fixed-point-notatie>` (vaste komma) in plaats van floating point:
 - Sneller
 - Minder energie
 - Voldoende precisie voor veel toepassingen
@@ -822,6 +905,8 @@ Je smartphone heeft waarschijnlijk meerdere DSP's:
 
 Een van de grootste uitdagingen in moderne computers is de enorme snelheidsverschil tussen de processor en het hoofdgeheugen. Dit heet de *memory wall* of *von Neumann bottleneck*. De oplossing: **cache geheugen**.
 
+TODO: afbeelding von Neumann architectuur
+
 ### Het snelheidsprobleem
 
 **Processor snelheid vs geheugen snelheid**
@@ -861,7 +946,7 @@ graph TD
 
 ### Wat is cache?
 
-**Cache** is een klein, snel geheugen tussen de processor en het hoofdgeheugen. Het bevat kopieën van vaak gebruikte data uit het langzamere hoofdgeheugen.
+**Cache** is een klein, snel geheugen tussen de processor en het hoofdgeheugen. Het bevat kopieën van vaak gebruikte data uit het langzamere hoofdgeheugen. Wanneer een CPU data nodig heeft uit het geheugen en het is opgeslagen in de cache, kan de data sneller naar de CPU verstuurd worden vanuit de cache. Dit is dus een mooie tijdwinst.
 
 **Cache hiërarchie**
 
@@ -900,6 +985,8 @@ for i in range(1000):
     sum += i  # variabele 'sum' wordt steeds opnieuw gebruikt
 ```
 
+Wanneer de variabele `sum` in de cache zit, hoeft deze dus niet steeds uit het geheugen gehaald te worden. Nog sneller zou natuurlijk zijn om de variabele `sum` in een register te zetten, maar dat is niet altijd mogelijk.
+
 **2. Spatial locality (ruimtelijke lokaliteit)**
 
 Als je data op adres X gebruikt, gebruik je waarschijnlijk ook data op adres X+1, X+2, etc.
@@ -910,12 +997,51 @@ for i in range(1000):
     array[i] = 0  # opeenvolgende array elementen
 ```
 
+**Het voordeel van spatial locality**
+
+Spatial locality zorgt voor veel cache hits omdat de cache werkt met *cache lines*: blokken van bijvoorbeeld 64 bytes die in één keer uit RAM worden geladen. Als je één byte nodig hebt, worden automatisch ook de 63 bytes erna in de cache geladen.
+
+**Voorbeeld: 2D array traversal**
+
+Stel je hebt een matrix van 1000×1000 integers (4 bytes per integer). Cache line grootte is 64 bytes = 16 integers.
+
+*Methode 1: Rij voor rij (goede spatial locality)*
+```python
+for i in range(1000):
+    for j in range(1000):
+        matrix[i][j] = 0  # [0][0], [0][1], [0][2], ...
+```
+
+In het geheugen liggen rij-elementen naast elkaar. Bij toegang tot `matrix[0][0]` worden `matrix[0][0]` t/m `matrix[0][15]` in de cache geladen. De volgende 15 toegangen zijn dus cache hits!
+- Eerste toegang per 16: cache miss
+- Volgende 15 toegangen: cache hits
+- Hit rate: ~94% (15/16)
+
+*Methode 2: Kolom voor kolom (slechte spatial locality)*
+```python
+for j in range(1000):
+    for i in range(1000):
+        matrix[i][j] = 0  # [0][0], [1][0], [2][0], ...
+```
+
+Nu spring je tussen rijen: `matrix[0][0]`, dan `matrix[1][0]`, dan `matrix[2][0]`, etc. Elke rij ligt 4000 bytes verder in het geheugen. De cache line die je laadt bij `matrix[0][0]` (met `matrix[0][0]` t/m `matrix[0][15]`) gebruik je niet voor de volgende toegang!
+- Bijna elke toegang: cache miss
+- Hit rate: ~5-10%
+
+**Time difference:**
+```
+Methode 1: 1 miljoen × (6% × 100ns + 94% × 2ns) = 7.9 ms
+Methode 2: 1 miljoen × (95% × 100ns + 5% × 2ns) = 95.1 ms
+```
+
+Methode 1 is **12× sneller** door goede spatial locality! Dit is waarom programmeurs altijd proberen data sequentieel te benaderen.
+
 ### Cache hits en misses
 
-**Cache hit**: Data zit in cache → snel!
-**Cache miss**: Data zit niet in cache → moet uit RAM → traag!
+**Cache hit**: Wanneer de door de CPU opgevraagde data in de cache zit, noemen we dit een *cache hit*. Met zo'n hit is de data dus erg snel toegankelijk voor de CPU en worden er geen kostbare cycles gewacht op data. 
+**Cache miss**: In het geval dat de door de CPU opgevraagde data niet in de cache is opgeslagen, dan spreken we van een *cache miss*. Zo'n miss zorgt ervoor dat de data uit het tragere RAM geheugen moet komen.
 
-**Hit rate**: percentage van de memory toegangen dat in cache zit
+**Hit rate**: Je kunt de kwaliteit van de afstemming van de programmacode op de cache meten met de zogenaamde *hit rate*. Dit is het percentage van de memory toegangen dat in cache zit. Je zult dit misschien herkennen als een procent-berekening van wiskunde. Nou, dat is het precies :)
 ```
 Hit rate = hits / (hits + misses)
 ```
@@ -924,7 +1050,9 @@ Voorbeeld:
 - 95 hits, 5 misses uit 100 toegangen
 - Hit rate = 95 / 100 = 95%
 
-**Gemiddelde toegangstijd:**
+**Gemiddelde toegangstijd:** Wanneer je de hitrate weet, kun je ook de *gemiddelde toegangstijd* voor een geheugenoperatie berekenen. Je hebt hiervoor de *hit rate* en *miss rate* nodig. De *miss rate* bereken je als `miss rate = 100 - hit rate`. Daarnaast heb je de toegangstijden voor de cache en het RAM geheugen nodig. Wanneer je een berekening wil maken voor een CPU zonder enige cache, dan zet je de hit rate op `0` en de miss rate op `100`.
+
+
 ```
 Average = (hit rate × cache tijd) + (miss rate × RAM tijd)
 ```
@@ -943,8 +1071,7 @@ Average = (0.95 × 2) + (0.05 × 100)
 Zonder cache zou elke toegang 100 ns duren. Met cache is het ~14× sneller!
 
 ### Cache mapping strategieën
-
-Hoe besluit de cache welke data op te slaan en waar?
+Het rekenen en inzien dat een cache daadwerkelijk tijdwinst op kan leveren is mooi en aardig, maar hoe besluit de cache welke data op te slaan en waar? Dat kan grofweg op drie verschillende manieren.
 
 **1. Direct Mapped Cache**
 
@@ -953,27 +1080,68 @@ Elk geheugenadres kan op maar één plek in de cache.
 Cache positie = (adres) % (cache grootte)
 ```
 
-Voordeel: Simpel, snel
-Nadeel: Veel cache conflicts (verschillende adressen concurreren om dezelfde cache plek)
+Dus in een rekenvoorbeeld: stel dat je een (superkleine) cache hebt van 8 bytes. Dan komen RAM-adressen `0, 8, 16, ...` op plek `0` in de cache. RAM-adressen `1, 9, 17, ...` staan op plek `1` in de cache, enzovoorts. 
 
+Het voordeel van deze methode is dat het mappen van de cache heel snel kan plaats vinden omdat het een 'simpele', haast naieve methode is. Het nadeel is dat het veel cache conflicts kan veroorzaken. 
+
+**Een cache conflict** is wanneer verschillende RAM-adressen concurreren om dezelfde cache plek. Hier is een concreet voorbeeld van wat er misgaat:
+
+*Scenario:* Je programma wisselt constant tussen RAM-adres 0 en RAM-adres 8:
+```
+1. Lees adres 0  → cache positie 0 (0 % 8 = 0) → MISS, laad in cache
+2. Lees adres 8  → cache positie 0 (8 % 8 = 0) → MISS, gooi adres 0 eruit, laad adres 8
+3. Lees adres 0  → cache positie 0 (0 % 8 = 0) → MISS, gooi adres 8 eruit, laad adres 0
+4. Lees adres 8  → cache positie 0 (8 % 8 = 0) → MISS, gooi adres 0 eruit, laad adres 8
+...
+```
+
+Resultaat: **100% cache misses**, terwijl 7 van de 8 cache posities leeg blijven! Dit is het probleem van een direct mapped cache: twee veelgebruikte adressen kunnen elkaar constant uit de cache gooien.
+
+**Samengevat**
+
+Voordeel: Simpel, snel
+
+Nadeel: Veel cache conflicts (verschillende adressen concurreren om dezelfde cache plek)
+ 
 **2. Fully Associative Cache**
 
-Elk geheugenadres kan op elke plek in de cache.
+Elk geheugenadres kan op elke willekeurige plek in de cache.
+
+Bij deze methode wordt voor elke cache-plek een **tag** bijgehouden die aangeeft welk RAM-adres erin zit. Bij elke cache-toegang moeten alle tags gecontroleerd worden om te zien of het gezochte adres in de cache staat. Dit heet een *associative search*.  Dit zorgt natuurlijk voor vertraging. Dus dan is de CPU weer aan het wachten op data. En dat was nou precies wat we met de cache wilden oplossen. Een absoluut voordeel aan deze manier van organiseren, is dat je geen enkele cache miss krijgt.
+
+**Samengevat**
 
 Voordeel: Geen conflicts, beste hit rate
+
 Nadeel: Complex, traag om te zoeken
 
 **3. N-way Set Associative Cache** (meest gebruikt)
 
-Compromis: cache is verdeeld in sets, binnen een set kan data overal.
+De N-way set associative cache combineert het beste van beide vorige methoden. De cache wordt opgedeeld in *sets*, en elk geheugenadres heeft een vaste set waar het in kan - maar binnen die set mag het op elke vrije plek staan.
 
-Bijvoorbeeld 4-way set associative:
+**Voorbeeld: 4-way set associative cache van 8 sets**
+
 ```
-Set = (adres) % (aantal sets)
-Binnen de set: keuze uit 4 plekken
+Set = (adres) % (aantal sets)   → bepaalt welke set (snel, zoals direct mapped)
+Binnen de set: keuze uit 4 plekken → voorkomt conflicts (zoals fully associative)
 ```
+
+Terug naar het conflict-voorbeeld: RAM-adressen 0 en 8 komen nu allebei in set 0, maar die set heeft 4 plekken. Ze kunnen dus *naast elkaar* in de cache bestaan zonder elkaar eruit te gooien!
+
+```
+Set 0: [adres 0 | adres 8 | leeg | leeg]   ← geen conflict meer!
+Set 1: [leeg | leeg | leeg | leeg]
+...
+```
+
+Pas als er 5 of meer adressen in dezelfde set zitten, ontstaat er een conflict. De kans daarop is bij 4 plekken per set veel kleiner dan bij direct mapped.
+
+De *N* in "N-way" staat voor het aantal plekken per set. Een 2-way cache heeft 2 plekken per set, een 8-way cache heeft er 8. Moderne processors gebruiken vaak 4-way of 8-way set associative caches als L1, en 16-way voor L3.
+
+**Samengevat**
 
 Voordeel: Goede balans tussen snelheid en hit rate
+
 Nadeel: Complexer dan direct mapped
 
 ### Cache replacement policies
@@ -983,12 +1151,12 @@ Als de cache vol is, welke data gooi je eruit?
 **LRU (Least Recently Used)**
 - Gooi de data eruit die het langst niet gebruikt is
 - Meest gebruikt in praktijk
-- Goede prestaties voor de meeste programma's
+- Goede prestaties voor de meeste programma's. Klinkt eigenlijk ook best logisch. Heb je iets lang niet meer gebruikt, dan is de kans klein dat je het binnenkort nodig hebt. Behalve die ene kabel uit die doos met oude kabels (IYKYK).
 
 **FIFO (First In, First Out)**
-- Gooi de oudste data eruit
+- Gooi de oudste data eruit. De ouderdom wordt op basis van tijdstip van toevoeging bepaald en niet zozeer door het laatste gebruik (zoals de LRU hierboven werkt).
 - Simpeler dan LRU
-- Iets slechtere prestaties
+- Iets slechtere prestaties. 
 
 **Random**
 - Kies willekeurige data om eruit te gooien
@@ -998,25 +1166,93 @@ Als de cache vol is, welke data gooi je eruit?
 **LFU (Least Frequently Used)**
 - Gooi data eruit die het minst gebruikt is
 - Complexer
-- Kan beter zijn voor bepaalde workloads
+- Kan beter zijn voor bepaalde workloads (een database buffercache of een Web/CDN cache).
 
 ### Write policies
 
-Wat gebeurt er als je data in cache wijzigt?
+Wat gebeurt er als je data in cache wijzigt? Je hebt twee instanties van de data. Eentje in het RAM-geheugen en eentje in de cache. Wat je te alle tijde wil voorkomen is dat er een mismatch is tussen RAM en cache, zonder dat dit bekend is. Dus wanneer de CPU data wil opslaan, zal dit eerst in de cache gewijzigd worden. Dan zijn er twee keuzes te maken over wanneer je de data terugschrijft naar RAM. Direct of uitgesteld.
 
-**Write-through**
+**Write-through (direct)**
 - Schrijf naar cache EN direct naar RAM
 - Voordeel: RAM is altijd up-to-date
-- Nadeel: Langzamer (elke write gaat naar RAM)
+- Nadeel: Langzamer (elke write gaat naar RAM). Voor read-heavy workloads maakt dit niet veel uit.
 
-**Write-back**
+**Write-back (uitgesteld)**
 - Schrijf alleen naar cache, pas later naar RAM
 - Voordeel: Sneller
-- Nadeel: Complexer, RAM kan verouderd zijn
+- Nadeel: Deze aanpak is complexer, want je per cache-entry bijhouden of de cache data gewijzigd is. Dit gebeurt middels een **dirty bit**, die aangeeft of de cache-data gewijzigd is. Dan weet je dat die data nog naar de RAM geschreven moet worden.
 
-**Dirty bit**
 
-Bij write-back: een bit die aangeeft of cache data gewijzigd is en nog naar RAM moet.
+### Cache coherency (multi-core)
+
+We zijn er tot nu toe van uit gegaan dat er slechts 1 CPU betrokken is bij de cache. Dus is er ook maar 1 CPU, die schrijven en lezen in het geheugen via de cache. Wat nou als je meerdere CPU's of cores hebt? En wat nou als die cores ieder een eigen cache hebben. Hoe hou je de boel gesynchroniseerd?
+
+**Probleem:**
+```
+Core 1: Leest X = 5 (in L1 cache)
+Core 2: Leest X = 5 (in L1 cache)
+Core 1: Schrijft X = 10 (in zijn L1)
+Core 2: Leest X... krijgt 5! (verouderd!)
+```
+
+**Oplossing: Cache coherence protocols**
+
+**MESI protocol** (meest gebruikt):
+- **M**odified: Deze cache heeft de enige geldige kopie (en hij is gewijzigd)
+- **E**xclusive: Deze cache heeft de enige kopie (maar niet gewijzigd)
+- **S**hared: Meerdere caches hebben een kopie
+- **I**nvalid: Deze cache heeft een verouderde kopie
+
+Bij een write naar cache in Modified/Exclusive mode:
+1. Invalideer kopieën in andere caches
+2. Forceer ze opnieuw uit RAM te halen
+
+### False sharing
+
+Een subtiel multi-core probleem:
+
+```c
+struct {
+    int counter1;  // gebruikt door core 1
+    int counter2;  // gebruikt door core 2
+} data;
+```
+
+Ook al gebruiken de cores verschillende variabelen, ze zitten in dezelfde **cache line** (typisch 64 bytes). Elke write door één core invalideert de cache van de andere!
+
+Oplossing: **padding**
+```c
+struct {
+    int counter1;
+    char padding[60];  // Forceer verschillende cache lines
+    int counter2;
+} data;
+```
+
+Het detecteren van _false sharing_ doe je door middel van een profiler. Daarmee kun je de prestatie van code fragmenten meten. De toepassingsgebieden, waarin er actief gezocht wordt naar false sharing bij multi-core performance zijn game engines, database engines, high frequency trading en operating system kernels. De padding-oplossing wordt ook pas gebruikt, nadat er gemeten is!
+
+### Cache als beveiligingsrisico: Spectre en Meltdown
+
+De cache is gedeelde hardware tussen processen. Dat maakt het ook een doelwit voor aanvallen. In 2018 werden twee van de meest impactvolle CPU-kwetsbaarheden ooit ontdekt: [Meltdown](https://nl.wikipedia.org/wiki/Meltdown_(beveiligingslek)) en [Spectre](https://nl.wikipedia.org/wiki/Spectre_(beveiligingslek)).
+
+**Het aanvalsprincipe: timing als zijkanaal**
+
+De aanval maakt gebruik van *speculatieve uitvoering* (de CPU voert alvast instructies uit die misschien niet nodig zijn) én de cache:
+
+1. Verleid de CPU om *speculatief* verboden data te lezen — data die eigenlijk van een ander proces of de kernel is
+2. Die verboden data landt in de **cache**, ook al wordt de instructie achteraf door de CPU teruggedraaid
+3. Meet hoe lang geheugentoegangen duren: een snelle toegang = cache hit = die data *was* al geladen
+4. Zo kun je bit voor bit verboden geheugen *aflezen via timing*, zonder het ooit formeel te "lezen"
+
+**Waarom is dit zo ernstig?**
+
+Een normaal programma kan in principe het geheugen van andere programma's of de kernel niet lezen — het besturingssysteem en de hardware voorkomen dat. Maar via dit zijkanaal omzeil je die bescherming volledig, zonder dat de CPU een foutmelding geeft.
+
+**De fix en de prijs**
+
+De oplossing heet **KPTI** (Kernel Page-Table Isolation): de page tables van de kernel en van gebruikersprogramma's worden strikt gescheiden gehouden. Dit sluit het zijkanaal, maar kost wel ~5-30% performance — elke keer dat een programma de kernel aanroept (voor bijvoorbeeld bestandstoegang of netwerk) moet de CPU een dure context-switch maken.
+
+Dit is een mooi voorbeeld van de spanning tussen **prestatie** en **veiligheid** in hardware-ontwerp. De speculatieve uitvoering die CPU's zo snel maakt, blijkt ook een beveiligingsrisico te zijn.
 
 ### Cache-friendly programmeren
 
@@ -1062,52 +1298,6 @@ for ii in range(0, N, BLOCK):
                         C[i][j] += A[i][k] * B[k][j]
 ```
 
-### Cache coherency (multi-core)
-
-Bij meerdere cores met eigen caches: hoe hou je ze gesynchroniseerd?
-
-**Probleem:**
-```
-Core 1: Leest X = 5 (in L1 cache)
-Core 2: Leest X = 5 (in L1 cache)
-Core 1: Schrijft X = 10 (in zijn L1)
-Core 2: Leest X... krijgt 5! (verouderd!)
-```
-
-**Oplossing: Cache coherence protocols**
-
-**MESI protocol** (meest gebruikt):
-- **M**odified: Deze cache heeft de enige geldige kopie (en hij is gewijzigd)
-- **E**xclusive: Deze cache heeft de enige kopie (maar niet gewijzigd)
-- **S**hared: Meerdere caches hebben een kopie
-- **I**nvalid: Deze cache heeft een verouderde kopie
-
-Bij een write naar cache in Modified/Exclusive mode:
-→ Invalideer kopieën in andere caches
-→ Forceer ze opnieuw uit RAM te halen
-
-### False sharing
-
-Een subtiel multi-core probleem:
-
-```c
-struct {
-    int counter1;  // gebruikt door core 1
-    int counter2;  // gebruikt door core 2
-} data;
-```
-
-Ook al gebruiken de cores verschillende variabelen, ze zitten in dezelfde **cache line** (typisch 64 bytes). Elke write door één core invalideert de cache van de andere!
-
-Oplossing: **padding**
-```c
-struct {
-    int counter1;
-    char padding[60];  // Forceer verschillende cache lines
-    int counter2;
-} data;
-```
-
 :::{exercise}
 
 1. Leg uit waarom een computer met cache geheugen veel sneller is dan zonder, ook al is de CPU even snel.
@@ -1121,7 +1311,7 @@ struct {
 
 4. Leg uit wat het verschil is tussen write-through en write-back cache.
 
-5. **Experiment:** Schrijf een programma dat een grote 2D array doorloopt op twee manieren (rij-eerst vs kolom-eerst) en meet het tijdsverschil.
+5. **Experiment:** Schrijf een programma dat een grote 2D array doorloopt op twee manieren (rij-eerst vs kolom-eerst) en meet het tijdsverschil. Gebruik bij voorkeur een gecompileerde taal (C, C++, Rust, GoLang) en niet een geinterpreteerde taal als JavaScript of Python.
 
 6. **Onderzoeksproject:** Zoek uit hoeveel L1, L2 en L3 cache jouw processor heeft. Gebruik tools zoals `lscpu` (Linux/Mac) of CPU-Z (Windows).
 

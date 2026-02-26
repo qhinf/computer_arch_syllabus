@@ -6,6 +6,7 @@ Tot nu toe hebben we alleen gewerkt met gehele getallen (integers). Maar compute
 
 ### Het probleem met kommagetallen
 
+(fixed-point-notatie)=
 Je zou kunnen denken: waarom gebruiken we niet gewoon een vast aantal bits voor het gehele deel en een vast aantal bits voor het gedeelte achter de komma? Dit heet *fixed point* notatie en wordt ook wel gebruikt, maar heeft beperkingen:
 
 - Als je 16 bits hebt en je gebruikt 8 bits voor het gehele deel en 8 bits voor het fractionele deel, kun je getallen representeren van ongeveer -128.0 tot 127.99609375

@@ -41,6 +41,7 @@ align: center
 De ENIAC
 ```
 
+(von-neumann-architectuur)=
 ### De basis  van een computer
 
 Tegenwoordig gebruiken we het woord computer voor een apparaat dat een invoer kan verwerken met behulp van opgeslagen instructies, en het resultaat als uitvoer geeft. Dit noemen we ook wel het *von Neumann principe*: invoer, opslag, verwerking, en uitvoer.
