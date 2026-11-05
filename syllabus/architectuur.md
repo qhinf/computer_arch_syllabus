@@ -5,14 +5,12 @@
 
 ### Een 'computer'
 
-````{figure} assets/image-20231127113605443.png
+````{figure} assets/Brunsviga_10.png
 ---
 scale: 50%
 align: left
 ---
-Een vroege computer slechts 
-
-geschikt voor één enkele taak
+Een vroege computer slechts geschikt voor één enkele taak
 ````
 
 Het woord computer komt van *computare* wat berekenen betekent. Tot zo'n honderd jaar geleden was het woord *computer* een functieomschrijving voor mensen die berekeningen deden. Het apparaat *computer* was in het begin ook niet veel meer dan een apparaat wat berekeningen deed. De eerste computers werden gebouwd met een specifiek doel voor ogen. Een voorbeeld daarvan zijn simpele rekenmachines. Deze computers konden alleen berekeningen uitvoeren waar ze op gebouwd waren. Dat betekende dat je een apart apparaat moest hebben, wanneer je verschillende soorten berekeningen wilde uitvoeren.
@@ -23,10 +21,10 @@ De Britten waren er met de Colossus in geslaagd om een programmeerbare computer 
 ```{admonition} 
 **Kijktip**: The Imitation Game. Je zult in deze film de bombes aan het werk zien. 
 
-**Reistip**: [Bletchley Park](https://www.bletchleypark.org.uk) is tegenwoordig een museum op ongeveer 45 minuten van Londen
+**Reistip**: [Bletchley Park](https://www.bletchleypark.org.uk) is tegenwoordig een museum op ongeveer 45 trein minuten van Londen
 ``` 
 
-```{figure} assets/image-20231127120234994.png
+```{figure} assets/Colossus_BP.png
 ---
 align: center
 ---
@@ -34,7 +32,7 @@ De Colossus in Bletchley Park
 ```
 In de Verenigde Staten waren het de wetenschappers Eckert en Mauchly die zich bezig hielden met een concept voor het opslaan van programma’s in herprogrammeerbaar geheugen. Von Neumann ging met dit concept aan de haal en publiceerde het werk van de heren onder zijn naam. Daarom kennen we nu het begrip “von Neumann principe”. Uiteindelijk slaagden de Amerikanen erin om de ENIAC te bouwen. De ENIAC was niet alleen programmeerbaar, maar ook herprogrammeerbaar. De Amerikaanse belastingbetaler werd voorgeschoteld dat de ENIAC gebruikt werd voor het berekenen van weersvoorspelling. Dit was ook de dagtaak van de ENIAC. Maar ’s nachts werd de ENIAC in het geheim gebruikt door het Amerikaanse leger om berekeningen te maken voor de ontwikkeling van H-bommen (een atoombom op basis van waterstof).
 
-```{figure} assets/image-20231127120643374.png
+```{figure} assets/ENIAC.png
 ---
 align: center
 ---
@@ -46,7 +44,7 @@ De ENIAC
 
 Tegenwoordig gebruiken we het woord computer voor een apparaat dat een invoer kan verwerken met behulp van opgeslagen instructies, en het resultaat als uitvoer geeft. Dit noemen we ook wel het *von Neumann principe*: invoer, opslag, verwerking, en uitvoer.
 
-```{figure} assets/image-20231128103708372.png
+```{figure} assets/Old_vonNeumannArchitecture.png
 ---
 align: center
 ---
@@ -69,7 +67,7 @@ De uitwerking van het von Neumann principe leidt tot een computerarchitectuur di
 
 Het *geheugen* (*memory*) is een opslagplek met heel veel vakjes. Ieder vakje kan een beperkte hoeveelheid data bevatten. De data in de vakjes zijn instructies voor een *processor*. De processor verwerkt de data en maakt op basis daarvan berekeningen en keuzes. Meerdere instructies samen vormen een *computerprogramma*.
 
-```{figure} assets/image-20231128105716129.png
+```{figure} assets/von-neumann-cu-alu-accumulator.png
 ---
 scale: 50%
 align: right
@@ -86,7 +84,7 @@ align: right
 
 De onderdelen die in een computer zitten hebben jullie al bij [Basis van Computer Science](https://qhinf.github.io/syllabi/basis_cs/) eens eerder gezien. We gaan ons in de komende paragrafen verdiepen in deze onderdelen en kijken hoe ze nou precies samenwerken. Dit doen we met de von Neumann architectuur in ons achterhoofd.
 
-```{figure} assets/image-20231128110209429.png
+```{figure} assets/pc-onderdelen-genummerd.png
 ---
 align: center
 ---
@@ -108,7 +106,7 @@ De processor is dus de verwerkingseenheid in de von Neumann architectuur. Die zo
 
 Een processor moet continu berekeningen doen. Die berekeningen gebeuren door stroompjes te laten lopen door schakelaars en logische schakelingen. Die schakelaars noemen we transistoren. Dat zijn elektrische componenten die stroom wel (1) of niet (0) door laten. Hoe die logische schakelingen en schakelaars samenwerken om berekeningen te maken is behandeld in het vorige hoofdstuk. Wanneer we de logische schakelingen van de *NOT*, *AND*, en *OR* poort uittekenen dan worden de transistoren meestal weergegeven met een cirkel waar 3 lijnen in samenkomen.
 
-```{figure} assets/image-20231128111315775.png
+```{figure} assets/poorten-not-and-or-transistoren.png
 ---
 align: left
 scale: 15%
@@ -117,7 +115,7 @@ Logische poorten gemaakt met transistoren
 ```
 De voorloper van de transistor was de elektronenbuis. Een grote glazen vacuümbuis die wel iets weg had van een gloeilamp. Deze vacuümbuizen werden gebruikt om elektrische signalen te versterken. Dit was vooral handig voor het oppikken van zwakke radiosignalen in de lucht. Door deze signalen met een vacuümbuis te versterken konden de radiosignalen in de lucht hoorbaar gemaakt worden. De huidige transistoren kunnen nog steeds elektrische signalen versterken maar in de processor is hun doel om elektrische signalen aan en uit te zetten om zo eentjes en nulletjes te maken.
 
-```{figure} assets/image-20231128111453360.png
+```{figure} assets/vacuumbuis-transistor-ic-smd.png
 ---
 align: right
 scale: 50%
@@ -140,7 +138,7 @@ In de vorige paragraaf heb je gezien dat wanneer we het Von Neumann-principe uit
 
 *Accumulator*: kan tijdelijk een waarde onthouden. Hier wordt de uitkomst van de ALU bewaard totdat deze in het geheugen gezet kan worden. Invoer (input) komt ook eerst in de accumulator te staan zodat deze verwerkt kan worden, en ook resultaten van een berekening worden vanuit de accumulator als uitvoer (output) gegeven.
 
-```{figure} assets/image-20231128112541527.png
+```{figure} assets/cpu-schema-registers.png
 ---
 align: center
 ---
@@ -164,14 +162,14 @@ Met het Engelse woord ‘data’ in de naamgeving van MDR wordt hier dus specifi
 ### Kloksnelheid
 
 Zoals hierboven beschreven, haalt de processor steeds informatie op uit het werkgeheugen (*fetch*), de Control Unit leest deze informatie (*decode*) en de ALU voert de informatie uit (*execute*). Soms moet er ook nog informatie terug in het werkgeheugen geschreven worden (*store*). Dit riedeltje herhaalt zich keer op keer en wordt ook wel de fetch-execute cycle genoemd.
-```{figure} assets/image-20231128112817461.png
+```{figure} assets/fetch-decode-execute-cyclus.png
 ---
 scale: 50%
 align: center
 ---
 ```
 Die cyclus gaat met een vast patroon, maar ook met een vaste frequentie, als het ritme van een drum. Elke drumslag geeft het moment aan dat een nieuwe ronde van de cyclus gestart wordt. Dit noemen we de kloksnelheid en deze wordt uitgedrukt in Hertz. Hertz ken je waarschijnlijk ook van Natuurkunde als de frequentie van een golf. 1 Hertz is gelijk aan 1 instructie per seconde. De kloksnelheid is dus het aantal instructies dat de processor per seconde uit kan voeren uitgedrukt in Hz. 
-```{figure} assets/image-20231128112912882.png
+```{figure} assets/klokcyclus.png
 ---
 scale: 20%
 align: center
@@ -180,7 +178,7 @@ align: center
 
 Die ene instructie per seconde is alleen best wel inefficiënt. Zoals je hierboven in de afbeelding ziet gebeurt elk onderdeeltje van een instructie namelijk ergens anders, werkgeheugen, control unit, of ALU. Nu kunnen alle onderdelen op elkaar blijven wachten, maar dan zitten ze een groot deel van de tijd nutteloos te zijn. Het is veel efficiënter als de instructies zich sneller achter elkaar opvolgen. Terwijl de control unit de ene instructie decodeert, is het werkgeheugen alvast bezig de volgende instructie op te halen en staat deze meteen klaar zodra de control unit klaar is. Dit noemen we pipelining. Op deze manier passen de instructies beter opvolgend aan elkaar, zoals ook in de afbeelding te zien is.
 
-```{figure} assets/image-20231128114345254.png
+```{figure} assets/pipelining-zonder-en-met.png
 ---
 align: center
 ---
@@ -194,7 +192,7 @@ Ook bij pipeling wordt er bij 1 Hz nog steeds maar één instructie per seconde 
 
 Toch kan er nog steeds maar een enkele instructie per cyclus voltooid worden, ook met pipelining. Om processors nog sneller te maken worden ze tegenwoordig opgedeeld in cores. Iedere core kan afzonderlijk een instructie uitvoeren. Op die manier is het mogelijk om meerdere instructies tegelijk te voltooien. Een enkele core met een snelheid van 1Hz kan dus 1 instructie per seconde voltooien, maar vier cores met ieder een snelheid van 1Hz kunnen dan vier instructies per seconde voltooien.
 
-```{figure} assets/image-20231128114546091.png
+```{figure} assets/single-core-vs-quad-core-snelweg.png
 ---
 align: center
 scale: 55%
@@ -224,7 +222,7 @@ Waar bij CISC voor het optellen misschien maar een instructie nodig is, zijn daa
 
 De compactere hardware vraagt om meer aandacht voor de software. Al die losse instructies maken wel dat deze categorie processoren over het algemeen een stukje trager is. Gelukkig passen bij RISC de instructies wél allemaal binnen een vaste klokcyclus. Daardoor kunnen RISC processoren wel gebruik maken van pipelining. Dat scheelt weer iets om het verschil in snelheid wat te compenseren.
 
-```{figure} assets/image-20231128120121332.png
+```{figure} assets/cisc-vs-risc.png
 ---
 align: center
 ---
@@ -235,7 +233,7 @@ Nu weet je hoe processoren werken, maar hoe kom je er nou achter welke processor
 
 Er zijn verschillende manieren om op te zoeken wat voor processor er in een laptop of PC zit. Zo is het meestal wel mogelijk om met het modelnummer van de computer op het internet de specificaties op te zoeken. (Dat modelnummer staat bij laptops trouwens meestal op de onderkant.) Het is ook mogelijk dit in de computer zelf op te zoeken door middel van het programma Systeeminformatie of Taakbeheer. Taakbeheer is daarnaast extra interessant omdat deze ook de informatie over de belasting van de processor geeft. Ook zijn er speciale programma’s te downloaden die de specificaties van je computer kunnen uitlezen zoals CPU-Z of Speccy.
 
-```{figure} assets/image-20231128120950851.png
+```{figure} assets/taakbeheer-cpu.png
 ---
 align: center
 scale: 50%
@@ -268,7 +266,7 @@ Windows Taakbeheer
 
 Een computer heeft naast een verwerkingsmodule (de processor) ook een geheugenmodule nodig. Tegenwoordig zijn er twee soorten geheugen te onderscheiden in een computer: het korte-termijn geheugen en het lange-termijn geheugen. 
 
-```{figure} assets/image-20231128142719874.png
+```{figure} assets/hdd-en-ssd.png
 ---
 align: center
 scale: 75%
@@ -278,7 +276,7 @@ Lange termijn geheugen
 
 Het lange-termijn geheugen slaat informatie voor langere tijd op, ook als de computer uit is geweest. Dit is bijvoorbeeld een harde schijf (HDD) of een Solid State Drive (SSD). Je slaat hier bestanden op zoals documenten, filmpjes, en geluid, maar ook programma’s worden bewaard op het lange-termijn geheugen. De grootte van je harde schijf of SSD wordt met gigabytes uitgedrukt, bijvoorbeeld 512 GB. Daar is veel opslagruimte nodig omdat deze informatie voor langere tijd bewaard moet worden en niet verdwijnt als de stroom wegvalt. Harde schijven en SSD’s zijn dan ook voorbeelden van niet-vluchtig geheugen. 
 
-```{figure} assets/image-20231128145947040.png
+```{figure} assets/ram-modules.png
 ---
 align: center
 scale: 75%
@@ -291,7 +289,7 @@ Het korte-termijn geheugen slaat informatie maar tijdelijk op. Je hebt vast wel 
 
 Wanneer je een bestand of programma opent wordt de bijbehorende informatie van de harde schijf of SSD naar het werkgeheugen verplaatst. Het werkgeheugen staat namelijk in directe verbinding met de processor en werkt een stuk sneller dan het lange-termijn geheugen. Dit is prettig wanneer je met een bestand of programma bezig bent, anders zou je computer heel traag functioneren. Vaak heb je meerdere bestanden en/of programma’s tegelijk open en wil je snel kunnen schakelen. Dat multitasken is niet zo vanzelfsprekend als het lijkt!
 
-```{figure} assets/image-20231128150507345.png
+```{figure} assets/cassettebandje.png
 ---
 align: right
 scale: 30%
@@ -299,7 +297,7 @@ scale: 30%
 Een cassettebandje
 ```
 
-```{figure} assets/image-20231128150641325.png
+```{figure} assets/sequential-vs-random-access.png
 ---
 align: right
 scale: 40%
@@ -313,7 +311,7 @@ Gelukkig werkt werkgeheugen niet op die manier. Werkgeheugen bestaat uit allemaa
 
 ### Hiërarchie
 
-```{figure} assets/image-20231128150850481.png
+```{figure} assets/geheugenhierarchie.png
 ---
 align: center
 ---
@@ -326,7 +324,7 @@ Bekijk ook de video [“How computer memory works - Kanawat Senanan”](https://
 
 ### Adressen en waardes
 
-```{figure} assets/image-20231128151058268.png
+```{figure} assets/geheugen-adressen-en-waardes.png
 ---
 align: right
 scale: 70%
@@ -339,7 +337,7 @@ Adressen en waardes hebben een vaste lengte. Dit heet een “word”. Bij een 32
 
 De waarde van een vakje is de opgeslagen informatie. Dit kan gewoon een getal zijn, maar meestal is het iets meer dan dat. De waarde bestaat dan uit een combinatie van twee stukken: een instructie en een doeladres. De instructie is iets wat uitgevoerd moet worden door de processor. Bijvoorbeeld optellen, van elkaar af halen, of naar een ander opslagvakje springen. De processor voert deze instructie uit en leest of schrijft de bijbehorende informatie in het opslagvakje wat in het doeladres benoemt wordt. Een waarde kan dus zijn: ‘*getal 9*’. Maar een waarde kan ook zijn: ‘*tel het getal uit opslagvakje 118 op bij het getal in de accumulator*’. Of: ‘*ga voor de volgende instructie naar opslagvakje 78 in plaats van het eerstvolgende postvakje*’.
 
-```{figure} assets/image-20231128151349812.png
+```{figure} assets/instructieset-voorbeeld.png
 ---
 align: left
 scale: 50%
@@ -355,7 +353,7 @@ Elke architectuur heeft zijn eigen instructieset. Dus een programma, geschreven 
 
 Eigenlijk hebben het werkgeheugen en de processor niet een directe verbinding maar wel drie directe verbindingen. De drie verbindingen zijn: De adresbus, de databus, en de controlebus. Deze drie bussen zijn samen de systeembus die zorgt voor de verbinding tussen de processor en het werkgeheugen. Iedere bus heeft zijn eigen doel. De adresbus is aangesloten op het Memory Address Register van de processor, de databus is aangesloten op het Memory Data Register, en de controlebus is aangesloten op de Control Unit. Een enkele verbinding kan namelijk maar 1 stukje data tegelijk versturen. De verbinding tussen de processor en het werkgeheugen is een van de onderdelen die de snelheid erg beperkt. Het komt de snelheid ten goede als er stukjes informatie parallel aan elkaar gestuurd kunnen worden in plaats van achter elkaar aan. Door de systeembus op te delen in meerdere bussen wordt dit mogelijk gemaakt. Gelijktijdig drie keer 64 bits versturen is sneller dan 192 bits achter elkaar aan moeten versturen. Maar zelfs met deze drie aparte bussen blijft de verbinding tussen de processor en het werkgeheugen het traagste onderdeel. Dit betekent dat de processor vaak aan het niksen is terwijl die wacht tot de informatie van het werkgeheugen eindelijk aangekomen is zodat de processor dit kan verwerken. Dat wordt de *Von Neumann Bottleneck* genoemd. 
 
-```{figure} assets/image-20231128153847758.png
+```{figure} assets/systeembus-adres-data-controle.png
 ---
 align: center
 scale: 50%
@@ -373,7 +371,7 @@ De Von Neumann Bottleneck is niet zo makkelijk op te lossen. Processorsnelheden 
 
 Het werkgeheugen kan een merkbare impact hebben op de snelheid van je computer. Dit heeft onder andere te maken met de grootte van je werkgeheugen. Hoe meer opslagcapaciteit je werkgeheugen heeft hoe meer informatie er tegelijk actief open kan staan zonder al te veel snelheidsverlies. Met het programma Taakbeheer kan je zien hoeveel ruimte van je werkgeheugen in gebruik is en welke programma’s het meeste werkgeheugen in beslag nemen. Is je computer traag omdat al het werkgeheugen in gebruik is? Sluit dan de actieve programma’s die je op dat moment toch niet nodig hebt.
 
-```{figure} assets/image-20231128153905879.png
+```{figure} assets/taakbeheer-geheugen.png
 ---
 align: center
 scale: 50%
@@ -382,7 +380,7 @@ scale: 50%
 
 Wanneer je zelf je computer gaat bouwen zal je gegarandeerd op het punt komen waarbij je moet beslissen of je single channel of dual channel werkgeheugen wilt. Bij een single channel configuratie heb je een enkele werkgeheugenkaart van bijvoorbeeld 32 GB. Bij een dual channel configuratie heb je twee werkgeheugenkaarten, bijvoorbeeld twee kaarten van 16 GB. Dan heb je evenveel opslagcapaciteit voor je werkgeheugen, maar doordat je twee verbindingen hebt zou je meer informatie tegelijk kunnen uitwisselen met de processor. Dual channel zou dus sneller moeten zijn dan single channel, maar in de praktijk blijkt dit verschil niet meetbaar. De prijs zou nog wel een argument kunnen zijn. Het is vaak iets goedkoper om twee kaarten van 16 GB te kopen dan één van 32 GB. 
 
-```{figure} assets/image-20231128153955186.png
+```{figure} assets/single-vs-dual-channel.png
 ---
 align: center
 scale: 50%
