@@ -1,6 +1,6 @@
 # Gegevens verwerken<br/><small>in machinetaal</small>
 
-Q-highschool / Computerarchitectuur / Bijeenkomst 5
+Q-vakken/ Computerarchitectuur / Bijeenkomst 5
 
 ***
 

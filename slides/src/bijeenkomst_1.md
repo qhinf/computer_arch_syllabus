@@ -1,6 +1,6 @@
 # Binair Rekenen
 
-Q-highschool / Computerarchitectuur / Bijeenkomst 1
+Q-Vakken / Computerarchitectuur / Bijeenkomst 1
 
 ***
 

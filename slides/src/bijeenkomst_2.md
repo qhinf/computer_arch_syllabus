@@ -1,6 +1,6 @@
 # Logische schakelingen
 
-Q-highschool / Computerarchitectuur / Bijeenkomst 2
+Q-vakken / Computerarchitectuur / Bijeenkomst 2
 
 ***
 

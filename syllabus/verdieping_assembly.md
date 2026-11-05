@@ -22,7 +22,7 @@ Je kunt deze flags zien in de simulator rechtsbovenin, vlakbij de ALU.
 
 ### De N-flag (Negative)
 
-De N-flag wordt gezet als de Most Significant Bit (MSB) van het resultaat `1` is. Bij twee-complement notatie betekent dit dat het getal negatief is.
+De N-flag wordt gezet als de Most Significant Bit (MSB) van het resultaat `1` is. Bij twee-complement notatie betekent dit dat het getal negatief is. De Most Significant Bit is in het geval van de RISC-simulator de meest linker bit[^1]. Dat is zoals we gewend zijn onze decimale getallen te schrijven. 
 
 **Voorbeeld:**
 ```assembly
@@ -58,8 +58,9 @@ De C-flag geeft aan of er een *carry* (overdracht) was bij de laatste berekening
 **Bij optellen:**
 
 ```assembly
-MOV R1, #65535    // 0xFFFF (het maximale 16-bit getal)
-ADD R1, #1        // 65535 + 1
+LDR R1, max_uint    // 0xFFFF (het maximale 16-bit getal)
+ADD R1, #1          // 65535 + 1
+max_uint: DAT 65535
 ```
 
 Het resultaat past niet in 16 bits! De berekening is eigenlijk:
@@ -73,6 +74,8 @@ De voorste `1` past niet meer in 16 bits en gaat verloren. Die wordt opgeslagen 
 - R1 bevat `0x0000` (alleen de onderste 16 bits)
 - **C = 1** (er was een carry)
 - **Z = 1** (het resultaat in R1 is 0)
+
+> Probeer te bedenken waarom de bovenstaande voorbeeldcode niet simpelweg `MOV R1, #65535` kan zijn.
 
 **Bij aftrekken:**
 
@@ -105,8 +108,9 @@ Signed overflow treedt op als:
 **Voorbeeld van signed overflow:**
 
 ```assembly
-MOV R1, #32767    // Maximale positieve 16-bit signed getal (0x7FFF)
-ADD R1, #1        // 32767 + 1
+LDR R1, max_int     // Maximale positieve 16-bit signed getal (0x7FFF)
+ADD R1, #1            // 32767 + 1
+max_int: DAT 32767
 ```
 
 Het resultaat zou $32768$ moeten zijn, maar in 16-bit twee-complement is het maximale positieve getal $32767$ ($2^{15}-1$). Het resultaat wordt:
@@ -146,8 +150,10 @@ Voorspel de waarden van de flags (N, Z, C, V) na de volgende instructies. Test j
    ```
 
 4. ```assembly
-   MOV R1, #32767
-   ADD R1, #32767
+   LDR R1, max_int
+   LDR R2, max_int
+   ADD R1, R2
+   max_int: DAT 32767
    ```
 
 5. Leg uit waarom bij opdracht 4 de C-flag en V-flag verschillende waarden hebben.
@@ -852,3 +858,5 @@ Je hebt nu een solide basis in assembly programmeren voor de RISC-architectuur. 
 - DMA (Direct Memory Access)
 - Pipeline hazards en branch prediction
 - Meer geavanceerde instructiesets (ARM, x86, RISC-V)
+
+[^1]: De architectuur van de RISC-simulator is zogenaamd **big endian**. Lees hier meer over [endian-ness](https://www.geeksforgeeks.org/dsa/little-and-big-endian-mystery/). Voorbeelden van big-endian architecturen: Motorola 68000, SPARC, PowerPC, TCP/IP. Voorbeelden van little-endian architecturen: x86, x86-64, ARM, RISC-V.

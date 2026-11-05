@@ -1,6 +1,6 @@
 # Computer architectuur
 
-Q-highschool / Computerarchitectuur / Bijeenkomst 3
+Q-vakken / Computerarchitectuur / Bijeenkomst 3
 
 ***
 

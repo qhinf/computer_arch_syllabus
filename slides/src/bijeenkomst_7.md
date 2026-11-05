@@ -1,6 +1,6 @@
 # Werksessie Eindopdracht
 
-Q-highschool / Computerarchitectuur / Bijeenkomst 7
+Q-vakken / Computerarchitectuur / Bijeenkomst 7
 
 ***
 

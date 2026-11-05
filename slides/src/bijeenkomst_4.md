@@ -1,6 +1,6 @@
 # Assembly en machinetaal
 
-Q-highschool / Computerarchitectuur / Bijeenkomst 4
+Q-hool / Computerarchitectuur / Bijeenkomst 4
 
 ***
 

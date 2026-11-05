@@ -5,7 +5,7 @@ title: Computer Architectuur
 
 # Auteur is verplicht, maar wordt voor de syllabus site automatisch aangepast op
 # basis van de commitgeschiedenis.
-author: Q-highschool
+author: Q-Vakken
 
 # Standaard worden alleen bestanden die in _toc.yml genoemd worden "gecompileerd"
 only_build_toc_files: true
@@ -52,9 +52,10 @@ sphinx:
     # zaken die vaker terugkomen en bijvoorbeeld aangepast moeten worden voor
     # een volgende editie.
     myst_substitutions:
-      deadline: "donderdag 19 maart, 16:00"
-      deadline_uitstel_aanvragen: "maandag 5 april, 16:00"
-      deadline_uitstel: "donderdag 9 april, 16:00 (LET OP: Niet mogelijk voor examenleerlingen)"
+      versie: "Globaal afgehandeld. Niet wijzigen."
+      eerste_inlevermoment: "donderdag 28 januari, 16:00" # donderdag in week 8
+      tweede_inlevermoment_melden: "maandag 4 januari, 16:00" # maandag in week 6
+      tweede_inlevermoment: "dinsdag 16 februari, 16:00" # dinsdag in de week 3 weken na het eerste inlevermoment?
       docent: "Pieter van Engelen-san"
       docent_email: "p punt vanengelen apenstaartje quadraam punt nl"
 
