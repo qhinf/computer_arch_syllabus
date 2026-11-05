@@ -7,7 +7,7 @@ We weten nu hoe we met complexe schakelingen bijvoorbeeld de binaire optelling k
 
 Voordat we verder gaan kijken naar assembly, moet je goed begrijpen dat de instructies die we gaan schrijven niet bedoeld zijn voor de ALU, maar voor de besturingseenheid/control unit (CU) van de processor. De CU ontvangt de instructies en geeft die vervolgens door aan de ALU. Daarbij moet de besturingseenheid aangeven welke operator en operand(en) de ALU moet gebruiken. De operator is gebaseerd op de *mnemonic*, en de operand(en) op de argument(en). Een mnemonic is letterlijk vertaald een geheugensteuntje. In assembly beschouwen we deze geheugensteuntjes als super simpele instructies, die de CU kan begrijpen. In dit hoofdstuk zul je gaan leren welke instructies dit zijn en hoe je ze kan gebruiken om zelf een programma in assembly te schrijven.
 
-```{figure} assets/image-20231212111728905.png
+```{figure} assets/cu-naar-alu-operator-operanden.png
 ---
 align: center
 scale: 80%
@@ -102,7 +102,7 @@ Om coderegels uit te leggen, kan je **commentaar** toevoegen. Dat doe je door ee
 
 ### Assembly invoeren in de RISC-simulator
 
-```{figure} assets/image-20231212120442724.png
+```{figure} assets/simulator-assembly-invoeren.png
 ---
 align: right
 scale: 40%
@@ -111,7 +111,7 @@ scale: 40%
 
 Je kan je antwoorden van de vorige oefening laten uitvoeren door de [RISC-simulator](https://peterhigginson.co.uk/RISC/) op https://peterhigginson.co.uk/RISC. Daar zet je de code in het veld links boven in je scherm. Klik vervolgens op *submit*.
 
-```{figure} assets/image-20231212120539885.png
+```{figure} assets/simulator-assembly-genummerd.png
 ---
 align: right
 scale: 40%
@@ -119,7 +119,7 @@ scale: 40%
 ```
 Je ziet nu dat de regels genummerd worden. Het nummer voor de regel geeft aan op welk geheugenadres de instructie in machinetaal is gezet.
 
-```{figure} assets/image-20231212120706784.png
+```{figure} assets/simulator-knoppen-assemble.png
 ---
 align: right
 scale: 40%
@@ -198,7 +198,7 @@ In een RISC-architectuur heeft iedere instructie in machinetaal een vaste lengte
 
 We gaan nu verder kijken hoe je een berekening kan opschrijven in machinetaal, dus in enen en nullen. Om alle benodigde gegevens in een instructie op te schrijven, wordt de instructie in velden opgedeeld. Een **veld** is een groepje van bits die samen een betekenis hebben. Een **instructieformaat** geeft aan hoe groot elk veld is. Een voorbeeld daarvan zie je in de onderstaande afbeelding, namelijk instructieformaat A. Dat is maar één van de instructieformaten uit de instructieset van de RISC-simulator. Verderop zullen we ook andere formaten ontdekken.
 
-```{figure} assets/image-20231212154452317.png
+```{figure} assets/instructieformaat-16-bits.png
 ---
 align: center
 ---
@@ -226,7 +226,7 @@ Na de eerste 5 bits voor de opcode, zijn er in formaat A nog 11 bits beschikbaar
 
 Laten we nu een voorbeeld bekijken. Bij het optellen volgens formaat A, wordt er een getal van 8 bits (imm8) opgeteld bij de waarde van een bepaald register (Rsd). Het resultaat van de berekening word vervolgens weer opgeslagen in hetzelfde register. Als je bijvoorbeeld het getal 22 bij register 4 op wilt tellen, dan kan dat dus met de volgende instructie: 0001010000010110. In de afbeelding hieronder zie je welke waarde ieder veld dan heeft.
 
-```{figure} assets/image-20231212155513333.png
+```{figure} assets/instructie-voorbeeld-optellen.png
 ---
 align: center
 ---
@@ -241,7 +241,7 @@ Dus deze instructie staat voor: `ADD R4, #22` oftewel R4 = R4 + 22.
 
 ### Machinetaal invoeren in de RISC-simulator
 
-```{figure} assets/image-20231219115603223.png
+```{figure} assets/simulator-options-binary.png
 ---
 align: right
 scale: 40%
@@ -254,7 +254,7 @@ Kopieer vervolgens je binaire codes in de eerste twee words in het geheugen (Mai
 
 **Let op:** het bewerken van het geheugen kan niet als je in de linker kolom de code aan het bewerken bent (Assembly Language). Klik dan eerst op `Submit` of `Cancel`.
 
-```{figure} assets/image-20231222233537270.png
+```{figure} assets/simulator-geheugen-binair.png
 ---
 align: center
 scale: 50%
@@ -262,7 +262,7 @@ scale: 50%
 ```
 Klik vervolgens op `RUN`.
 
-```{figure} assets/image-20231222233720396.png
+```{figure} assets/simulator-knoppen-run.png
 ---
 align: center
 scale: 50%
@@ -342,7 +342,7 @@ f. `0000100100000101`
 
 Om een waarde van een register in te stellen, zonder een berekening uit te voeren, gebruik je de opcode 00101 (zie de tabel met opcodes voor formaat A). Om de waarde 16 in register 1 te laden, gebruik je dus de volgende instructie:
 
-```{figure} assets/image-20231223002355026.png
+```{figure} assets/instructie-voorbeeld-mov.png
 ---
 scale: 80%
 align: center
@@ -411,7 +411,7 @@ Het voordeel van compileren is dat het programma snel uit te voeren is door een 
 
 Tegenwoordig is er ook een tussenvorm van compileren en interpreteren, die de voordelen van beide technieken combineert. Daarvoor wordt de hogere programmeertaal in twee stappen gecompileerd: eerst naar een hogere vorm van assembly, die **bytecode** wordt genoemd, en daarna naar assembly of machinetaal. Die laatste stap wordt pas gedaan als het programma uitgevoerd wordt. Daarom wordt de compiler die daarvoor gebruikt wordt een **just-in-time (JIT) compiler** genoemd. Die vertaalt de bytecode naar gewone assembly of direct naar machinetaal. Die bytecode wordt gemaakt door de compiler van talen die werken met een JIT compiler, zoals Java en C#.
 
-```{figure} assets/image-20231223004711386.png
+```{figure} assets/jit-compilatie-java.png
 ---
 align: center
 ---

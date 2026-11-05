@@ -45,7 +45,7 @@ h. Schrijf het programma nu op in assembly.
 
 Zoals je nu gezien hebt, hoeft de computer helemaal niet te weten wat de betekenis van een rij bits is. Als de program counter naar een geheugencel wijst, dan wordt wat daar staat geïnterpreteerd als instructie. Als het een gewoon getal is, dan moet je een instructie gebruiken die de waarde uit het geheugen haalt, om er vervolgens bijvoorbeeld een berekening mee uit te voeren. Uiteindelijk bepaal jij dus wat er gebeuren moet met een rij bits in het geheugen.
 
-```{figure} assets/image-20231224000454723.png
+```{figure} assets/geheugen-tekst-en-datasectie.png
 ---
 scale: 40%
 align: right
@@ -329,7 +329,7 @@ In de [RISC-simulator](http://peterhigginson.co.uk/RISC/) kan je alleen getallen
 
 De ASCII-karakters die je kan printen naar adres 7, staan in de [ASCII-tabel](https://stackoverflow.com/questions/7856930/mips-assembly-string-ascii-instructions). Die staat hieronder. Het eerste hexadecimale teken geeft de rij aan, het tweede de kolom. Zo kom je bijvoorbeeld met 0x48 (rij 4, kolom 8) uit bij de hoofdletter H.
 
-```{figure} assets/image-20231226011026874.png
+```{figure} assets/ascii-tabel.png
 ---
 align: center
 ---
@@ -444,7 +444,7 @@ Maak een programma in de [RISC-simulator](http://peterhigginson.co.uk/RISC/) dat
 
 We gaan nu weer kijken naar machinetaal. Tot nu toe hebben we alleen gelet op “formaat A”. Daarmee kon je bewerkingen uitvoeren op één register (Rsd) met een vast getal (imm8: immediate van 8 bits lang). Hieronder zie je het schema van formaat A nog eens staan.
 
-```{figure} assets/image-20231229162951996.png
+```{figure} assets/instructieformaat-a.png
 ---
 align: center
 ---
@@ -455,7 +455,7 @@ Misschien is het je toen al opgevallen: alle instructies van formaat A beginnen 
 
 Eerst kijken we nog even naar formaat A. Alle instructies van dat formaat beginnen dus met 00. De drie bits achter die groepscode geven bij formaat A aan welke operatie er precies uitgevoerd moest worden. Het op-veld moet dus eigenlijk nog in tweeën gesplitst worden qua betekenis:
 
-```{figure} assets/image-20231229163037996.png
+```{figure} assets/instructieformaat-a-groep-func.png
 ---
 align: center
 ---
@@ -466,21 +466,21 @@ Het eerste veld geeft aan in welke groep het instructieformaat valt. Daarom word
 
 We zullen nu twee andere formaten bekijken uit groep B (op_g == 01). Die groep bestaat uit twaalf sub-formaten. Dat betekent dat er verschillende velden nodig zijn voor de operations die met formaatgroep B kunnen worden genoteerd. We zullen nu alleen naar instructieformaten B1, B3 en B10 kijken. Alle overige formaten zijn te vinden in de [lijst van instructieformaten](assets/RISC-Simulator-Instruction-Set.pdf).
 
-```{figure} assets/image-20231229163137878.png
+```{figure} assets/instructieformaat-b1.png
 ---
 align: center
 ---
 Instructieformaat B1
 ```
 
-```{figure} assets/image-20231229163145491.png
+```{figure} assets/instructieformaat-b3.png
 ---
 align: center
 ---
 Instructieformaat B3
 ```
 
-```{figure} assets/image-20231229163153668.png
+```{figure} assets/instructieformaat-b10.png
 ---
 align: center
 ---

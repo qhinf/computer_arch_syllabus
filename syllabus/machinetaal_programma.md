@@ -119,7 +119,7 @@ Zet een `CMP`-instructie neer met het juiste register en een waarde (of twee reg
 6. **Branch-instructie**
 Vertaal de conditie naar de juiste branch-instructie (`B..`)
 ```
-```{figure} assets/image-20240104150615568.png
+```{figure} assets/activiteitendiagram-herhaling.png
 ---
 align: right
 scale: 50%
@@ -258,7 +258,7 @@ Achter het label zet je de instructies neer die uitgevoerd moeten worden als aan
 Tenslotte zet je een label neer op de plek waar het programma verder gaat met instructies, die niet met de voorwaarde te maken hebben.
 ```
 
-```{figure} assets/image-20240105002639698.png
+```{figure} assets/activiteitendiagram-keuze.png
 ---
 align: right
 scale: 50%
@@ -640,7 +640,7 @@ Zorg ervoor dat het cijfer wordt berekend op schaal 1-10 en dat het goed afgeron
 
 Om twee getallen de vergelijken, trekt de ALU ze van elkaar af. De `CMP`-instructie doet dus eigenlijk hetzelfde als de `SUB`-instructie, behalve dat de processor het resultaat niet opslaat. Het resultaat maakt namelijk niet uit; alleen de uitkomst van de vergelijking is interessant. Die uitkomst wordt door de ALU altijd in het **condition-code-register (CC-register)** opgeslagen. Dat is een speciaal register waarvan vier bits iets aangeven over het resultaat van een berekening. Zulke bits met een bepaalde betekenis worden **flags** genoemd. Die vier bits in het CC-register worden ook wel de **condition flags** genoemd. In de RISC-simulator wordt dit register weergegeven boven het IR-register, zoals je op de afbeelding hieronder ook ziet.
 
-```{figure} assets/image-20240105011522080.png
+```{figure} assets/simulator-condition-flags.png
 ---
 align: right
 ---
