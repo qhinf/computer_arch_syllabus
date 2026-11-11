@@ -12,31 +12,31 @@ Deze syllabus is opgedeeld in zeven weken, want er zitten zeven lesweken in een 
   - Fysiek/online
   - Thema/werkzaamheden
 * - 1
-  - 21 januari
+  - 18 november
   - Online
   - Hoofdstuk 1 {ref}`hoofdstuk-binair`
 * - 2
-  - 28 januari
+  - 25 november
   - Fysiek!
   - Hoofdstuk 2 {ref}`hoofdstuk-logica`
 * - 3
-  - 4 februari
+  - 2 december
   - Online
   - Hoofdstuk 3: {ref}`hoofdstuk-architectuur`
 * - 4
-  - 11 februari
+  - 9 december
   - Fysiek
   - Hoofdstuk 4: {ref}`hoofdstuk-instructies`
 * - 5
-  - 25 februari
+  - 16 december
   - Online
   - Hoofdstuk 5: {ref}`hoofdstuk-gegevens`
 * - 6
-  - 4 maart
+  - 6 januari
   - Fysiek
   - Hoofdstuk 6: {ref}`hoofdstuk-besturing`
 * - 7
-  - 11 maart
+  - 13 januari
   - Online
   - Werken aan de {ref}`eindopdracht`
 ```
