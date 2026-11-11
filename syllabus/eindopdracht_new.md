@@ -138,9 +138,9 @@ Een generatieve AI als ChatGPT, Google Gemini of Claude AI is wel in staat om as
 
 De **deadlines** voor deze module zijn:
 
-- Inleveren van de eindopdracht: {{ deadline }}
-- Aanvragen van uitstel: {{ deadline_uitstel_aanvragen }}
-  - Uitgestelde deadline: {{ deadline_uitstel }}
+- Inleveren van de eindopdracht: {{ eerste_inlevermoment }}
+- Aanvragen van uitstel: {{ tweede_inlevermoment_melden }}
+  - Uitgestelde deadline: {{ tweede_inlevermoment }}
 
 (markdown)=
 ## Markdown

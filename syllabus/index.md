@@ -36,7 +36,7 @@ Deze syllabus is opgedeeld in zeven weken, want er zitten zeven lesweken in een 
   - Fysiek
   - Hoofdstuk 6: {ref}`hoofdstuk-besturing`
 * - 7
-  - 13 januari
+  - 13
   - Online
   - Werken aan de {ref}`eindopdracht`
 ```
@@ -45,9 +45,9 @@ Om deze module te behalen, moet je een eindopdracht maken. Je begint al in de ee
 
 De **deadlines** voor deze module zijn:
 
-- Inleveren van de eindopdracht: {{ deadline }}
-- Aanvragen van uitstel: {{ deadline_uitstel_aanvragen }}
-  - Uitgestelde deadline: {{ deadline_uitstel }}
+- Inleveren van de eindopdracht: {{ eerste_inlevermoment }}
+- Aanvragen van uitstel: {{ tweede_inlevermoment_melden }}
+  - Uitgestelde deadline: {{ tweede_inlevermoment }}
 
 
 ## Colofon
